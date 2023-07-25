@@ -2,3 +2,4 @@
 - RTOS
 - Filterlänge, Cutoff
 - Fensterung?
+- Realtime

@@ -10,6 +10,8 @@ This process is has significant effects on the original signal so they have to b
 
 \subsubsection{Digital Filters}
 
+\subsubsubsection{Finite Impulse Response Filter}
+
 Digital Filters are a huge field of digital signal processing. The most common filters are \ac{FIR}-filters.
 The basic structure is a weighted shift register without feedback. The missing feedback is what makes
 the \ac{FIR}-filter stable per construction.
@@ -19,7 +21,7 @@ In \autoref{fig:FIR-filter} the structure of a \ac{FIR}-filter is shown.
 \begin{figure}[!h]
     \centering
     \includegraphics[width=7cm]{img/fir.png}
-    \caption{Basic structure of a \ac{FIR}-filter \cite{meyer_signalverarbeitung}}
+    \caption{Basic structure of a $M$ order \ac{FIR}-filter in the first canonical form \cite{meyer_signalverarbeitung}}
     \label{fig:FIR-filter}
 \end{figure}
 
@@ -33,7 +35,7 @@ $b_0$.
 The input signal is $x$, whereas the output is $y$. The order of this Filter is $M$ which means the amount of
 filter taps or delay blocks.
 
-A special case of the \ac{FIR}-filter is the moving average filter, at which all coefficients are $\frac{1}{M+1}$.
+A special case of the \ac{FIR}-filter is the \textit{Moving Average Filter}, at which all coefficients are $\frac{1}{M+1}$.
 
 The whole system can be described with the difference equation in the time-domain (\autoref{eq:fir-difference-eq})
 
@@ -45,9 +47,58 @@ The whole system can be described with the difference equation in the time-domai
 or with the transfer function in the z-domain (\autoref{eq:fir-transfer-func})
 
 \begin{equation}
-    H(z) = \frac{Y(z)}{X(z)} = b_0 + b_1 \cdot z^{-1} + ... + b_M \cdot z^{-M}
+    H(z) = b_0 + b_1 \cdot z^{-1} + ... + b_M \cdot z^{-M}
     \label{eq:fir-transfer-func}
 \end{equation}.
+
+The output can be calculated with the convolution (noted as $*$) of the impulse response $h[n]$, which is simply the
+union of the filter coefficients, and the input signal $x[n]$ (\autoref{eq:conv}).
+
+\begin{equation}
+    y[n] = x[n] * h[n]
+    \label{eq:conv}
+\end{equation}
+
+Another way to describe the filterung result is in the frequency domain.
+If the frequency of the input is given with $X(z)$ and the frequency response of the filter is $H(z)$
+then the ouput is $Y(z)$ which can be calculated like shown in \autoref{eq:freq-response}.
+
+\begin{equation}
+    Y(z) = X(z) \cdot H(z)
+    \label{eq:freq-response}
+\end{equation}
+
+The stability of the \ac{FIR}-filter is characteristic, this can be seen in the pole-zero plane. All poles are in
+the middle of the unit cyrcle, which is necessary for the stability of a system.
+
+If the value of the z-plane is evaluated on the unit cyrcle the result is the frequency response of the filter
+(\autoref{fig:FIR-z-plane-and-freq}).
+
+\begin{figure}[!h]
+    \begin{subfigure}[c]{0.35\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fir-zplane.png}
+    \end{subfigure}
+    \begin{subfigure}[c]{0.65\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fir-freq.png}
+    \end{subfigure}
+    \caption{z-plane plot (left) and frequency response (right) of a \ac{FIR}-filter}
+    \label{fig:FIR-z-plane-and-freq}
+\end{figure}
+
+%% //TODO: pole zero plane, calculation of coeffs, output (conv in time, mult. in z-domain)?
+
+\subsubsubsection{Infinite Impulse Response Filter}
+
+Another Filter type is the \ac{IIR} filter. The structure is fully recursive as it is shown in \autoref{fig:IIR-filter}.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=7cm]{img/iir.png}
+    \caption{Basic structure of a $M$ order \ac{IIR}-filter in the first canonical form \cite{meyer_signalverarbeitung}}
+    \label{fig:IIR-filter}
+\end{figure}
 
 \subsection{Audio-Interfaces}
 
@@ -84,3 +135,5 @@ Thereby the master is always responsible for the SCK and the WS line.
     \caption{The three basic configurations of the \ac{I2S} protocol \cite{nxp_i2s}}
     \label{fig:i2s-config}
 \end{figure}
+
+%%// TODO: DMA

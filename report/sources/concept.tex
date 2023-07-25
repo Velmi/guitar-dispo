@@ -1,6 +1,6 @@
-\section{Challenges and concept}
+\section{Concept}
 
-\subsection{Challenges in Audio Signal Processing}
+\subsection{Challenges and requirements in Audio Signal Processing}
 
 \subsubsection{Latency}
 
@@ -36,7 +36,7 @@ The basic concept is shown in \autoref{fig:basic-concept}.
 \end{figure}
 
 It is to be seen, that the input data is comming from the Line In, is sampled by a codec and transmitted
-by \ac{I2S} to the mikrocontroller. There the data will be processed and the output will be transmitted
+over \ac{I2S} to the mikrocontroller. There the data will be processed and the output will be transmitted
 again over \ac{I2S} to a codec. The output of the codec is again a 3,5\,mm Line Jack.
 
 Additionally a potentiometer is connected to set the midfrequency of the filter.
@@ -70,7 +70,7 @@ The whole procedure is shown in \autoref{fig:double-buffering}.
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=10cm]{img/double_buffering_dma.PNG}
-    \caption{Double buffering with DMA usage \cite{eetimes_fund_dsp}}
+    \includegraphics[width=13cm]{img/double_buffering.PNG}
+    \caption{Double buffering concept \cite{eetimes_fund_dsp}}
     \label{fig:double-buffering}
 \end{figure}
