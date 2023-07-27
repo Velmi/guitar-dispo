@@ -1,0 +1,22 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {section}{\numberline {2}Goal}{1}{section.2}%
+\contentsline {section}{\numberline {3}Basics}{1}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Digital Signal Processing}{1}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Sampling and quantization}{1}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Digital Filters}{1}{subsubsection.3.1.2}%
+\contentsline {paragraph}{\numberline {3.1.2.1}Finite Impulse Response Filter}{1}{paragraph.3.1.2.1}%
+\contentsline {paragraph}{\numberline {3.1.2.2}Infinite Impulse Response Filter}{3}{paragraph.3.1.2.2}%
+\contentsline {subsection}{\numberline {3.2}Audio-Interfaces}{3}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Inter-Integrated Sound}{3}{subsubsection.3.2.1}%
+\contentsline {section}{\numberline {4}Concept}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Challenges and requirements in Audio Signal Processing}{4}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Latency}{4}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Packet losses and cracking noise}{5}{subsubsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.2}Concept}{5}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Signalflow}{6}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Double Buffering and DMA}{6}{subsubsection.4.2.2}%
+\contentsline {section}{Bibliography}{7}{section*.22}%
+\contentsline {section}{List of Figures}{8}{section*.23}%
+\contentsline {section}{List of Tables}{9}{section*.23}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

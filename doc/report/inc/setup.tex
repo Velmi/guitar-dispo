@@ -1,0 +1,80 @@
+\documentclass{scrartcl}
+\usepackage[a4paper, bottom=3cm]{geometry}
+
+\newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\\}	%% paragraph als Unterunterunterüberschrift
+\setcounter{secnumdepth}{4}									%% anpassen von Tiefe der Beschriftung
+\setcounter{tocdepth}{3}									%% anpassen von Tiefe der Beschriftung in ToC
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage[printonlyused]{acronym} 			%% Abkürzungsverzeichnis
+\usepackage{listings}
+\usepackage[dvipsnames]{xcolor}					%% für Schriftfarben
+\usepackage[german=guillemets]{csquotes}		%% Zitieren
+\usepackage{amsmath}							%% Mathe
+\usepackage{amssymb}
+\usepackage[hidelinks]{hyperref}				%% Ausblenden der Boxen um Referenzen
+\usepackage{lmodern}							%% Schriftart
+\usepackage[headsepline]{scrlayer-scrpage}		%% Individuelle Kopf- und Fußzeile
+\usepackage[absolute]{textpos}
+\usepackage{pdfpages}
+\usepackage{subcaption}							%% Beschriftung für subfigures
+\usepackage{wrapfig}							%% Für textumflossenes Bild
+\usepackage{chngcntr}							%% Zählen ändern
+\counterwithin{figure}{section}					%% Bilder werden mit Abschnittsnummern versehen
+\counterwithin{table}{section}					%% Tabellen werden mit Abschnittsnummern versehen
+\counterwithin{equation}{section}				%% Gleichungen werden mit Abschnittsnummern versehen
+
+%\usepackage{titling}							%% move title
+%\setlength{\droptitle}{30em}					%% move title
+
+\KOMAoptions
+{
+	fontsize=12pt,								%% Schriftgröße
+	parskip=half,								%% Absatz haben Einzug(off) oder Abstand(full, half)
+	headings=normal								%% Größe der Überschriften
+}
+
+
+%% Codeumgebung settings
+% color
+\definecolor{codegray}{rgb}{0.9, 0.9, 0.9}
+
+%%Listing setup
+\lstset{
+	backgroundcolor=\color{codegray},
+	captionpos=b,
+	breaklines=true,
+}
+
+\lstdefinestyle{customc}{
+	language=C,
+	breaklines=true,
+	frame=L,
+	basicstyle=\footnotesize\ttfamily,
+	commentstyle=\itshape\color{green!60!black},
+	keywordstyle=\bfseries\color{blue},
+	identifierstyle=\color{purple!80!black},
+	stringstyle=\color{red},
+	xleftmargin=\parindent,
+	showstringspaces=false,
+	morekeywords={uint8_t, int8_t, uint32_t, BluetoothA2DPSink, FFT, SpeakerConfig, Speaker},
+}
+
+
+
+%% Quellenverzeichnis (Biblatex mit biber)
+\usepackage{csquotes}
+\usepackage[backend=biber, style=ieee]{biblatex}
+\addbibresource{lit.bib}
+
+
+
+%%% Einstellungen für Kopf- und Fußzeile
+\automark[section]{section}
+\clearpairofpagestyles
+\ihead{\headmark}
+\chead{}
+\ohead{\pagemark}

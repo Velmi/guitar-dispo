@@ -1,0 +1,9 @@
+\babel@toc {english}{}\relax 
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Basic structure of a $M$ order \ac {FIR}-filter in the first canonical form \blx@tocontentsinit {0}\cite {meyer_signalverarbeitung}\relax }}{2}{figure.caption.5}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces z-plane plot (left) and frequency response (right) of a \ac {FIR}-filter\relax }}{3}{figure.caption.6}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Basic structure of a $M$ order \ac {IIR}-filter in the first canonical form \blx@tocontentsinit {0}\cite {meyer_signalverarbeitung}\relax }}{3}{figure.caption.8}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Timing diagramm of the \ac {I2S} protocol \blx@tocontentsinit {0}\cite {nxp_i2s}\relax }}{4}{figure.caption.12}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces The three basic configurations of the \ac {I2S} protocol \blx@tocontentsinit {0}\cite {nxp_i2s}\relax }}{4}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Basic concept\relax }}{5}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Double buffering concept \blx@tocontentsinit {0}\cite {eetimes_fund_dsp}\relax }}{6}{figure.caption.21}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

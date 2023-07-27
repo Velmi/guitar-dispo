@@ -1,0 +1,5 @@
+- Latenz/Delay
+- RTOS
+- Filterlänge, Cutoff
+- Fensterung?
+- Realtime

@@ -1,0 +1,65 @@
+ %% Setup und Metadaten einfügen
+\input{inc/setup}						%% Include setup file
+\input{inc/meta}						%% Include meta data
+
+
+%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%
+	
+	%% Titelseite
+	\pagenumbering{Roman}
+	\input{sources/titlepage_hka}
+	\newpage
+	\input{sources/acro}
+	\newpage
+	
+	%% Inhaltsverzeichnis
+	\tableofcontents
+	\cleardoublepage
+	\newpage
+	
+	
+	%% Includes der Abschnitte
+	\pagenumbering{arabic}
+
+	\input{sources/introduction}
+ 	\input{sources/goal}
+	\input{sources/basics}
+ 	\input{sources/concept}
+
+	%%%%%%%%%%%%%%%%%%
+	%%% Appendix
+	%%%%%%%%%%%%%%%%%%
+	
+	\newpage
+
+	%%%%%%%%%%%%%%%%%%
+	%%% Verzeichnisse
+	%%%%%%%%%%%%%%%%%%	
+	
+	\cleardoublepage
+	
+	%% Quellenverzeichnis
+	\printbibliography[title=Bibliography]
+	\addcontentsline{toc}{section}{Bibliography}
+	
+	%% Abbildungsverzeichnis
+	\newpage
+	\listoffigures
+	\addcontentsline{toc}{section}{List of Figures}
+	
+	%% Tabellenverzeichnis
+	\newpage
+	\addcontentsline{toc}{section}{List of Tables}
+	\listoftables
+	
+	%% Listingverzeichnis
+	%\newpage
+	%\addcontentsline{toc}{section}{Listings}
+	%\lstlistoflistings
+	%\addcontentsline{toc}{section}{Listings}
+
+%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%
