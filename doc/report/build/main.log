@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.7.20)  25 JUL 2023 23:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.7.27)  27 JUL 2023 22:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -157,7 +157,7 @@ Package: inputenc 2021/02/14 v1.3d Input encoding file
 Package: babel 2023/02/13 3.86 The Babel package
 \babel@savecnt=\count197
 \U@D=\dimen149
-\l@unhyphenated=\language3
+\l@unhyphenated=\language10
 
 (/usr/share/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
@@ -165,16 +165,12 @@ Package: babel 2023/02/13 3.86 The Babel package
 
 (/usr/share/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
-Package babel Info: Hyphen rules for 'british' set to \l@english
-(babel)             (\language0). Reported on input line 82.
-Package babel Info: Hyphen rules for 'UKenglish' set to \l@english
-(babel)             (\language0). Reported on input line 83.
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
 (babel)             (\language0). Reported on input line 102.
-Package babel Info: Hyphen rules for 'australian' set to \l@english
-(babel)             (\language0). Reported on input line 105.
-Package babel Info: Hyphen rules for 'newzealand' set to \l@english
-(babel)             (\language0). Reported on input line 108.
+Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
+(babel)             (\language3). Reported on input line 105.
+Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
+(babel)             (\language3). Reported on input line 108.
 ))
 (/usr/share/texmf-dist/tex/generic/babel/locale/en/babel-english.tex
 Package babel Info: Importing font and identification data for english
@@ -729,7 +725,7 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 \bibhang=\skip78
 \blx@bcfin=\read3
 \blx@bcfout=\write3
-\blx@langwohyphens=\language4
+\blx@langwohyphens=\language11
 \c@mincomprange=\count360
 \c@maxcomprange=\count361
 \c@mincompwidth=\count362
@@ -1164,16 +1160,16 @@ acro.tex) [2]
 Package acronym Info: Label `acro:DSP' newly defined as it shall be overridden
 although it is yet undefined on input line 9.
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--14
+Underfull \hbox (badness 10000) in paragraph at lines 15--16
 
  []
 
 Package acronym Info: Label `acro:FIR' newly defined as it shall be overridden
-although it is yet undefined on input line 15.
-<img/fir.png, id=120, 573.94424pt x 263.7855pt>
+although it is yet undefined on input line 17.
+<img/fir.png, id=124, 573.94424pt x 263.7855pt>
 File: img/fir.png Graphic file (type png)
 <use img/fir.png>
-Package pdftex.def Info: img/fir.png  used on input line 23.
+Package pdftex.def Info: img/fir.png  used on input line 25.
 (pdftex.def)             Requested size: 199.16928pt x 91.5374pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1184,94 +1180,98 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/
 fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-r
 m.enc}]
-<img/fir-zplane.png, id=147, 469.755pt x 449.68pt>
+<img/fir-zplane.png, id=150, 469.755pt x 449.68pt>
 File: img/fir-zplane.png Graphic file (type png)
 <use img/fir-zplane.png>
-Package pdftex.def Info: img/fir-zplane.png  used on input line 80.
+Package pdftex.def Info: img/fir-zplane.png  used on input line 81.
 (pdftex.def)             Requested size: 146.39133pt x 140.13354pt.
-<img/fir-freq.png, id=148, 586.19pt x 309.155pt>
+<img/fir-freq.png, id=151, 586.19pt x 309.155pt>
 File: img/fir-freq.png Graphic file (type png)
 <use img/fir-freq.png>
-Package pdftex.def Info: img/fir-freq.png  used on input line 84.
+Package pdftex.def Info: img/fir-freq.png  used on input line 85.
 (pdftex.def)             Requested size: 271.86234pt x 143.37819pt.
 
-Overfull \hbox (2.61105pt too wide) in paragraph at lines 78--86
+Overfull \hbox (2.61105pt too wide) in paragraph at lines 79--87
 []$[]$ $[]$ 
  []
 
 [2 <./img/fir.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 92--93
+Underfull \hbox (badness 10000) in paragraph at lines 91--92
 
  []
 
 Package acronym Info: Label `acro:IIR' newly defined as it shall be overridden
-although it is yet undefined on input line 94.
-<img/iir.png, id=165, 645.612pt x 261.97874pt>
+although it is yet undefined on input line 93.
+<img/iir.png, id=169, 645.612pt x 261.97874pt>
 File: img/iir.png Graphic file (type png)
 <use img/iir.png>
-Package pdftex.def Info: img/iir.png  used on input line 98.
+Package pdftex.def Info: img/iir.png  used on input line 97.
 (pdftex.def)             Requested size: 199.16928pt x 80.81682pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
+
+ []
+
 Package acronym Info: Label `acro:I2S' newly defined as it shall be overridden
-although it is yet undefined on input line 109.
+although it is yet undefined on input line 112.
 Package acronym Info: Label `acro:IC' newly defined as it shall be overridden
-although it is yet undefined on input line 109.
+although it is yet undefined on input line 112.
 Package acronym Info: Label `acro:SPI' newly defined as it shall be overridden
-although it is yet undefined on input line 110.
+although it is yet undefined on input line 113.
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-14.
+17.
 (/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [3{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc} <./img/fir-zplane.png
 > <./img/fir-freq.png> <./img/iir.PNG>]
-<img/i2s_timing.png, id=185, 1337.99875pt x 503.8825pt>
+<img/i2s_timing.png, id=190, 1337.99875pt x 503.8825pt>
 File: img/i2s_timing.png Graphic file (type png)
 <use img/i2s_timing.png>
-Package pdftex.def Info: img/i2s_timing.png  used on input line 123.
+Package pdftex.def Info: img/i2s_timing.png  used on input line 126.
 (pdftex.def)             Requested size: 284.52756pt x 107.14857pt.
 Package acronym Info: Label `acro:MSB' newly defined as it shall be overridden
-although it is yet undefined on input line 128.
-<img/i2s_config.png, id=193, 1288.815pt x 442.65375pt>
+although it is yet undefined on input line 131.
+<img/i2s_config.png, id=198, 1288.815pt x 442.65375pt>
 File: img/i2s_config.png Graphic file (type png)
 <use img/i2s_config.png>
-Package pdftex.def Info: img/i2s_config.png  used on input line 136.
+Package pdftex.def Info: img/i2s_config.png  used on input line 139.
 (pdftex.def)             Requested size: 398.33858pt x 136.80922pt.
 ) (./sources/concept.tex [4 <./img/i2s_timing.png> <./img/i2s_config.png>]
-<img/basic_concept.PNG, id=210, 870.25125pt x 635.37375pt>
+<img/basic_concept.PNG, id=215, 870.25125pt x 635.37375pt>
 File: img/basic_concept.PNG Graphic file (type png)
 <use img/basic_concept.PNG>
-Package pdftex.def Info: img/basic_concept.PNG  used on input line 33.
+Package pdftex.def Info: img/basic_concept.PNG  used on input line 36.
 (pdftex.def)             Requested size: 227.62204pt x 166.18216pt.
-Package acronym Info: Label `acro:CLI' newly defined as it shall be overridden
-although it is yet undefined on input line 44.
-Package acronym Info: Label `acro:ADC' newly defined as it shall be overridden
-although it is yet undefined on input line 50.
 [5 <./img/basic_concept.png>]
+Package acronym Info: Label `acro:CLI' newly defined as it shall be overridden
+although it is yet undefined on input line 47.
+Package acronym Info: Label `acro:ADC' newly defined as it shall be overridden
+although it is yet undefined on input line 53.
 Package acronym Info: Label `acro:DMA' newly defined as it shall be overridden
-although it is yet undefined on input line 64.
+although it is yet undefined on input line 67.
 Package acronym Info: Label `acro:RAM' newly defined as it shall be overridden
-although it is yet undefined on input line 65.
+although it is yet undefined on input line 68.
 Package acronym Info: Label `acro:CPU' newly defined as it shall be overridden
-although it is yet undefined on input line 66.
-<img/double_buffering.PNG, id=230, 1390.19376pt x 218.8175pt>
+although it is yet undefined on input line 69.
+<img/double_buffering.PNG, id=235, 1390.19376pt x 218.8175pt>
 File: img/double_buffering.PNG Graphic file (type png)
 <use img/double_buffering.PNG>
-Package pdftex.def Info: img/double_buffering.PNG  used on input line 73.
+Package pdftex.def Info: img/double_buffering.PNG  used on input line 76.
 (pdftex.def)             Requested size: 369.88582pt x 58.22008pt.
-) [6 <./img/double_buffering.PNG>]
+) (./sources/implementation.tex) [6 <./img/double_buffering.PNG>]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
-4.
-
-(/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
+5.
+ (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [7
 
 
-] (build/main.lof)
+]
+(build/main.lof)
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
- [8]
-(build/main.lot)
+ [8] (build/main.lot)
 \tf@lot=\write7
 \openout7 = `main.lot'.
 
@@ -1283,13 +1283,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29389 strings out of 477985
- 551234 string characters out of 5840058
+ 29397 strings out of 477891
+ 551421 string characters out of 5836914
  1863388 words of memory out of 5000000
- 49085 multiletter control sequences out of 15000+600000
+ 49110 multiletter control sequences out of 15000+600000
  568567 words of font info for 67 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 113i,19n,109p,10682b,2640s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 36 hyphenation exceptions out of 8191
+ 113i,20n,109p,10682b,2640s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dis
 t/fonts/type1/public/lm/lmbx8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/
 lmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/t
@@ -1300,10 +1300,10 @@ type1/public/lm/lmss12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx1
 0.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf
 -dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public
 /lm/lmtt12.pfb>
-Output written on build/main.pdf (12 pages, 458592 bytes).
+Output written on build/main.pdf (12 pages, 460682 bytes).
 PDF statistics:
- 418 PDF objects out of 1000 (max. 8388607)
- 347 compressed objects within 4 object streams
- 77 named destinations out of 1000 (max. 500000)
- 195 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 430 PDF objects out of 1000 (max. 8388607)
+ 359 compressed objects within 4 object streams
+ 80 named destinations out of 1000 (max. 500000)
+ 211 words of extra memory for PDF output out of 10000 (max. 10000000)
 

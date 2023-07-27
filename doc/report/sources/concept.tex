@@ -1,4 +1,4 @@
-\section{Concept}
+\section{Requirements and concept}
 
 \subsection{Challenges and requirements in Audio Signal Processing}
 
@@ -10,6 +10,9 @@ greater the latency. It is application depending what latency is acceptable, thi
 limits the system and should be evaluated carefully.
 
 Secondly other components, which are application depending, adds latency to the whole signal path.
+For example filtering or other modifications take some time to be computed. Also the signal has to
+be converted from analog to digital and transmitted over an interface. All these components latency add
+up to an overall system latency. 
 
 In this application, where a guitar signal is processed, the overall latency of the system should be less
 than 5\,ms \cite{beckmann_dsp}.

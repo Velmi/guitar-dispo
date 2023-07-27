@@ -8,6 +8,8 @@ If data from the real world should be processed in a digital system, it has to b
 This process is has significant effects on the original signal so they have to be considered if
 \ac{DSP} is taken seriously.
 
+%// TODO: leakage, nyquist, ...
+
 \subsubsection{Digital Filters}
 
 \subsubsubsection{Finite Impulse Response Filter}
@@ -29,8 +31,7 @@ It can be seen that there are multiple components in this filter. The first comp
 which is described as $z^{-1}$. This block is responsible for adding a delay of one clock cycle to the input data.
 Secondly, there are multiplikation blocks, noted as $b_M$. These blocks weight the input data and give the
 result to an adder, which adds $M+1$ weighted and delayed signal samples. This sum is the output of an
-\ac{FIR}-filter. It should be mentioned that the signal is transmitted without delay weighted with the coefficient
-$b_0$.
+\ac{FIR}-filter.
 
 The input signal is $x$, whereas the output is $y$. The order of this Filter is $M$ which means the amount of
 filter taps or delay blocks.
@@ -87,11 +88,9 @@ If the value of the z-plane is evaluated on the unit cyrcle the result is the fr
     \label{fig:FIR-z-plane-and-freq}
 \end{figure}
 
-%% //TODO: pole zero plane, calculation of coeffs, output (conv in time, mult. in z-domain)?
-
 \subsubsubsection{Infinite Impulse Response Filter}
 
-Another Filter type is the \ac{IIR} filter. The structure is fully recursive as it is shown in \autoref{fig:IIR-filter}.
+Another filter type is the \ac{IIR} filter. The structure is fully recursive as it is shown in \autoref{fig:IIR-filter}.
 
 \begin{figure}[!h]
     \centering
@@ -99,6 +98,12 @@ Another Filter type is the \ac{IIR} filter. The structure is fully recursive as 
     \caption{Basic structure of a $M$ order \ac{IIR}-filter in the first canonical form \cite{meyer_signalverarbeitung}}
     \label{fig:IIR-filter}
 \end{figure}
+
+%// TODO: stability, 
+
+\subsubsubsection{Filter Design}
+
+%// concept of filter design, coeffs
 
 \subsection{Audio-Interfaces}
 
@@ -111,7 +116,7 @@ There are three signal lines:
 \begin{itemize}
     \item SCK: Clock signal
     \item SD: Data signal
-    \item WS: Word select, for ditinction between left and right channel
+    \item WS: Word select, for distinction between left and right channel
 \end{itemize}
 So the data is transmitted over the same signal line by time division multiplexing. 
 To illsutrate the timing of the protocol the corresponding diagrams are shown in \autoref{fig:i2s-timing} \cite{nxp_i2s}.
