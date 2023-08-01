@@ -79,8 +79,8 @@ all: main-build
 main-build: audio_nucleo.elf secondary-outputs
 
 # Tool invocations
-audio_nucleo.elf audio_nucleo.map: $(OBJS) $(USER_OBJS) /run/media/markus/Daten/Dokumente/Master/1_Semester/Projekt/stm/audio_nucleo/STM32H743ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "audio_nucleo.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"/run/media/markus/Daten/Dokumente/Master/1_Semester/Projekt/stm/audio_nucleo/STM32H743ZITX_FLASH.ld" -Wl,-Map="audio_nucleo.map" -Wl,--gc-sections -static -L"/run/media/markus/Daten/Dokumente/Master/1_Semester/Projekt/stm/audio_nucleo/Drivers/CMSIS/Lib/GCC" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+audio_nucleo.elf audio_nucleo.map: $(OBJS) $(USER_OBJS) /run/media/markus/Daten/git/guitar-dispo/audio_nucleo/STM32H743ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "audio_nucleo.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"/run/media/markus/Daten/git/guitar-dispo/audio_nucleo/STM32H743ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="audio_nucleo.map" -Wl,--gc-sections -static -L"/run/media/markus/Daten/git/guitar-dispo/audio_nucleo/Drivers/CMSIS/Lib/GCC" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

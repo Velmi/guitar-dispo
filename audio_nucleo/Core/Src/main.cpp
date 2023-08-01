@@ -17,7 +17,6 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include "lowpass_filter.h"
 #include "main.h"
 #include "cmsis_os.h"
 
@@ -27,11 +26,15 @@
 #include <string.h>
 #include <stdbool.h>
 #include "arm_math.h"
+#include "cli.hpp"
+#include "uart.hpp"
+#include "filter.hpp"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+#define BUFFER_SIZE 128
+#define AUDIO_DATA_READY_FLAG 0x00000001U
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -72,8 +75,39 @@ const osThreadAttr_t adcTask_attr =
 {
 	.name = "adcTask",
 	.stack_size = 128 * 4,
+	.priority = (osPriority_t) osPriorityRealtime
+};
+
+osThreadId_t cliTaskHandle;
+const osThreadAttr_t cliTask_attr =
+{
+	.name = "cliTask",
+	.stack_size = 128 * 4,
 	.priority = (osPriority_t) osPriorityNormal
 };
+
+osThreadId_t dspTaskHandle;
+const osThreadAttr_t dspTask_attr =
+{
+	.name = "dspTask",
+	.stack_size = 128 * 4,
+	.priority = (osPriority_t) osPriorityNormal
+};
+
+osMutexId_t uartMutexHandle;
+const osMutexAttr_t uartMutex_attr =
+{
+	.name = "uartMutex",
+	.attr_bits = osMutexRobust
+};
+
+osEventFlagsId_t audioDataReadyFlag;
+
+UART3 uart3;
+uint8_t uart_buffer[1];
+LOG logger;
+
+CLI<LOG> cli{logger};
 
 int16_t txBuffer[BUFFER_SIZE];
 int16_t rxBuffer[BUFFER_SIZE];
@@ -86,8 +120,34 @@ int16_t* pOutput;
 
 bool data_ready = true;
 
-arm_fir_instance_f32 S;
-float32_t firState[NUM_TAPS + BLOCKSIZE - 1];
+FIRCoeffs lowpassCoeffs[] =
+{
+		{fir_coeffs32_0_05, 0.05},
+		{fir_coeffs32_0_1, 0.1},
+		{fir_coeffs32_0_15, 0.15},
+		{fir_coeffs32_0_2, 0.2},
+		{fir_coeffs32_0_25, 0.25},
+		{fir_coeffs32_0_3, 0.3},
+		{fir_coeffs32_0_5, 0.5}
+};
+
+FIRCoeffs bandpassCoeffs[] =
+{
+		{fir_coeffs32_0_005, 0.025},
+		{fir_coeffs32_005_01, 0.075},
+		{fir_coeffs32_01_015, 0.125},
+		{fir_coeffs32_015_02, 0.175},
+		{fir_coeffs32_02_025, 0.225},
+		{fir_coeffs32_025_035, 0.3},
+		{fir_coeffs32_035_045, 0.4}
+};
+
+FIRInstance firInstance {bandpassCoeffs, 32, sizeof(bandpassCoeffs)/sizeof(FIRCoeffs)};
+FIRFilter firFilter {firInstance, 32};
+
+FIRInstance adcCoeffs{lowpassCoeffs, 32, sizeof(lowpassCoeffs)/sizeof(FIRInstance)};
+FIRFilter adcFilter {adcCoeffs, 1};
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -104,6 +164,8 @@ void StartDefaultTask(void *argument);
 
 /* USER CODE BEGIN PFP */
 void ADCTask(void* argument);
+void CLITask(void* argument);
+void DSPTask(void* argument);
 
 void convert_to_float(int16_t* input, float32_t* output)
 {
@@ -125,24 +187,26 @@ void convert_to_in16_t(float32_t* input, int16_t* output)
 void process_data()
 {
 	convert_to_float(pInput, rxBufferf);
-	for (size_t i = 0; i < NUM_BLOCKS; i++)
-	{
-		arm_fir_f32(&S, rxBufferf, txBufferf, BLOCKSIZE);
-	}
+	firFilter(rxBufferf, txBufferf, BUFFER_SIZE/4);
 	convert_to_in16_t(txBufferf, pOutput);
-	//memcpy(pOutput, pInput, BUFFER_SIZE);
-	data_ready = false;
 }
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	uart3.echo(uart_buffer, sizeof(uart_buffer));
+	cli.writeChar(uart_buffer[0]);
+	HAL_UART_Receive_IT(&huart3, uart_buffer, 1);
+}
+
 void HAL_I2SEx_TxRxCpltCallback(I2S_HandleTypeDef *hi2s)
 {
 	pInput = &rxBuffer[BUFFER_SIZE/2];
 	pOutput = &txBuffer[BUFFER_SIZE/2];
-	data_ready = true;
+	//osEventFlagsSet(audioDataReadyFlag, AUDIO_DATA_READY_FLAG);
 	process_data();
 }
 
@@ -150,7 +214,7 @@ void HAL_I2SEx_TxRxHalfCpltCallback(I2S_HandleTypeDef *hi2s)
 {
 	pInput = &rxBuffer[0];
 	pOutput = &txBuffer[0];
-	data_ready = true;
+	//osEventFlagsSet(audioDataReadyFlag, AUDIO_DATA_READY_FLAG);
 	process_data();
 }
 
@@ -202,6 +266,7 @@ int main(void)
 
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
+  uartMutexHandle = osMutexNew(&uartMutex_attr);
   /* USER CODE END RTOS_MUTEX */
 
   /* USER CODE BEGIN RTOS_SEMAPHORES */
@@ -214,6 +279,7 @@ int main(void)
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
+  cliMQHandle = osMessageQueueNew(16, sizeof(MessageObject_t), &cliMQ_attr);
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
@@ -222,11 +288,17 @@ int main(void)
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
-  adcTaskHandle = osThreadNew(ADCTask, NULL, &adcTask_attr);
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_EVENTS */
   /* add events, ... */
+  audioDataReadyFlag = osEventFlagsNew(NULL);
+  if (audioDataReadyFlag == NULL)
+  {
+	  //cli.log("audio data ready event failure\n\r");
+  }
+
+  //cli.log("End init\n\r");
   /* USER CODE END RTOS_EVENTS */
 
   /* Start scheduler */
@@ -722,21 +794,56 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void ADCTask(void* argument)
 {
-	uint8_t test[] = "Test\n\r";
+	cli.log("ADC Task started\n\r");
 	uint8_t value_string[30];
 	int32_t data = 0;
-	uint8_t newline[] = "\n\r";
+	float32_t dataF = 0;
 	for(;;)
 	{
-		HAL_Delay(20);
+		osDelay(10);
 		HAL_ADC_Start(&hadc1);
 		data = HAL_ADC_GetValue(&hadc1);
+		dataF = (float32_t) data;
+		adcFilter(&dataF, &dataF, 1);
+		data = (uint16_t) dataF;
 		//uint16_t length = snprintf(NULL, 0, "%d\n\r", data);
 		//snprintf((char*)value_string, length + 1, "%d\n\r", data);
 		//HAL_Delay(1);
 		//HAL_UART_Transmit_IT(&huart3, value_string, length);
 		//HAL_Delay(1);
-		update_fir_coeffs(data);
+		//update_fir_coeffs(data);
+		firFilter.updateCoeffs(data);
+	}
+}
+
+void CLITask(void* argument)
+{
+	cli.log("CLI Task started\n\r");
+	HAL_UART_Receive_IT(&huart3, uart_buffer, 1);
+	MessageObject_t message;
+	for(;;)
+	{
+		if (osMessageQueueGet(cliMQHandle, &message, NULL, osWaitForever) == osOK)
+		{
+			uart3.send(message.message, message.length);
+		}
+		osDelay(10);
+	}
+}
+
+void DSPTask(void* argument)
+{
+	cli.log("DSP Task started\n\r");
+	uint32_t flag = 0;
+
+	for(;;)
+	{
+		flag = osEventFlagsWait(audioDataReadyFlag, AUDIO_DATA_READY_FLAG, osFlagsWaitAny, osWaitForever);
+		if (flag == AUDIO_DATA_READY_FLAG)
+		{
+			cli.log("Data ready to process\n\r");
+			process_data();
+		}
 	}
 }
 /* USER CODE END 4 */
@@ -751,8 +858,15 @@ void ADCTask(void* argument)
 void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN 5 */
-	arm_fir_init_f32(&S, NUM_TAPS, fir_coeffs32_0_15, firState, BLOCKSIZE);
-	HAL_StatusTypeDef ret =  HAL_I2SEx_TransmitReceive_DMA(&hi2s2, (uint16_t*) txBuffer, (uint16_t*) rxBuffer, BUFFER_SIZE);
+
+	cliTaskHandle = osThreadNew(CLITask, NULL, &cliTask_attr);
+	cli.clear(NULL, NULL);
+	cli.log("Default Task started\n\r");
+	adcTaskHandle = osThreadNew(ADCTask, NULL, &adcTask_attr);
+	//dspTaskHandle = osThreadNew(DSPTask, NULL, &dspTask_attr);
+
+	HAL_I2SEx_TransmitReceive_DMA(&hi2s2, (uint16_t*) txBuffer, (uint16_t*) rxBuffer, BUFFER_SIZE);
+	//HAL_UART_Transmit_IT(&huart3, data, sizeof(data));
   /* Infinite loop */
   for(;;)
   {

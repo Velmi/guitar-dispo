@@ -5,110 +5,60 @@
 extern "C" {
 #endif
 
+#define NUM_TAPS_LP				32
+#define NUM_TAPS_ARRAY_SIZE_LP	NUM_TAPS_LP + 1
+
 #include "arm_math.h"
 #include "stdbool.h"
 
-#define NUM_TAPS_ARRAY_SIZE 33
-#define NUM_TAPS 32
-#define BLOCKSIZE 32
-#define BUFFER_SIZE 128
-#define NUM_BLOCKS (BUFFER_SIZE/4) / BLOCKSIZE
-#define NUM_FILTERS 7
-
-extern arm_fir_instance_f32 S;
-extern float32_t firState[NUM_TAPS + BLOCKSIZE - 1];
-uint8_t newline[] = "\n\r";
-
-const float32_t fir_coeffs32_0_05[NUM_TAPS_ARRAY_SIZE] =
+const float32_t fir_coeffs32_0_05[NUM_TAPS_ARRAY_SIZE_LP] =
 {
 		1.3734e-03,   1.9180e-03,   3.0015e-03,   4.8253e-03,   7.5451e-03,   1.1251e-02,   1.5951e-02,   2.1564e-02,   2.7918e-02,   3.4758e-02,   4.1767e-02,
 		4.8579e-02,   5.4817e-02,   6.0116e-02,   6.4156e-02,   6.6686e-02,   6.7548e-02,   6.6686e-02,   6.4156e-02,   6.0116e-02,   5.4817e-02,   4.8579e-02,
 		4.1767e-02,   3.4758e-02,   2.7918e-02,   2.1564e-02,   1.5951e-02,   1.1251e-02,   7.5451e-03,   4.8253e-03,   3.0015e-03,   1.9180e-03,   1.3734e-03
 };
 
-const float32_t fir_coeffs32_0_1[NUM_TAPS_ARRAY_SIZE] =
+const float32_t fir_coeffs32_0_1[NUM_TAPS_ARRAY_SIZE_LP] =
 {
 		-1.5529e-03,  -1.9041e-03,  -2.4773e-03,  -3.0613e-03,  -3.2117e-03,  -2.3035e-03,   3.5943e-04,   5.3976e-03,   1.3200e-02,   2.3790e-02,   3.6751e-02,
 		5.1218e-02,   6.5963e-02,   7.9549e-02,   9.0531e-02,   9.7675e-02,   1.0015e-01,   9.7675e-02,   9.0531e-02,   7.9549e-02,   6.5963e-02,   5.1218e-02,
 		3.6751e-02,   2.3790e-02,   1.3200e-02,   5.3976e-03,   3.5943e-04,  -2.3035e-03,  -3.2117e-03,  -3.0613e-03,  -2.4773e-03,  -1.9041e-03,  -1.5529e-03
 };
 
-const float32_t fir_coeffs32_0_15[NUM_TAPS_ARRAY_SIZE] =
+const float32_t fir_coeffs32_0_15[NUM_TAPS_ARRAY_SIZE_LP] =
 {
 		1.4821e-03,   1.2656e-03,   6.9801e-04,  -7.5201e-04,  -3.5026e-03,  -7.4290e-03,  -1.1539e-02,  -1.3935e-02,  -1.2156e-02,  -3.8579e-03,   1.2359e-02,
 		3.6233e-02,   6.5517e-02,   9.6199e-02,   1.2327e-01,   1.4189e-01,   1.4852e-01,   1.4189e-01,   1.2327e-01,   9.6199e-02,   6.5517e-02,   3.6233e-02,
 		1.2359e-02,  -3.8579e-03,  -1.2156e-02,  -1.3935e-02,  -1.1539e-02,  -7.4290e-03,  -3.5026e-03,  -7.5201e-04,   6.9801e-04,   1.2656e-03,   1.4821e-03
 };
 
-const float32_t fir_coeffs32_0_2[NUM_TAPS_ARRAY_SIZE] =
+const float32_t fir_coeffs32_0_2[NUM_TAPS_ARRAY_SIZE_LP] =
 {
 		-8.7001e-04,   8.6629e-05,   1.6246e-03,   3.7088e-03,   5.3433e-03,   4.6062e-03,  -3.5509e-04,  -9.7044e-03,  -2.0575e-02,  -2.7019e-02,  -2.1744e-02,
 		7.7639e-04,   4.1127e-02,   9.3305e-02,   1.4568e-01,   1.8455e-01,   1.9891e-01,   1.8455e-01,   1.4568e-01,   9.3305e-02,   4.1127e-02,   7.7639e-04,
 		-2.1744e-02,  -2.7019e-02,  -2.0575e-02,  -9.7044e-03,  -3.5509e-04,   4.6062e-03,   5.3433e-03,   3.7088e-03,   1.6246e-03,   8.6629e-05,  -8.7001e-04
 };
 
-const float32_t fir_coeffs32_0_25[NUM_TAPS_ARRAY_SIZE] =
+const float32_t fir_coeffs32_0_25[NUM_TAPS_ARRAY_SIZE_LP] =
 {
 		-7.8315e-05,  -1.3968e-03,  -2.6198e-03,  -2.6235e-03,   2.1021e-04,   6.0289e-03,   1.1610e-02,   1.0973e-02,  -5.2863e-04,  -2.0731e-02,  -3.8075e-02,
 		-3.5347e-02,   8.4705e-04,   7.0015e-02,   1.5395e-01,   2.2295e-01,   2.4963e-01,   2.2295e-01,   1.5395e-01,   7.0015e-02,   8.4705e-04,  -3.5347e-02,
 		-3.8075e-02,  -2.0731e-02,  -5.2863e-04,   1.0973e-02,   1.1610e-02,   6.0289e-03,   2.1021e-04,  -2.6235e-03,  -2.6198e-03,  -1.3968e-03  -7.8315e-05
 };
 
-const float32_t fir_coeffs32_0_3[NUM_TAPS_ARRAY_SIZE] =
+const float32_t fir_coeffs32_0_3[NUM_TAPS_ARRAY_SIZE_LP] =
 {
 		9.9408e-04,   1.8769e-03,   1.4401e-03,  -1.3329e-03,  -5.4611e-03,  -6.4720e-03,   3.5429e-04,   1.3098e-02,   2.0207e-02,   8.2386e-03,  -2.2826e-02,
 		-5.0500e-02,  -3.9676e-02,   3.1016e-02,   1.4596e-01,   2.5398e-01,   2.9821e-01,   2.5398e-01,   1.4596e-01,   3.1016e-02,  -3.9676e-02,  -5.0500e-02,
 		-2.2826e-02,   8.2386e-03,   2.0207e-02,   1.3098e-02,   3.5429e-04,  -6.4720e-03,  -5.4611e-03,  -1.3329e-03,   1.4401e-03,   1.8769e-03,   9.9408e-04
 };
 
-const float32_t fir_coeffs32_0_5[NUM_TAPS_ARRAY_SIZE] =
+const float32_t fir_coeffs32_0_5[NUM_TAPS_ARRAY_SIZE_LP] =
 {
 	-7.8241e-05,  -1.8867e-03,   1.1249e-04,   3.8607e-03,  -2.1001e-04,  -8.2400e-03,   3.5596e-04,   1.5944e-02,  -5.2813e-04,  -2.8674e-02,   7.0029e-04,
 	5.0718e-02,  -8.4625e-04,  -9.8021e-02,   9.4377e-04,   3.1597e-01,   4.9977e-01,   3.1597e-01,   9.4377e-04,  -9.8021e-02,  -8.4625e-04,   5.0718e-02,
 	7.0029e-04,  -2.8674e-02,  -5.2813e-04,   1.5944e-02,   3.5596e-04,  -8.2400e-03,  -2.1001e-04,   3.8607e-03,   1.1249e-04,  -1.8867e-03,  -7.8241e-05
 };
-
-const float32_t* fir_coeffs32_lut[NUM_FILTERS] =
-{
-		fir_coeffs32_0_05,
-		fir_coeffs32_0_1,
-		fir_coeffs32_0_15,
-		fir_coeffs32_0_2,
-		fir_coeffs32_0_25,
-		fir_coeffs32_0_3,
-		fir_coeffs32_0_5
-};
-
-bool between(int32_t value, int32_t min, int32_t max)
-{
-	if (value >= max || value <= min)
-	{
-		return false;
-	}
-	else{}
-	return true;
-}
-
-void update_fir_coeffs(int32_t new_adc_val)
-{
-	static int32_t old_range = 0;
-	const int32_t max = pow(2, 16);
-	const int32_t range = max/NUM_FILTERS;
-	int32_t new_range;
-
-	for (size_t i = 0; i < NUM_FILTERS; i++)
-	{
-		if (between(new_adc_val, i*range, (i + 1)*range))
-		{
-			new_range = i;
-			if (new_range != old_range)
-			{
-				arm_fir_init_f32(&S, NUM_TAPS, fir_coeffs32_lut[i], firState, BLOCKSIZE);
-				old_range = new_range;
-			}
-		}
-	}
-}
 
 /*
 const float32_t firCoeffs32[NUM_TAPS_ARRAY_SIZE] = {
@@ -118,6 +68,17 @@ const float32_t firCoeffs32[NUM_TAPS_ARRAY_SIZE] = {
   +0.0080754303f, +0.0036977508f, +0.0000000000f, -0.0015879294f, -0.0018225230f
 };
 */
+
+const float32_t* fir_coeffs32_LP_lut[] =
+{
+		fir_coeffs32_0_05,
+		fir_coeffs32_0_1,
+		fir_coeffs32_0_15,
+		fir_coeffs32_0_2,
+		fir_coeffs32_0_25,
+		fir_coeffs32_0_3,
+		fir_coeffs32_0_5
+};
 
 #ifdef __cplusplus
 }
