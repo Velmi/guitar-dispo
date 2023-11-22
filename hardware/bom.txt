@@ -1,1 +1,13 @@
-STM32H725RGV6
+1 x STM32H725RGV6
+1 x FTDI
+1 x 7 Segment Display
+4 x Buttons
+1 x DC Jack
+3 x 6,35mm Jack
+2 x LED (green + red)
+1 x Crystal (4 - 50 MHz)
+1 x Power Supply (LDO)
+1 x Display Connector
+
+1 x CS5343
+1 x CS4344
