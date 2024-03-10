@@ -396,6 +396,10 @@
     [
       "b8888756-c15f-4275-bc58-daa9bb032a86",
       "Connectors"
+    ],
+    [
+      "9fac87bb-1399-44df-bfcb-579232522de8",
+      "audio"
     ]
   ],
   "text_variables": {}

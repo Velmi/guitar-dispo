@@ -1,5 +1,5 @@
 1 x STM32H725RGV6
-1 x FTDI
+1 x FTDI (maybe not)
 1 x 7 Segment Display
 4 x Buttons
 1 x DC Jack
@@ -11,3 +11,6 @@
 
 1 x CS5343
 1 x CS4344
+
+
+1x neues kabel für debugger

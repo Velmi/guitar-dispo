@@ -5,7 +5,7 @@
 \subsubsection{Sampling and quantization}
 
 If data from the real world should be processed in a digital system, it has to be sampled.
-This process is has significant effects on the original signal so they have to be considered if
+This process has significant effects on the original signal, so they have to be considered if
 \ac{DSP} is taken seriously.
 
 %// TODO: leakage, nyquist, ...
@@ -29,7 +29,7 @@ In \autoref{fig:FIR-filter} the structure of a \ac{FIR}-filter is shown.
 
 It can be seen that there are multiple components in this filter. The first component is the delay block,
 which is described as $z^{-1}$. This block is responsible for adding a delay of one clock cycle to the input data.
-Secondly, there are multiplikation blocks, noted as $b_M$. These blocks weight the input data and give the
+Secondly, there are multiplication blocks, noted as $b_M$. These blocks weight the input data and give the
 result to an adder, which adds $M+1$ weighted and delayed signal samples. This sum is the output of an
 \ac{FIR}-filter.
 
@@ -62,7 +62,7 @@ union of the filter coefficients, and the input signal $x[n]$ (\autoref{eq:conv}
 
 Another way to describe the filterung result is in the frequency domain.
 If the frequency of the input is given with $X(z)$ and the frequency response of the filter is $H(z)$
-then the ouput is $Y(z)$ which can be calculated like shown in \autoref{eq:freq-response}.
+than the ouput is $Y(z)$, which can be calculated like shown in \autoref{eq:freq-response}.
 
 \begin{equation}
     Y(z) = X(z) \cdot H(z)
@@ -70,9 +70,9 @@ then the ouput is $Y(z)$ which can be calculated like shown in \autoref{eq:freq-
 \end{equation}
 
 The stability of the \ac{FIR}-filter is characteristic, this can be seen in the pole-zero plane. All poles are in
-the middle of the unit cyrcle, which is necessary for the stability of a system.
+the middle of the unit circle, which is necessary for the stability of a system.
 
-If the value of the z-plane is evaluated on the unit cyrcle the result is the frequency response of the filter
+If the value of the z-plane is evaluated on the unit circle the result is the frequency response of the filter
 (\autoref{fig:FIR-z-plane-and-freq}).
 
 \begin{figure}[!h]
