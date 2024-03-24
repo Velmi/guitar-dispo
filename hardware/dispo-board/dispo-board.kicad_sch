@@ -2181,11 +2181,6 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid aec2fbcd-2e15-4ce3-90cb-077667508866)
   )
-  (text "TODO: - (True?) Bypass\n	  - high input impedance -> 1M\n	  - low output impedance -> (50?)"
-    (at 93.345 176.53 0)
-    (effects (font (size 1.27 1.27)) (justify left bottom))
-    (uuid c53f6c7c-bb57-44b5-b5e8-ee731f7cb855)
-  )
   (text "Reset Button" (at 248.92 114.3 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid f6cdbc5d-36fa-4231-b35e-0cad11bdf30a)
