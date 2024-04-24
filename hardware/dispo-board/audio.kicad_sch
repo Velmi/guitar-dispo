@@ -1280,7 +1280,7 @@
   (symbol (lib_id "Device:C") (at 109.855 70.485 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 1b1d3fed-da33-4b1e-9cee-b8f5ef7dcf12)
-    (property "Reference" "C29" (at 113.03 69.215 0)
+    (property "Reference" "C27" (at 113.03 69.215 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10u" (at 113.03 71.755 0)
@@ -1300,7 +1300,7 @@
     (instances
       (project "dispo-board"
         (path "/93ea4da8-8485-4fb5-a89d-c72021d94c09/9fac87bb-1399-44df-bfcb-579232522de8"
-          (reference "C29") (unit 1)
+          (reference "C27") (unit 1)
         )
       )
     )
@@ -1517,7 +1517,7 @@
   (symbol (lib_id "Device:C") (at 134.62 53.34 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 47f3f549-9ea9-4d9c-b76f-dec22a4f6e64)
-    (property "Reference" "C27" (at 134.62 46.355 90)
+    (property "Reference" "C25" (at 134.62 46.355 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "1u" (at 134.62 48.895 90)
@@ -1537,7 +1537,7 @@
     (instances
       (project "dispo-board"
         (path "/93ea4da8-8485-4fb5-a89d-c72021d94c09/9fac87bb-1399-44df-bfcb-579232522de8"
-          (reference "C27") (unit 1)
+          (reference "C25") (unit 1)
         )
       )
     )
@@ -1571,7 +1571,7 @@
   (symbol (lib_id "Device:C") (at 184.785 118.11 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 4cde1e22-0995-43e4-929f-2df613d39ee5)
-    (property "Reference" "C32" (at 184.785 110.49 90)
+    (property "Reference" "C30" (at 184.785 110.49 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "100n" (at 184.785 113.03 90)
@@ -1591,7 +1591,7 @@
     (instances
       (project "dispo-board"
         (path "/93ea4da8-8485-4fb5-a89d-c72021d94c09/9fac87bb-1399-44df-bfcb-579232522de8"
-          (reference "C32") (unit 1)
+          (reference "C30") (unit 1)
         )
       )
     )
@@ -1740,7 +1740,7 @@
   (symbol (lib_id "Device:C") (at 193.675 132.08 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 6c8d7b20-b402-478f-92ed-1c1a635c63e8)
-    (property "Reference" "C34" (at 193.675 125.095 90)
+    (property "Reference" "C32" (at 193.675 125.095 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "1u" (at 193.675 127.635 90)
@@ -1760,7 +1760,7 @@
     (instances
       (project "dispo-board"
         (path "/93ea4da8-8485-4fb5-a89d-c72021d94c09/9fac87bb-1399-44df-bfcb-579232522de8"
-          (reference "C34") (unit 1)
+          (reference "C32") (unit 1)
         )
       )
     )
@@ -1873,7 +1873,7 @@
   (symbol (lib_id "Device:C") (at 186.055 39.37 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 7f27f24f-860d-409f-b218-a772c7517712)
-    (property "Reference" "C26" (at 186.055 31.75 90)
+    (property "Reference" "C24" (at 186.055 31.75 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "100n" (at 186.055 34.29 90)
@@ -1893,7 +1893,7 @@
     (instances
       (project "dispo-board"
         (path "/93ea4da8-8485-4fb5-a89d-c72021d94c09/9fac87bb-1399-44df-bfcb-579232522de8"
-          (reference "C26") (unit 1)
+          (reference "C24") (unit 1)
         )
       )
     )
@@ -1927,7 +1927,7 @@
   (symbol (lib_id "Device:C") (at 69.215 147.32 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 817b2049-e3b6-4aca-a8a0-c5949de0e37a)
-    (property "Reference" "C37" (at 72.39 146.05 0)
+    (property "Reference" "C35" (at 72.39 146.05 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "0.1u" (at 72.39 148.59 0)
@@ -1947,7 +1947,7 @@
     (instances
       (project "dispo-board"
         (path "/93ea4da8-8485-4fb5-a89d-c72021d94c09/9fac87bb-1399-44df-bfcb-579232522de8"
-          (reference "C37") (unit 1)
+          (reference "C35") (unit 1)
         )
       )
     )
@@ -2106,7 +2106,7 @@
   (symbol (lib_id "Device:C") (at 68.58 71.12 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid a19a913e-f735-4e19-adfb-18576a6be051)
-    (property "Reference" "C30" (at 71.755 69.85 0)
+    (property "Reference" "C28" (at 71.755 69.85 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "0.1u" (at 71.755 72.39 0)
@@ -2126,7 +2126,7 @@
     (instances
       (project "dispo-board"
         (path "/93ea4da8-8485-4fb5-a89d-c72021d94c09/9fac87bb-1399-44df-bfcb-579232522de8"
-          (reference "C30") (unit 1)
+          (reference "C28") (unit 1)
         )
       )
     )
@@ -2135,7 +2135,7 @@
   (symbol (lib_id "Device:C") (at 127.635 59.69 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid a240b5ed-3a45-4d96-ada1-cb2cd36a6465)
-    (property "Reference" "C28" (at 131.445 58.42 0)
+    (property "Reference" "C26" (at 131.445 58.42 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "180p" (at 131.445 60.96 0)
@@ -2155,7 +2155,7 @@
     (instances
       (project "dispo-board"
         (path "/93ea4da8-8485-4fb5-a89d-c72021d94c09/9fac87bb-1399-44df-bfcb-579232522de8"
-          (reference "C28") (unit 1)
+          (reference "C26") (unit 1)
         )
       )
     )
@@ -2164,7 +2164,7 @@
   (symbol (lib_id "Device:C") (at 80.645 147.32 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid a57d0fa3-0a2f-4eb5-a81b-ca08378888f3)
-    (property "Reference" "C38" (at 83.82 146.05 0)
+    (property "Reference" "C36" (at 83.82 146.05 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10u" (at 83.82 148.59 0)
@@ -2184,7 +2184,7 @@
     (instances
       (project "dispo-board"
         (path "/93ea4da8-8485-4fb5-a89d-c72021d94c09/9fac87bb-1399-44df-bfcb-579232522de8"
-          (reference "C38") (unit 1)
+          (reference "C36") (unit 1)
         )
       )
     )
@@ -2385,7 +2385,7 @@
   (symbol (lib_id "Device:C") (at 80.01 71.12 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid bbd5ac2f-2c11-49e6-a5ff-5064dfb0d1a5)
-    (property "Reference" "C31" (at 83.185 69.85 0)
+    (property "Reference" "C29" (at 83.185 69.85 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10u" (at 83.185 72.39 0)
@@ -2405,7 +2405,7 @@
     (instances
       (project "dispo-board"
         (path "/93ea4da8-8485-4fb5-a89d-c72021d94c09/9fac87bb-1399-44df-bfcb-579232522de8"
-          (reference "C31") (unit 1)
+          (reference "C29") (unit 1)
         )
       )
     )
@@ -2489,7 +2489,7 @@
   (symbol (lib_id "Device:C") (at 109.22 146.685 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid c7602f7f-5091-4913-bb88-c623c03262bc)
-    (property "Reference" "C36" (at 112.395 145.415 0)
+    (property "Reference" "C34" (at 112.395 145.415 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10u" (at 112.395 147.955 0)
@@ -2509,7 +2509,7 @@
     (instances
       (project "dispo-board"
         (path "/93ea4da8-8485-4fb5-a89d-c72021d94c09/9fac87bb-1399-44df-bfcb-579232522de8"
-          (reference "C36") (unit 1)
+          (reference "C34") (unit 1)
         )
       )
     )
@@ -2701,7 +2701,7 @@
   (symbol (lib_id "Device:C") (at 154.94 134.62 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ec209305-51be-47d8-a327-d6ce42e30f6b)
-    (property "Reference" "C35" (at 157.48 133.35 0)
+    (property "Reference" "C33" (at 157.48 133.35 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10n" (at 157.48 135.89 0)
@@ -2721,7 +2721,7 @@
     (instances
       (project "dispo-board"
         (path "/93ea4da8-8485-4fb5-a89d-c72021d94c09/9fac87bb-1399-44df-bfcb-579232522de8"
-          (reference "C35") (unit 1)
+          (reference "C33") (unit 1)
         )
       )
     )
@@ -2805,7 +2805,7 @@
   (symbol (lib_id "Device:C") (at 126.365 129.54 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid fb2a0672-a402-4fd9-a972-a4eb1b8d8cb9)
-    (property "Reference" "C33" (at 126.365 122.555 90)
+    (property "Reference" "C31" (at 126.365 122.555 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "3u3" (at 126.365 125.095 90)
@@ -2825,7 +2825,7 @@
     (instances
       (project "dispo-board"
         (path "/93ea4da8-8485-4fb5-a89d-c72021d94c09/9fac87bb-1399-44df-bfcb-579232522de8"
-          (reference "C33") (unit 1)
+          (reference "C31") (unit 1)
         )
       )
     )
