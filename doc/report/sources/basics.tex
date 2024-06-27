@@ -6,7 +6,7 @@
 
 If data from the real world should be processed in a digital system, it has to be sampled.
 This process has significant effects on the original signal, so they have to be considered if
-\ac{DSP} is taken seriously.
+digital signal processing is taken seriously.
 
 %// TODO: leakage, nyquist, ...
 
@@ -103,7 +103,15 @@ Another filter type is the \ac{IIR} filter. The structure is fully recursive as 
 
 \subsubsubsection{Filter Design}
 
-%// concept of filter design, coeffs
+%// TODO: concept of filter design, coeffs
+
+\subsubsection{LTI and LTV-Systems}
+
+The filters above are all \ac{LTI}-systems. That means, they firstly have a linear behaviour, so filters can be
+combined in any way without changing the output. Secondly, the filters never change in time.
+This is not the case for a variable bandpass, as it changes its coefficients. Therefore it is linear, but no
+longer time-invariant. Such systems are then called \ac{LTV}.
+This may have an effect to the output signal, so this has to be evaluated.
 
 \subsection{Audio-Interfaces}
 

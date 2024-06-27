@@ -3409,7 +3409,7 @@
     (property "Datasheet" "https://www.ti.com/general/docs/suppproductinfo.tsp?distId=26&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Ftps796" (at 254.635 28.575 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "MOUSER_NO" "595-TPS79633DCQ" (at 229.235 28.575 0)
+    (property "MOUSER_NR" "595-TPS79633DCQ" (at 229.235 28.575 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 6cb8a6a1-80c4-4535-997b-eeb8ec3012a7))

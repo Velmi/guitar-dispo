@@ -24,13 +24,18 @@
 \newacro{CLI}[\AC@hyperlink{CLI}{CLI}]{Command Line Interface}
 \newacro{CPU}[\AC@hyperlink{CPU}{CPU}]{Central Processing Unit}
 \newacro{DMA}[\AC@hyperlink{DMA}{DMA}]{Direct Memory Access}
-\newacro{DSP}[\AC@hyperlink{DSP}{DSP}]{Digital Signal Processing}
+\newacro{DSP}[\AC@hyperlink{DSP}{DSP}]{Digital Signal Processor}
+\newacro{EDA}[\AC@hyperlink{EDA}{EDA}]{Electronic Design Automation}
 \newacro{FIR}[\AC@hyperlink{FIR}{FIR}]{Finite Impulse Response}
 \newacro{IC}[\AC@hyperlink{IC}{IC}]{Integrated Circuit}
 \newacroplural{IC}[\AC@hyperlink{IC}{ICs}]{Integrated Circuits}
+\newacro{IDE}[\AC@hyperlink{IDE}{IDE}]{Integrated Development Environment}
 \newacro{IIR}[\AC@hyperlink{IIR}{IIR}]{Infinte Impulse Response}
 \newacro{I2S}[\AC@hyperlink{I2S}{I\textsuperscript  {2}S}]{Inter-Integrated Sound}
+\newacro{LTI}[\AC@hyperlink{LTI}{LTI}]{Linear Time Invariant}
+\newacro{LTV}[\AC@hyperlink{LTV}{LTV}]{Linear Time Variant}
 \newacro{MSB}[\AC@hyperlink{MSB}{MSB}]{Most Significant Bit}
+\newacro{PCB}[\AC@hyperlink{PCB}{PCB}]{Printed Circuit Board}
 \newacro{RAM}[\AC@hyperlink{RAM}{RAM}]{Random Access Memory}
 \newacro{SPI}[\AC@hyperlink{SPI}{SPI}]{Serial Peripheral Interface}
 \BKM@entry{id=1,dest={73656374696F6E2E31},srcline={1}}{5C3337365C3337375C303030495C3030306E5C303030745C303030725C3030306F5C303030645C303030755C303030635C303030745C303030695C3030306F5C3030306E}
@@ -52,20 +57,17 @@
 \@writefile{toc}{\contentsline {section}{\numberline {3}Basics}{1}{section.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Digital Signal Processing}{1}{subsection.3.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.1}Sampling and quantization}{1}{subsubsection.3.1.1}\protected@file@percent }
-\AC@undonewlabel{acro:DSP}
-\newlabel{acro:DSP}{{3.1.1}{1}{Sampling and quantization}{section*.3}{}}
-\acronymused{DSP}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.2}Digital Filters}{1}{subsubsection.3.1.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{\numberline {3.1.2.1}Finite Impulse Response Filter}{1}{paragraph.3.1.2.1}\protected@file@percent }
 \AC@undonewlabel{acro:FIR}
-\newlabel{acro:FIR}{{3.1.2.1}{1}{Finite Impulse Response Filter}{section*.4}{}}
+\newlabel{acro:FIR}{{3.1.2.1}{1}{Finite Impulse Response Filter}{section*.3}{}}
 \acronymused{FIR}
 \acronymused{FIR}
 \acronymused{FIR}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Basic structure of a $M$ order \ac {FIR}-filter in the first canonical form \blx@tocontentsinit {0}\cite {meyer_signalverarbeitung}\relax }}{2}{figure.caption.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Basic structure of a $M$ order \ac {FIR}-filter in the first canonical form \blx@tocontentsinit {0}\cite {meyer_signalverarbeitung}\relax }}{2}{figure.caption.4}\protected@file@percent }
 \acronymused{FIR}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:FIR-filter}{{3.1}{2}{Basic structure of a $M$ order \ac {FIR}-filter in the first canonical form \cite {meyer_signalverarbeitung}\relax }{figure.caption.5}{}}
+\newlabel{fig:FIR-filter}{{3.1}{2}{Basic structure of a $M$ order \ac {FIR}-filter in the first canonical form \cite {meyer_signalverarbeitung}\relax }{figure.caption.4}{}}
 \acronymused{FIR}
 \acronymused{FIR}
 \newlabel{eq:fir-difference-eq}{{3.1}{2}{Finite Impulse Response Filter}{equation.3.1}{}}
@@ -77,116 +79,132 @@
 \abx@aux@segm{0}{0}{meyer_signalverarbeitung}
 \abx@aux@cite{0}{meyer_signalverarbeitung}
 \abx@aux@segm{0}{0}{meyer_signalverarbeitung}
-\BKM@entry{id=7,dest={73756273656374696F6E2E332E32},srcline={108}}{5C3337365C3337375C303030415C303030755C303030645C303030695C3030306F5C3030302D5C303030495C3030306E5C303030745C303030655C303030725C303030665C303030615C303030635C303030655C30303073}
-\BKM@entry{id=8,dest={73756273756273656374696F6E2E332E322E31},srcline={110}}{5C3337365C3337375C303030495C3030306E5C303030745C303030655C303030725C3030302D5C303030495C3030306E5C303030745C303030655C303030675C303030725C303030615C303030745C303030655C303030645C3030305C3034305C303030535C3030306F5C303030755C3030306E5C30303064}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces z-plane plot (left) and frequency response (right) of a \ac {FIR}-filter\relax }}{3}{figure.caption.6}\protected@file@percent }
+\BKM@entry{id=7,dest={73756273756273656374696F6E2E332E312E33},srcline={108}}{5C3337365C3337375C3030304C5C303030545C303030495C3030305C3034305C303030615C3030306E5C303030645C3030305C3034305C3030304C5C303030545C303030565C3030302D5C303030535C303030795C303030735C303030745C303030655C3030306D5C30303073}
+\BKM@entry{id=8,dest={73756273656374696F6E2E332E32},srcline={116}}{5C3337365C3337375C303030415C303030755C303030645C303030695C3030306F5C3030302D5C303030495C3030306E5C303030745C303030655C303030725C303030665C303030615C303030635C303030655C30303073}
+\BKM@entry{id=9,dest={73756273756273656374696F6E2E332E322E31},srcline={118}}{5C3337365C3337375C303030495C3030306E5C303030745C303030655C303030725C3030302D5C303030495C3030306E5C303030745C303030655C303030675C303030725C303030615C303030745C303030655C303030645C3030305C3034305C303030535C3030306F5C303030755C3030306E5C30303064}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces z-plane plot (left) and frequency response (right) of a \ac {FIR}-filter\relax }}{3}{figure.caption.5}\protected@file@percent }
 \acronymused{FIR}
-\newlabel{fig:FIR-z-plane-and-freq}{{3.2}{3}{z-plane plot (left) and frequency response (right) of a \ac {FIR}-filter\relax }{figure.caption.6}{}}
+\newlabel{fig:FIR-z-plane-and-freq}{{3.2}{3}{z-plane plot (left) and frequency response (right) of a \ac {FIR}-filter\relax }{figure.caption.5}{}}
 \@writefile{toc}{\contentsline {paragraph}{\numberline {3.1.2.2}Infinite Impulse Response Filter}{3}{paragraph.3.1.2.2}\protected@file@percent }
 \AC@undonewlabel{acro:IIR}
-\newlabel{acro:IIR}{{3.1.2.2}{3}{Infinite Impulse Response Filter}{section*.7}{}}
+\newlabel{acro:IIR}{{3.1.2.2}{3}{Infinite Impulse Response Filter}{section*.6}{}}
 \acronymused{IIR}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Basic structure of a $M$ order \ac {IIR}-filter in the first canonical form \blx@tocontentsinit {0}\cite {meyer_signalverarbeitung}\relax }}{3}{figure.caption.8}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Basic structure of a $M$ order \ac {IIR}-filter in the first canonical form \blx@tocontentsinit {0}\cite {meyer_signalverarbeitung}\relax }}{3}{figure.caption.7}\protected@file@percent }
 \acronymused{IIR}
-\newlabel{fig:IIR-filter}{{3.3}{3}{Basic structure of a $M$ order \ac {IIR}-filter in the first canonical form \cite {meyer_signalverarbeitung}\relax }{figure.caption.8}{}}
+\newlabel{fig:IIR-filter}{{3.3}{3}{Basic structure of a $M$ order \ac {IIR}-filter in the first canonical form \cite {meyer_signalverarbeitung}\relax }{figure.caption.7}{}}
 \@writefile{toc}{\contentsline {paragraph}{\numberline {3.1.2.3}Filter Design}{3}{paragraph.3.1.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Audio-Interfaces}{3}{subsection.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Inter-Integrated Sound}{3}{subsubsection.3.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.3}LTI and LTV-Systems}{3}{subsubsection.3.1.3}\protected@file@percent }
+\AC@undonewlabel{acro:LTI}
+\newlabel{acro:LTI}{{3.1.3}{3}{LTI and LTV-Systems}{section*.8}{}}
+\acronymused{LTI}
+\AC@undonewlabel{acro:LTV}
+\newlabel{acro:LTV}{{3.1.3}{3}{LTI and LTV-Systems}{section*.9}{}}
+\acronymused{LTV}
+\abx@aux@cite{0}{nxp_i2s}
+\abx@aux@segm{0}{0}{nxp_i2s}
+\abx@aux@cite{0}{nxp_i2s}
+\abx@aux@segm{0}{0}{nxp_i2s}
+\abx@aux@cite{0}{nxp_i2s}
+\abx@aux@segm{0}{0}{nxp_i2s}
+\abx@aux@cite{0}{nxp_i2s}
+\abx@aux@segm{0}{0}{nxp_i2s}
+\abx@aux@cite{0}{nxp_i2s}
+\abx@aux@segm{0}{0}{nxp_i2s}
+\abx@aux@cite{0}{nxp_i2s}
+\abx@aux@segm{0}{0}{nxp_i2s}
+\BKM@entry{id=10,dest={73656374696F6E2E34},srcline={1}}{5C3337365C3337375C303030525C303030655C303030715C303030755C303030695C303030725C303030655C3030306D5C303030655C3030306E5C303030745C303030735C3030305C3034305C303030615C3030306E5C303030645C3030305C3034305C303030635C3030306F5C3030306E5C303030635C303030655C303030705C30303074}
+\BKM@entry{id=11,dest={73756273656374696F6E2E342E31},srcline={3}}{5C3337365C3337375C303030435C303030685C303030615C3030306C5C3030306C5C303030655C3030306E5C303030675C303030655C303030735C3030305C3034305C303030615C3030306E5C303030645C3030305C3034305C303030725C303030655C303030715C303030755C303030695C303030725C303030655C3030306D5C303030655C3030306E5C303030745C303030735C3030305C3034305C303030695C3030306E5C3030305C3034305C303030415C303030755C303030645C303030695C3030306F5C3030305C3034305C303030535C303030695C303030675C3030306E5C303030615C3030306C5C3030305C3034305C303030505C303030725C3030306F5C303030635C303030655C303030735C303030735C303030695C3030306E5C30303067}
+\BKM@entry{id=12,dest={73756273756273656374696F6E2E342E312E31},srcline={5}}{5C3337365C3337375C3030304C5C303030615C303030745C303030655C3030306E5C303030635C30303079}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Audio-Interfaces}{4}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Inter-Integrated Sound}{4}{subsubsection.3.2.1}\protected@file@percent }
 \AC@undonewlabel{acro:I2S}
-\newlabel{acro:I2S}{{3.2.1}{3}{Inter-Integrated Sound}{section*.9}{}}
+\newlabel{acro:I2S}{{3.2.1}{4}{Inter-Integrated Sound}{section*.10}{}}
 \acronymused{I2S}
 \AC@undonewlabel{acro:IC}
-\newlabel{acro:IC}{{3.2.1}{3}{Inter-Integrated Sound}{section*.10}{}}
+\newlabel{acro:IC}{{3.2.1}{4}{Inter-Integrated Sound}{section*.11}{}}
 \acronymused{IC}
 \AC@undonewlabel{acro:SPI}
-\newlabel{acro:SPI}{{3.2.1}{3}{Inter-Integrated Sound}{section*.11}{}}
+\newlabel{acro:SPI}{{3.2.1}{4}{Inter-Integrated Sound}{section*.12}{}}
 \acronymused{SPI}
-\abx@aux@cite{0}{nxp_i2s}
-\abx@aux@segm{0}{0}{nxp_i2s}
-\abx@aux@cite{0}{nxp_i2s}
-\abx@aux@segm{0}{0}{nxp_i2s}
-\abx@aux@cite{0}{nxp_i2s}
-\abx@aux@segm{0}{0}{nxp_i2s}
-\abx@aux@cite{0}{nxp_i2s}
-\abx@aux@segm{0}{0}{nxp_i2s}
-\abx@aux@cite{0}{nxp_i2s}
-\abx@aux@segm{0}{0}{nxp_i2s}
-\abx@aux@cite{0}{nxp_i2s}
-\abx@aux@segm{0}{0}{nxp_i2s}
-\BKM@entry{id=9,dest={73656374696F6E2E34},srcline={1}}{5C3337365C3337375C303030525C303030655C303030715C303030755C303030695C303030725C303030655C3030306D5C303030655C3030306E5C303030745C303030735C3030305C3034305C303030615C3030306E5C303030645C3030305C3034305C303030635C3030306F5C3030306E5C303030635C303030655C303030705C30303074}
-\BKM@entry{id=10,dest={73756273656374696F6E2E342E31},srcline={3}}{5C3337365C3337375C303030435C303030685C303030615C3030306C5C3030306C5C303030655C3030306E5C303030675C303030655C303030735C3030305C3034305C303030615C3030306E5C303030645C3030305C3034305C303030725C303030655C303030715C303030755C303030695C303030725C303030655C3030306D5C303030655C3030306E5C303030745C303030735C3030305C3034305C303030695C3030306E5C3030305C3034305C303030415C303030755C303030645C303030695C3030306F5C3030305C3034305C303030535C303030695C303030675C3030306E5C303030615C3030306C5C3030305C3034305C303030505C303030725C3030306F5C303030635C303030655C303030735C303030735C303030695C3030306E5C30303067}
-\BKM@entry{id=11,dest={73756273756273656374696F6E2E342E312E31},srcline={5}}{5C3337365C3337375C3030304C5C303030615C303030745C303030655C3030306E5C303030635C30303079}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Timing diagramm of the \ac {I2S} protocol \blx@tocontentsinit {0}\cite {nxp_i2s}\relax }}{4}{figure.caption.12}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Timing diagramm of the \ac {I2S} protocol \blx@tocontentsinit {0}\cite {nxp_i2s}\relax }}{4}{figure.caption.13}\protected@file@percent }
 \acronymused{I2S}
-\newlabel{fig:i2s-timing}{{3.4}{4}{Timing diagramm of the \ac {I2S} protocol \cite {nxp_i2s}\relax }{figure.caption.12}{}}
+\newlabel{fig:i2s-timing}{{3.4}{4}{Timing diagramm of the \ac {I2S} protocol \cite {nxp_i2s}\relax }{figure.caption.13}{}}
 \AC@undonewlabel{acro:MSB}
-\newlabel{acro:MSB}{{3.2.1}{4}{Inter-Integrated Sound}{section*.13}{}}
+\newlabel{acro:MSB}{{3.2.1}{4}{Inter-Integrated Sound}{section*.14}{}}
 \acronymused{MSB}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces The three basic configurations of the \ac {I2S} protocol \blx@tocontentsinit {0}\cite {nxp_i2s}\relax }}{4}{figure.caption.14}\protected@file@percent }
-\acronymused{I2S}
-\newlabel{fig:i2s-config}{{3.5}{4}{The three basic configurations of the \ac {I2S} protocol \cite {nxp_i2s}\relax }{figure.caption.14}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Requirements and concept}{4}{section.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Challenges and requirements in Audio Signal Processing}{4}{subsection.4.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}Latency}{4}{subsubsection.4.1.1}\protected@file@percent }
 \abx@aux@cite{0}{beckmann_dsp}
 \abx@aux@segm{0}{0}{beckmann_dsp}
-\BKM@entry{id=12,dest={73756273756273656374696F6E2E342E312E32},srcline={20}}{5C3337365C3337375C303030505C303030615C303030635C3030306B5C303030655C303030745C3030305C3034305C3030306C5C3030306F5C303030735C303030735C303030655C303030735C3030305C3034305C303030615C3030306E5C303030645C3030305C3034305C303030635C303030725C303030615C303030635C3030306B5C303030695C3030306E5C303030675C3030305C3034305C3030306E5C3030306F5C303030695C303030735C30303065}
+\BKM@entry{id=13,dest={73756273756273656374696F6E2E342E312E32},srcline={20}}{5C3337365C3337375C303030505C303030615C303030635C3030306B5C303030655C303030745C3030305C3034305C3030306C5C3030306F5C303030735C303030735C303030655C303030735C3030305C3034305C303030615C3030306E5C303030645C3030305C3034305C303030635C303030725C303030615C303030635C3030306B5C303030695C3030306E5C303030675C3030305C3034305C3030306E5C3030306F5C303030695C303030735C30303065}
 \abx@aux@cite{0}{stotz_audio_video}
 \abx@aux@segm{0}{0}{stotz_audio_video}
-\BKM@entry{id=13,dest={73756273656374696F6E2E342E32},srcline={30}}{5C3337365C3337375C303030435C3030306F5C3030306E5C303030635C303030655C303030705C30303074}
+\BKM@entry{id=14,dest={73756273656374696F6E2E342E32},srcline={30}}{5C3337365C3337375C303030435C3030306F5C3030306E5C303030635C303030655C303030705C30303074}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces The three basic configurations of the \ac {I2S} protocol \blx@tocontentsinit {0}\cite {nxp_i2s}\relax }}{5}{figure.caption.15}\protected@file@percent }
+\acronymused{I2S}
+\newlabel{fig:i2s-config}{{3.5}{5}{The three basic configurations of the \ac {I2S} protocol \cite {nxp_i2s}\relax }{figure.caption.15}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Packet losses and cracking noise}{5}{subsubsection.4.1.2}\protected@file@percent }
-\acronymused{DSP}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Concept}{5}{subsection.4.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Basic concept\relax }}{5}{figure.caption.15}\protected@file@percent }
-\newlabel{fig:basic-concept}{{4.1}{5}{Basic concept\relax }{figure.caption.15}{}}
 \acronymused{I2S}
 \acronymused{I2S}
-\BKM@entry{id=14,dest={73756273756273656374696F6E2E342E322E31},srcline={50}}{5C3337365C3337375C303030535C303030695C303030675C3030306E5C303030615C3030306C5C303030665C3030306C5C3030306F5C30303077}
-\BKM@entry{id=15,dest={73756273756273656374696F6E2E342E322E32},srcline={57}}{5C3337365C3337375C303030445C3030306F5C303030755C303030625C3030306C5C303030655C3030305C3034305C303030425C303030755C303030665C303030665C303030655C303030725C303030695C3030306E5C303030675C3030305C3034305C303030615C3030306E5C303030645C3030305C3034305C303030445C3030304D5C30303041}
+\BKM@entry{id=15,dest={73756273756273656374696F6E2E342E322E31},srcline={50}}{5C3337365C3337375C303030535C303030695C303030675C3030306E5C303030615C3030306C5C303030665C3030306C5C3030306F5C30303077}
+\BKM@entry{id=16,dest={73756273756273656374696F6E2E342E322E32},srcline={57}}{5C3337365C3337375C303030445C3030306F5C303030755C303030625C3030306C5C303030655C3030305C3034305C303030425C303030755C303030665C303030665C303030655C303030725C303030695C3030306E5C303030675C3030305C3034305C303030615C3030306E5C303030645C3030305C3034305C303030445C3030304D5C30303041}
 \abx@aux@cite{0}{eetimes_fund_dsp}
 \abx@aux@segm{0}{0}{eetimes_fund_dsp}
 \abx@aux@cite{0}{eetimes_fund_dsp}
 \abx@aux@segm{0}{0}{eetimes_fund_dsp}
 \abx@aux@cite{0}{eetimes_fund_dsp}
 \abx@aux@segm{0}{0}{eetimes_fund_dsp}
-\BKM@entry{id=16,dest={73656374696F6E2E35},srcline={1}}{5C3337365C3337375C303030495C3030306D5C303030705C3030306C5C303030655C3030306D5C303030655C3030306E5C303030745C303030615C303030745C303030695C3030306F5C3030306E}
-\BKM@entry{id=17,dest={73756273656374696F6E2E352E31},srcline={3}}{5C3337365C3337375C303030495C3030306E5C303030745C303030725C3030306F5C303030645C303030755C303030635C303030745C303030695C3030306F5C3030306E5C3030305C3034305C3030306F5C303030665C3030305C3034305C303030745C303030685C303030655C3030305C3034305C303030735C303030795C303030735C303030745C303030655C3030306D5C303030735C3030305C3034305C303030755C303030735C303030655C30303064}
+\BKM@entry{id=17,dest={73656374696F6E2E35},srcline={1}}{5C3337365C3337375C303030495C3030306D5C303030705C3030306C5C303030655C3030306D5C303030655C3030306E5C303030745C303030615C303030745C303030695C3030306F5C3030306E}
+\BKM@entry{id=18,dest={73756273656374696F6E2E352E31},srcline={3}}{5C3337365C3337375C303030495C3030306E5C303030745C303030725C3030306F5C303030645C303030755C303030635C303030745C303030695C3030306F5C3030306E5C3030305C3034305C3030306F5C303030665C3030305C3034305C303030745C303030685C303030655C3030305C3034305C303030735C303030795C303030735C303030745C303030655C3030306D5C303030735C3030305C3034305C303030755C303030735C303030655C30303064}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Basic concept\relax }}{6}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:basic-concept}{{4.1}{6}{Basic concept\relax }{figure.caption.16}{}}
 \AC@undonewlabel{acro:CLI}
-\newlabel{acro:CLI}{{4.2}{6}{Concept}{section*.16}{}}
+\newlabel{acro:CLI}{{4.2}{6}{Concept}{section*.17}{}}
 \acronymused{CLI}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Signalflow}{6}{subsubsection.4.2.1}\protected@file@percent }
 \AC@undonewlabel{acro:ADC}
-\newlabel{acro:ADC}{{4.2.1}{6}{Signalflow}{section*.17}{}}
+\newlabel{acro:ADC}{{4.2.1}{6}{Signalflow}{section*.18}{}}
 \acronymused{ADC}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Double Buffering and DMA}{6}{subsubsection.4.2.2}\protected@file@percent }
 \AC@undonewlabel{acro:DMA}
-\newlabel{acro:DMA}{{4.2.2}{6}{Double Buffering and DMA}{section*.18}{}}
+\newlabel{acro:DMA}{{4.2.2}{6}{Double Buffering and DMA}{section*.19}{}}
 \acronymused{DMA}
 \acronymused{ADC}
 \AC@undonewlabel{acro:RAM}
-\newlabel{acro:RAM}{{4.2.2}{6}{Double Buffering and DMA}{section*.19}{}}
+\newlabel{acro:RAM}{{4.2.2}{6}{Double Buffering and DMA}{section*.20}{}}
 \acronymused{RAM}
 \AC@undonewlabel{acro:CPU}
-\newlabel{acro:CPU}{{4.2.2}{6}{Double Buffering and DMA}{section*.20}{}}
+\newlabel{acro:CPU}{{4.2.2}{6}{Double Buffering and DMA}{section*.21}{}}
 \acronymused{CPU}
 \acronymused{CPU}
 \acronymused{DMA}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Double buffering concept \blx@tocontentsinit {0}\cite {eetimes_fund_dsp}\relax }}{6}{figure.caption.21}\protected@file@percent }
-\newlabel{fig:double-buffering}{{4.2}{6}{Double buffering concept \cite {eetimes_fund_dsp}\relax }{figure.caption.21}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Implementation}{6}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Introduction of the systems used}{6}{subsection.5.1}\protected@file@percent }
-\BKM@entry{id=18,dest={73656374696F6E2A2E3232},srcline={46}}{5C3337365C3337375C303030425C303030695C303030625C3030306C5C303030695C3030306F5C303030675C303030725C303030615C303030705C303030685C30303079}
-\@writefile{toc}{\contentsline {section}{Bibliography}{7}{section*.22}\protected@file@percent }
-\BKM@entry{id=19,dest={73656374696F6E2A2E3233},srcline={51}}{5C3337365C3337375C3030304C5C303030695C303030735C303030745C3030305C3034305C3030306F5C303030665C3030305C3034305C303030465C303030695C303030675C303030755C303030725C303030655C30303073}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Double buffering concept \blx@tocontentsinit {0}\cite {eetimes_fund_dsp}\relax }}{7}{figure.caption.22}\protected@file@percent }
+\newlabel{fig:double-buffering}{{4.2}{7}{Double buffering concept \cite {eetimes_fund_dsp}\relax }{figure.caption.22}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Implementation}{7}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Introduction of the systems used}{7}{subsection.5.1}\protected@file@percent }
+\AC@undonewlabel{acro:IDE}
+\newlabel{acro:IDE}{{5.1}{7}{Introduction of the systems used}{section*.23}{}}
+\acronymused{IDE}
+\AC@undonewlabel{acro:PCB}
+\newlabel{acro:PCB}{{5.1}{7}{Introduction of the systems used}{section*.24}{}}
+\acronymused{PCB}
+\AC@undonewlabel{acro:EDA}
+\newlabel{acro:EDA}{{5.1}{7}{Introduction of the systems used}{section*.25}{}}
+\acronymused{EDA}
+\BKM@entry{id=19,dest={73656374696F6E2A2E3236},srcline={46}}{5C3337365C3337375C303030425C303030695C303030625C3030306C5C303030695C3030306F5C303030675C303030725C303030615C303030705C303030685C30303079}
+\@writefile{toc}{\contentsline {section}{Bibliography}{8}{section*.26}\protected@file@percent }
+\BKM@entry{id=20,dest={73656374696F6E2A2E3237},srcline={51}}{5C3337365C3337375C3030304C5C303030695C303030735C303030745C3030305C3034305C3030306F5C303030665C3030305C3034305C303030465C303030695C303030675C303030755C303030725C303030655C30303073}
 \acronymused{FIR}
 \acronymused{FIR}
 \acronymused{IIR}
 \acronymused{I2S}
 \acronymused{I2S}
-\@writefile{toc}{\contentsline {section}{List of Figures}{8}{section*.23}\protected@file@percent }
-\BKM@entry{id=20,dest={73656374696F6E2A2E3233},srcline={55}}{5C3337365C3337375C3030304C5C303030695C303030735C303030745C3030305C3034305C3030306F5C303030665C3030305C3034305C303030545C303030615C303030625C3030306C5C303030655C30303073}
-\@writefile{toc}{\contentsline {section}{List of Tables}{9}{section*.23}\protected@file@percent }
-\abx@aux@read@bbl@mdfivesum{86CD07E33D7DC4D7A88855788359763E}
+\@writefile{toc}{\contentsline {section}{List of Figures}{9}{section*.27}\protected@file@percent }
+\BKM@entry{id=21,dest={73656374696F6E2A2E3237},srcline={55}}{5C3337365C3337375C3030304C5C303030695C303030735C303030745C3030305C3034305C3030306F5C303030665C3030305C3034305C303030545C303030615C303030625C3030306C5C303030655C30303073}
+\@writefile{toc}{\contentsline {section}{List of Tables}{10}{section*.27}\protected@file@percent }
+\abx@aux@read@bbl@mdfivesum{9F0242E8C75BDDC1F657757DCA9395FD}
 \abx@aux@defaultrefcontext{0}{dailey_e_guitar}{none/global//global/global}
 \abx@aux@defaultrefcontext{0}{wiki_wahwah}{none/global//global/global}
 \abx@aux@defaultrefcontext{0}{meyer_signalverarbeitung}{none/global//global/global}
@@ -201,4 +219,4 @@
 \@writefile{toc}{\providecommand\tocbasic@end@toc@file{}\tocbasic@end@toc@file}
 \@writefile{lof}{\providecommand\tocbasic@end@toc@file{}\tocbasic@end@toc@file}
 \@writefile{lot}{\providecommand\tocbasic@end@toc@file{}\tocbasic@end@toc@file}
-\gdef \@abspage@last{12}
+\gdef \@abspage@last{13}

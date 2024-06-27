@@ -2,4 +2,15 @@
 
 \subsection{Introduction of the systems used}
 
-%// TODO: STM32Nucleo Board, PmodI2S Codec Breakout board, Octave (filtercoeffs), STM32CubeIDE
+%// TODO: STM32Nucleo Board, PmodI2S Codec Breakout board, Octave (filtercoeffs), STM32CubeIDE, KiCAD
+For the first implementation of basic filtering operations, the evaluation board \textit{Nucleo-H743ZI} of STMicroelectronics
+is used. The breakout board \textit{PmodI2S Stereo IN/OUT} is used in order to sample audio data from a 3,5mm jack input.
+
+The choice for the \ac{IDE} fell on the \textit{STM32CubeIDE} as it provides an easy to use installation and
+development process.
+
+Digital filters need filter coefficients. As it would be too time consuming to calculate them during runtime, these
+coefficients where computed beforehand and then stored in the memory of the microcontroller. Therefore the
+software \textit{Octave} was used.
+
+In order to design the \ac{PCB}, the \ac{EDA}-software \textit{KiCAD} was used.
