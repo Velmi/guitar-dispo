@@ -2,15 +2,195 @@
 
 \subsection{Introduction of the systems used}
 
-%// TODO: STM32Nucleo Board, PmodI2S Codec Breakout board, Octave (filtercoeffs), STM32CubeIDE, KiCAD
 For the first implementation of basic filtering operations, the evaluation board \textit{Nucleo-H743ZI} of STMicroelectronics
-is used. The breakout board \textit{PmodI2S Stereo IN/OUT} is used in order to sample audio data from a 3,5mm jack input.
+is used. The breakout board \textit{PmodI2S Stereo IN/OUT} is used in order to sample audio data from a 3,5\,mm jack input.
 
-The choice for the \ac{IDE} fell on the \textit{STM32CubeIDE} as it provides an easy to use installation and
+The choice for the \ac{IDE} fell on the
+\newline \textit{STM32CubeIDE} as it provides an easy to use installation and
 development process.
 
 Digital filters need filter coefficients. As it would be too time consuming to calculate them during runtime, these
-coefficients where computed beforehand and then stored in the memory of the microcontroller. Therefore the
-software \textit{Octave} was used.
+coefficients where computed beforehand and then stored in the memory of the microcontroller. For these computations,
+own Python scripts were developed.
 
 In order to design the \ac{PCB}, the \ac{EDA}-software \textit{KiCAD} was used.
+
+\subsection{Implementation of the filters}
+
+As the goal is to develop a variable bandpass filter, not only a set of coefficients for one filter has to be stored,
+but many versions of this filter with different mid-frequencies.
+
+As a reference, the frequency response of \textit{Cry-Baby}-Pedal of Prof. Litzenburger has been measured, this is
+shown in \autoref{fig:wahwah-filter}.
+
+\begin{figure}[!h]
+    \centering
+    \begin{subfigure}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/wahwah-1.png}
+    \end{subfigure}
+    \begin{subfigure}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/wahwah-2.png}
+    \end{subfigure}
+    \caption{Measurement of the frequency response of a Wah-Wah-pedal at the lowest and highest frequencies}
+    \label{fig:wahwah-filter}
+\end{figure}
+
+Firstly, the resonance frequency varies between 466\,Hz and 2,3\,kHz.
+
+It is also to be seen, that as the frequency changes, the bandwidth also seem to change. Firstly, it has to be mentioned,
+that this is a logarithmic scale. Nevertheless, in an ideal bandpass-filter, the quality factor is constant. This factor indicates
+how much energy is dissipated, or how high the loss of a oscillation circuit is. So to keep the Q-factor constant, with
+increasing the resonance frequency, the bandwidth also have to increase (\autoref{eq:q-factor}).
+
+\begin{align}
+    Q = \frac{f_{res}}{f_{3\,dB}}
+    \label{eq:q-factor}
+\end{align}
+
+By measuring the bandwidths of this filter, it turns out, that the quality factor also changes.
+
+The bandwidth at 466\,Hz is measured to be 54\,Hz, which leads to a Q-factor of:
+
+\begin{align}
+    Q = \frac{460\,Hz}{54\,Hz} = 8,518
+\end{align}
+.
+
+At 2,3\,kHz the bandwidth is 600\,Hz resulting in a quality factor of:
+
+\begin{align}
+    Q = \frac{2,3\,kHz}{600\,Hz} = 3,833
+\end{align}
+.
+
+This behaviour is directly related to how the effect sounds and should therefore be considered in the filter design.
+
+For the first tries, \ac{FIR}-filters were used, because they always guarantee stability \cite{meyer_signalverarbeitung}.
+The first prototype of the coefficients combine a set of 32 coefficient sets with the following parameters:
+
+\begin{table}[!h]
+    \centering
+    \caption{Parameters for \ac{FIR}-filterdesign}
+    \label{table:fir-filterdesign}
+    \begin{tabular}{c | c }
+        quality factor & number of coefficients\\
+        \hline
+        6 & 130
+    \end{tabular}
+\end{table}
+
+Here, the Q-factor is held constant for the first experiments.
+
+In the following picture shows a \ac{FIR}-model of the analog reference at 460\,Hz and 2242\,Hz
+\autoref{fig:wahwah-filter}.
+
+\begin{figure}[!h]
+    \centering
+    \begin{subfigure}[c]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fir_bandpass460.png}
+    \end{subfigure}
+    \begin{subfigure}[c]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fir_bandpass2242.png}
+    \end{subfigure}
+    \caption{Measurement of the \ac{FIR}-model frequency response at the lowest and highest frequencies}
+    \label{fig:wahwah-fir}
+\end{figure}
+
+It can be clearly observed, that the shape of the filters are not close to the analog reference.
+The effect of the bandwidth getting wider is not visible.
+
+The second approach to model the filter is by using a biquad-filter \cite{arm_dsp}.
+These filters use two filter-taps in the forward- and two taps in the feedback-path. The structure
+is shown in \autoref{fig:biquad-structure}.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=7cm]{img/biquad_structure.png}
+    \caption{Structure of a biquad filter \cite{arm_dsp}}
+    \label{fig:biquad-structure}
+\end{figure}
+
+The transfer function of this filtertype is:
+
+\begin{align}
+    H(z) = \frac{b_0 + b_1 \cdot z^{-1} + b_2 \cdot z^{-2}}{a_1 \cdot z^{-1} + a_2 \cdot z^{-2}}
+\end{align}
+
+Here it can be seen, why this filter is called \frqq biquad\flqq{}: it is the short form for
+\frqq bi-quadratic\flqq{}, which relates to the powers of the numerator- and denominator-terms.
+The $a_0$-coefficient is mostly set to $1$, because its meaning is the same as the $b_0$-coefficient.
+
+Designing a bandpass-filter with a biquad-filter results in the filters shown in \autoref{fig:wahwah-iir}.
+
+\begin{figure}[!h]
+    \centering
+    \begin{subfigure}[c]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/iir_bandpass460.png}
+    \end{subfigure}
+    \begin{subfigure}[c]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/iir_bandpass2242.png}
+    \end{subfigure}
+    \caption{Measurement of the \ac{IIR}-model frequency response at the lowest and highest frequencies}
+    \label{fig:wahwah-iir}
+\end{figure}
+
+It shows, that the shape of this filter matches the analog reference better than the \ac{FIR}-filter.
+
+\subsection{Evaluation of the filters}
+
+Firstly the \ac{FIR}-filter is evaluated.
+
+The first issue that will be recognized, is the cracking noise, when the filter coefficients are being
+updated.
+
+%// TODO: measure, sound of filter
+
+\subsection{Development of the PCB}
+
+In order to get a handy pedal, the whole hardware should be integrated into one single \ac{PCB}.
+The dimensions of this should not exceed the standard-sized size of effect pedals. As a reference the
+\textit{Boss DS-1} distortion pedal were used to derive a reasonable size for the \ac{PCB}. The dimensions of the
+distortion pedal are 73 x 129\,mm, which should not be exceeded. The final \ac{PCB} now has dimensions of
+56,39 x 84,33\,mm.
+
+Furthermore, there should be enough inputs, to provide to ability to extend the functionality of this board.
+The idea is, to develop a platform, where any effect can be implemented. In order to fulfill this, three analog and
+four digital inputs are connected to solderpads for later use. Additionally, an \ac{I2C} connector is also
+provided, if for example a little display should be used.
+
+The main components that were chosen are:
+
+\begin{itemize}
+    \item STM32H725 microcontroller
+    \item CS5343-CZZ Audio \ac{DAC}
+    \item CS4344-CZZR Audio \ac{ADC}
+\end{itemize}
+
+The reason for the choice of these components is, that the these are also present on the Nucleo- and the
+breakout-board. Except for the microcontroller, therefore the smallest package with 68 pins were chosen.
+
+\subsection{Evaluation of the hardware}
+
+There are a few issues on the board, which have been found and fixed so far.
+
+\textbf{Issue 1:}
+
+The first issue is, that the core of the microcontroller is not connected to a source. This is, because
+the voltage regulator of this package is not connected to the core. This must be done 
+externally. To fix this, a switched-mode power supply was added to the board, which outputs the 1\,V
+for the core.
+
+\textbf{Issue 2:}
+
+The output voltage of the extra added power supply is noisy, which led to connection errorswith the debugger.
+In order to fix this, extra capacitors were added to the supply of the core.
+
+\textbf{Current state:}
+
+It is possible to connect a J-Link debugger to the microcontroller.

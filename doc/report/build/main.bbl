@@ -85,12 +85,50 @@
       \field{titleaddon}{Analoge und digitale Signale, Systeme und Filter}
       \field{year}{2017}
     \endentry
+    \entry{arm_dsp}{misc}{}
+      \list{organization}{1}{%
+        {Keil}%
+      }
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labeltitlesource}{title}
+      \field{title}{Biquad Cascade IIR Filters Using Direct Form I Structure}
+      \field{urlday}{28}
+      \field{urlmonth}{7}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.keil.com/pack/doc/CMSIS_Dev/DSP/html/group__BiquadCascadeDF1.html
+      \endverb
+      \verb{url}
+      \verb https://www.keil.com/pack/doc/CMSIS_Dev/DSP/html/group__BiquadCascadeDF1.html
+      \endverb
+    \endentry
+    \entry{TI-filterdesign-tool}{misc}{}
+      \list{organization}{1}{%
+        {Texas Instruments}%
+      }
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{title}{Filter Design Tool}
+      \field{urlday}{4}
+      \field{urlmonth}{8}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://webench.ti.com/filter-design-tool/filter-response
+      \endverb
+      \verb{url}
+      \verb https://webench.ti.com/filter-design-tool/filter-response
+      \endverb
+    \endentry
     \entry{nxp_i2s}{manual}{}
       \list{organization}{1}{%
         {XNP Semiconductors}%
       }
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{note}{Rev. 3}
       \field{title}{UM11732}
@@ -188,8 +226,8 @@
       \strng{authorbibnamehash}{9df19f75af9872e5b6aac69321402a10}
       \strng{authornamehash}{9df19f75af9872e5b6aac69321402a10}
       \strng{authorfullhash}{9df19f75af9872e5b6aac69321402a10}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Fundamentals of embedded audio, part 3}

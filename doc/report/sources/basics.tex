@@ -2,14 +2,6 @@
 
 \subsection{Digital Signal Processing}
 
-\subsubsection{Sampling and quantization}
-
-If data from the real world should be processed in a digital system, it has to be sampled.
-This process has significant effects on the original signal, so they have to be considered if
-digital signal processing is taken seriously.
-
-%// TODO: leakage, nyquist, ...
-
 \subsubsection{Digital Filters}
 
 \subsubsubsection{Finite Impulse Response Filter}
@@ -99,13 +91,95 @@ Another filter type is the \ac{IIR} filter. The structure is fully recursive as 
     \label{fig:IIR-filter}
 \end{figure}
 
-%// TODO: stability, 
+Due to the recursive structure, this type of filter is no longer necessarilly stable. This means, that it can
+oscillate and eventually the output can grow exponentally. To fullfill stability, all the poles of the
+\ac{IIR}-filter have to be in the unit-circle \cite{meyer_signalverarbeitung}.
 
-Due to the recursive structure, 
+Its transfer function can be described as follows:
+
+\begin{align}
+    H(z) = \frac{1}{a_1 \cdot z^{-1} + ... + a_M \cdot z^{-M}}
+\end{align}
+
+In the time domain, the output is equal to
+
+\begin{align}
+    y[n] = a_1 \cdot y[n-1] + a_2 \cdot y[n-2] + ... + a_M \cdot y[n-M]
+\end{align}
+.
+
+So the output is dependend on all the $M$ outputs before. In literature and other documentation,
+the $a_0$-coefficient is also referenced. This is typically set to $1$ as it has the same meaning as
+the $b_0$-coefficient in the \ac{FIR}-filter.
+
+If the two types of filters are getting merged, the result is also an \ac{IIR}-filter, plus
+a few additional feed-forward-terms. A widely used example of this is the \textit{Biquad-filter} \cite{arm_dsp}.
+
 
 \subsubsubsection{Filter Design}
 
-%// TODO: concept of filter design, coeffs
+This section deals with designing filters. There are a few ways to calculate the numerator and
+denominator-coefficients. But this shouldn't be part of this, the goal is more like looking at
+how to design a filter in a high-level perspective.
+
+First of all, the number of filtertaps will be discussed. As stated earlier, \ac{FIR}-filters have
+the convenient property, that they are always stable. The downside of these filters are,
+that for example a narrow-band bandpass filter needs more filtertaps, than a comparable
+\ac{IIR}-filter \cite{meyer_signalverarbeitung}. This should not be a huge problem in the most cases,
+but if the goal is to variate the filter-coefficients, this may lead to problems which will be discussed
+later.
+
+Secondly, the shape of \ac{FIR} and \ac{IIR}-filters differ. The recursive filter is more often used to
+model an actual analog filter, due to the fact, that analog filters are also of recursive structure (e.g.
+a second order LC-filter) \cite{meyer_signalverarbeitung}.
+
+In the following graphics, there is a \ac{FIR}- on the left and a \ac{IIR}-bandpass-filter on the right.
+All the parameters of these two filters, mid-frequency, bandwidth, quality-factor and number of coefficients
+are set equal in order to make them comparable.
+
+\begin{figure}[!h]
+    \centering
+    \begin{subfigure}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fir_bandpass.png}
+    \end{subfigure}
+    \begin{subfigure}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/iir_bandpass.png}
+    \end{subfigure}
+    \caption{Comparison of the frequency response of a \ac{FIR}- (left) and \ac{IIR}-bandpass-filter (right)}
+    \label{fig:fir-iir-compare}
+\end{figure}
+
+The parameters which were chosen for this comparison were set to:
+
+\begin{table}[!h]
+    \centering
+    \caption{Parameters to compare \ac{FIR}- and \ac{IIR}-filters}
+    \label{table:compare-filters}
+    \begin{tabular}{c | c | c }
+        start-frequency & stop-frequency & number of coefficients \\
+        \hline
+        0.4 & 0.5 & 5
+    \end{tabular}
+\end{table}
+
+As it can be observed, the \ac{IIR}-filter has much sharper edges and the attenuation in the stopband is much higher.
+This is due to the fact, that \ac{IIR}-filters have poles, which can produce sharper edges, but it can also lead to
+instability.
+
+As a reference, an analog bandpass-filter is shown in \autoref{fig:analog-bandpass}, designed with the Texas Instruments
+filter-design-tool \cite{TI-filterdesign-tool}.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=7cm]{img/analog_bandpass.png}
+    \caption{Analog bandpass filter frequency response}
+    \label{fig:analog-bandpass}
+\end{figure}
+
+It can be seen, that the basic shape of the \ac{IIR}-filter is much closer to the analog equivalent than the
+\ac{FIR}-filter.
 
 \subsubsection{LTI and LTV-Systems}
 
@@ -115,7 +189,7 @@ This is not the case for a variable bandpass, as it changes its coefficients. Th
 longer time-invariant. Such systems are then called \ac{LTV}.
 This may have an effect to the output signal, so this has to be evaluated.
 
-\subsection{Audio-Interfaces}
+\subsection{Microcontroller-Peripherals}
 
 \subsubsection{Inter-Integrated Sound}
 
@@ -151,4 +225,10 @@ Thereby the master is always responsible for the SCK and the WS line.
     \label{fig:i2s-config}
 \end{figure}
 
-%%// TODO: DMA
+\subsubsection{Direct Memory Access}
+
+%%// TODO: raus?
+
+The \ac{DMA} is a peripheral in the microcontroller, which allows to transfer data between memory destinations or
+peripherals without the need of the \ac{CPU}.
+This is advantagious, because this saves computation capacity which leads to a smoother data flow.
