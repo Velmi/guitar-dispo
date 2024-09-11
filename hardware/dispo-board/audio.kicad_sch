@@ -2617,6 +2617,16 @@
 		)
 		(uuid "fe088925-112e-437c-99d9-5be17a006e72")
 	)
+	(text "TODO:\nC to decouple source\nref OPA to VA/2\nremove R14 and R16 (done)\nremove C25 (done)"
+		(exclude_from_sim no)
+		(at 230.124 43.18 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "5a3c36be-880e-4a6c-91b7-7b79b3e2dfdd")
+	)
 	(text "pull down for selection\nin slave mode"
 		(exclude_from_sim no)
 		(at 20.955 33.02 0)
