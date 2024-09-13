@@ -20,7 +20,7 @@ FIRFilter firFilter {firInstance, 32};
 //IIRInstance iirInstance {iir_coeffs_lut, 1, sizeof(iir_coeffs_lut)/sizeof(float32_t*)};
 //IIRFilter iirFilter {iirInstance, 32};
 
-BiquadFilter biquad{2300, 5, 48000};
+BiquadFilter biquad{460, 5, 48000};
 void convert_to_float(int16_t* input, float32_t* output)
 {
 	for(size_t i = 0; i < BUFFER_SIZE/4; i++)

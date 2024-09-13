@@ -210,6 +210,8 @@ private:
   float fc, Q, fs;
   float a0, a1, a2, b0, b1, b2;
   float z1, z2, z3, z4;
+  const float f_max = 2300;
+  const float f_min = 460;
 
   void compute_coeffs(float fc, float Q) {
     const float omega = 2.0 * M_PI * fc / (fs/2);
@@ -246,12 +248,17 @@ public:
       z3 = y;
       output[i] = y;
     }
+  }
 
+  float derive_fc_from_adc_val(int32_t adc_val)
+  {
+	  const static  int32_t max_adc_freq = (f_max - f_min) / pow(2, 16);
+	  //const static int32_t max_adc_val = pow(2, 16);
+	  return adc_val * max_adc_freq + f_min;
   }
 
   void set_fc(float fc) {
     this->fc = fc;
-
   }
 };
 
