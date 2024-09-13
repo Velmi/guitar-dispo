@@ -104,6 +104,36 @@
       \verb https://www.keil.com/pack/doc/CMSIS_Dev/DSP/html/group__BiquadCascadeDF1.html
       \endverb
     \endentry
+    \entry{cookbook_audio}{online}{}
+      \name{author}{1}{}{%
+        {{hash=b631b2b7bf44e8b92cf871e34b0b365e}{%
+           family={{Bristow-Johnson}},
+           familyi={B\bibinitperiod},
+           given={{Robert}},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{b631b2b7bf44e8b92cf871e34b0b365e}
+      \strng{fullhash}{b631b2b7bf44e8b92cf871e34b0b365e}
+      \strng{bibnamehash}{b631b2b7bf44e8b92cf871e34b0b365e}
+      \strng{authorbibnamehash}{b631b2b7bf44e8b92cf871e34b0b365e}
+      \strng{authornamehash}{b631b2b7bf44e8b92cf871e34b0b365e}
+      \strng{authorfullhash}{b631b2b7bf44e8b92cf871e34b0b365e}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Cookbook formulae for audio equalizer biquad filter coefficients}
+      \field{urlday}{12}
+      \field{urlmonth}{9}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html
+      \endverb
+      \verb{url}
+      \verb https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html
+      \endverb
+    \endentry
     \entry{TI-filterdesign-tool}{misc}{}
       \list{organization}{1}{%
         {Texas Instruments}%
@@ -159,8 +189,8 @@
       \strng{authorbibnamehash}{23057dd862ee88598a2cc283036c30d3}
       \strng{authornamehash}{23057dd862ee88598a2cc283036c30d3}
       \strng{authorfullhash}{23057dd862ee88598a2cc283036c30d3}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Real-Time Embedded Audio Signal Processing}
@@ -193,8 +223,8 @@
       \strng{authorbibnamehash}{ce4341bd883584d6b6aeaaedd6f6df4f}
       \strng{authornamehash}{ce4341bd883584d6b6aeaaedd6f6df4f}
       \strng{authorfullhash}{ce4341bd883584d6b6aeaaedd6f6df4f}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{3}
@@ -242,6 +272,35 @@
       \verb{url}
       \verb https://www.eetimes.com/fundamentals-of-embedded-audio-part-3/
       \endverb
+    \endentry
+    \entry{taschenbuch_et}{book}{}
+      \name{author}{2}{}{%
+        {{hash=b6346efc6ff890696e30069cc3b9d470}{%
+           family={{Kories}},
+           familyi={K\bibinitperiod},
+           given={{Ralf}},
+           giveni={R\bibinitperiod}}}%
+        {{hash=d22b0c72f8ca0d16778589a42f3a009c}{%
+           family={{Schmidt-Walter}},
+           familyi={S\bibinitperiod},
+           given={{Heinz}},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Europa Lehrmittel}%
+      }
+      \strng{namehash}{699b6bbb93b6deb2b140f9d6d68ca85b}
+      \strng{fullhash}{699b6bbb93b6deb2b140f9d6d68ca85b}
+      \strng{bibnamehash}{699b6bbb93b6deb2b140f9d6d68ca85b}
+      \strng{authorbibnamehash}{699b6bbb93b6deb2b140f9d6d68ca85b}
+      \strng{authornamehash}{699b6bbb93b6deb2b140f9d6d68ca85b}
+      \strng{authorfullhash}{699b6bbb93b6deb2b140f9d6d68ca85b}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Taschenbuch der Elektrotechnik}
+      \field{year}{2017}
     \endentry
   \enddatalist
 \endrefsection

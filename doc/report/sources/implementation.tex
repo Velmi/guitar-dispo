@@ -9,7 +9,7 @@ The choice for the \ac{IDE} fell on the
 \newline \textit{STM32CubeIDE} as it provides an easy to use installation and
 development process.
 
-Digital filters need filter coefficients. As it would be too time consuming to calculate them during runtime, these
+Digital filters need filter coefficients. For the first approach these
 coefficients where computed beforehand and then stored in the memory of the microcontroller. For these computations,
 own Python scripts were developed.
 
@@ -37,12 +37,12 @@ shown in \autoref{fig:wahwah-filter}.
     \label{fig:wahwah-filter}
 \end{figure}
 
-Firstly, the resonance frequency varies between 466\,Hz and 2,3\,kHz.
+The resonance frequency of this filter varies between 466\,Hz and 2,3\,kHz.
 
 It is also to be seen, that as the frequency changes, the bandwidth also seem to change. Firstly, it has to be mentioned,
 that this is a logarithmic scale. Nevertheless, in an ideal bandpass-filter, the quality factor is constant. This factor indicates
 how much energy is dissipated, or how high the loss of a oscillation circuit is. So to keep the Q-factor constant, with
-increasing the resonance frequency, the bandwidth also have to increase (\autoref{eq:q-factor}).
+increasing the resonance frequency, the bandwidth also have to increase (\autoref{eq:q-factor}) \cite{taschenbuch_et}.
 
 \begin{align}
     Q = \frac{f_{res}}{f_{3\,dB}}
@@ -65,10 +65,20 @@ At 2,3\,kHz the bandwidth is 600\,Hz resulting in a quality factor of:
 \end{align}
 .
 
-This behaviour is directly related to how the effect sounds and should therefore be considered in the filter design.
+%// TODO: raus? This behaviour is directly related to how the effect sounds and should therefore be considered in the filter design.
+
+To conclute this, there are two design criteria which can be derived.
+
+\begin{itemize}
+    \item mid-frequency varies from 460\,Hz to 2,3\,kHz
+    \item it is assumed, that a comparable filter is achieved by using a constant quality-factor of 5
+\end{itemize}
+
+\subsubsection{Implementation using \ac{FIR}-filters}
 
 For the first tries, \ac{FIR}-filters were used, because they always guarantee stability \cite{meyer_signalverarbeitung}.
-The first prototype of the coefficients combine a set of 32 coefficient sets with the following parameters:
+The first prototype of the coefficients combines a set of 32 coefficient sets, which were calculated beforehand
+with the following parameters:
 
 \begin{table}[!h]
     \centering
@@ -77,14 +87,12 @@ The first prototype of the coefficients combine a set of 32 coefficient sets wit
     \begin{tabular}{c | c }
         quality factor & number of coefficients\\
         \hline
-        6 & 130
+        5 & 130
     \end{tabular}
 \end{table}
 
-Here, the Q-factor is held constant for the first experiments.
-
-In the following picture shows a \ac{FIR}-model of the analog reference at 460\,Hz and 2242\,Hz
-\autoref{fig:wahwah-filter}.
+\autoref{fig:wahwah-fir} shows a \ac{FIR}-model of the analog reference at the lowest and (460\,Hz) and the highest
+frequency (2242\,Hz).
 
 \begin{figure}[!h]
     \centering
@@ -96,33 +104,32 @@ In the following picture shows a \ac{FIR}-model of the analog reference at 460\,
         \centering
         \includegraphics[width=\textwidth]{img/fir_bandpass2242.png}
     \end{subfigure}
-    \caption{Measurement of the \ac{FIR}-model frequency response at the lowest and highest frequencies}
+    \caption{Simulation of the \ac{FIR}-model frequency response at 460\,Hz and 2242\,Hz}
     \label{fig:wahwah-fir}
 \end{figure}
 
 It can be clearly observed, that the shape of the filters are not close to the analog reference.
-The effect of the bandwidth getting wider is not visible.
+The filter edges, especially near the baseband, are not steep enough.
+
+\subsubsection{Implementation using biquad-filters}
 
 The second approach to model the filter is by using a biquad-filter \cite{arm_dsp}.
-These filters use two filter-taps in the forward- and two taps in the feedback-path. The structure
-is shown in \autoref{fig:biquad-structure}.
+As already mentioned, the filter coefficients are being calculated at runtime.
 
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=7cm]{img/biquad_structure.png}
-    \caption{Structure of a biquad filter \cite{arm_dsp}}
-    \label{fig:biquad-structure}
-\end{figure}
-
-The transfer function of this filtertype is:
+Therefore following equations are used \cite{cookbook_audio}:
 
 \begin{align}
-    H(z) = \frac{b_0 + b_1 \cdot z^{-1} + b_2 \cdot z^{-2}}{a_1 \cdot z^{-1} + a_2 \cdot z^{-2}}
+    \omega_0 = 2 \pi \cdot \frac{f_c}{f_s}\\
+    \alpha = \frac{\sin{\omega_0}}{2 \cdot Q}\\
+    b_0 = \alpha\\
+    b_1 = 0\\
+    b_2 = -\alpha\\
+    a_0 = 1 + \alpha\\
+    a_1 = -2 \cdot \cos(\omega_0)\\
+    a_2 = 1 - \alpha
 \end{align}
 
-Here it can be seen, why this filter is called \frqq biquad\flqq{}: it is the short form for
-\frqq bi-quadratic\flqq{}, which relates to the powers of the numerator- and denominator-terms.
-The $a_0$-coefficient is mostly set to $1$, because its meaning is the same as the $b_0$-coefficient.
+, where $f_c$ is the wanted center frequency, $f_s$ the sampling frequency and $Q$ the quality factor.
 
 Designing a bandpass-filter with a biquad-filter results in the filters shown in \autoref{fig:wahwah-iir}.
 
@@ -136,18 +143,57 @@ Designing a bandpass-filter with a biquad-filter results in the filters shown in
         \centering
         \includegraphics[width=\textwidth]{img/iir_bandpass2242.png}
     \end{subfigure}
-    \caption{Measurement of the \ac{IIR}-model frequency response at the lowest and highest frequencies}
+    \caption{Simulation of the \ac{IIR}-model frequency response at 460\,Hz and 2242\,Hz}
     \label{fig:wahwah-iir}
 \end{figure}
 
-It shows, that the shape of this filter matches the analog reference better than the \ac{FIR}-filter.
+It shows, that the edges of a biquad-filter with five coefficients is much steeper than a \ac{FIR}-filter
+with 130 coefficients. In general, the overall shape is closer to the analog reference in comparison to
+a non-recursive filter.
 
 \subsection{Evaluation of the filters}
 
+In order to validate, that the implemented filters do in fact emulate a Wah-Wah-effect,
+the frequency response is measured as well as running through a hearing test. %// TODO: bessere formulierung
+
+\subsubsection{Evaluation of the \ac{FIR}-filters}
+
 Firstly the \ac{FIR}-filter is evaluated.
 
+To measure the frequency response, an oscilloscope with a signal generator is used. Therefore a sweep
+from 50\,Hz to 10\,kHz is applied to the input and a \ac{FFT} of the output is calculated. The result
+of the filter at 460\,Hz and 2242\,Hz is shown in \autoref{fig:measure-fir}. On channel 1 (yellow signal)
+there is the output and on channel 2 (blue signal) the input signal. The \ac{FFT} result is shown in purple.
+
+\begin{figure}[!h]
+    \centering
+    \begin{subfigure}[c]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/freq_lowest_fir.png}
+    \end{subfigure}
+    \begin{subfigure}[c]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/freq_highest_fir.png}
+    \end{subfigure}
+    \caption{Measurement of the \ac{FIR}-implementation}
+    \label{fig:measure-fir}
+\end{figure}
+
+The first thing to be recognized is, that the filter at low frequencies is no longer a bandpass, but has
+lowpass characteristic. This is expected, if the simulation in \autoref{fig:wahwah-fir} is compared with this result.
+
+Secondly, the filter has flat edges. This is also an expected result.
+
+Lastly, the amplitude in the passband is a fraction of the amplitude of the original signal.
+This is not as expected and has to be evaluated in the future. %// evaluate
+
 The first issue that will be recognized, is the cracking noise, when the filter coefficients are being
-updated.
+updated. This can be reduced using fewer filter taps, but the consequence is, a frequency response with
+less sharp edges.
+
+The hearing test provides the result, that the sound of this filter emulates a Wah-Wah-effect not sufficiently.
+
+
 
 %// TODO: measure, sound of filter
 
@@ -188,9 +234,16 @@ for the core.
 
 \textbf{Issue 2:}
 
-The output voltage of the extra added power supply is noisy, which led to connection errorswith the debugger.
+The output voltage of the extra added power supply is noisy, which led to connection errors with the debugger.
 In order to fix this, extra capacitors were added to the supply of the core.
+
+\textbf{Issue 3:}
+
+The input of the op-amp needs an DC-offset voltage as it has only single supply. The offset voltage led
+to DC-coupling on the input port. To fix this a decoupling capacitor were added between to the input and the op-amp.
 
 \textbf{Current state:}
 
 It is possible to connect a J-Link debugger to the microcontroller.
+
+%// TODO: picture of pcb

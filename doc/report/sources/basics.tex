@@ -7,6 +7,7 @@
 \subsubsubsection{Finite Impulse Response Filter}
 
 Digital Filters are a huge field of digital signal processing. The most common filters are \ac{FIR}-filters.
+These are also called \frqq non-recursive filters\flqq .
 The basic structure is a weighted shift register without feedback. The missing feedback is what makes
 the \ac{FIR}-filter stable per construction.
 
@@ -23,7 +24,8 @@ It can be seen that there are multiple components in this filter. The first comp
 which is described as $z^{-1}$. This block is responsible for adding a delay of one clock cycle to the input data.
 Secondly, there are multiplication blocks, noted as $b_M$. These blocks weight the input data and give the
 result to an adder, which adds $M+1$ weighted and delayed signal samples. This sum is the output of an
-\ac{FIR}-filter.
+\ac{FIR}-filter. It also means, that the output is only dependend on the present and the $M$ last input samples
+and not of the past output.
 
 The input signal is $x$, whereas the output is $y$. The order of this Filter is $M$ which means the amount of
 filter taps or delay blocks.
@@ -54,7 +56,7 @@ union of the filter coefficients, and the input signal $x[n]$ (\autoref{eq:conv}
 
 Another way to describe the filterung result is in the frequency domain.
 If the frequency of the input is given with $X(z)$ and the frequency response of the filter is $H(z)$
-than the ouput is $Y(z)$, which can be calculated like shown in \autoref{eq:freq-response}.
+than the output is $Y(z)$, which can be calculated like shown in \autoref{eq:freq-response}.
 
 \begin{equation}
     Y(z) = X(z) \cdot H(z)
@@ -76,13 +78,13 @@ If the value of the z-plane is evaluated on the unit circle the result is the fr
         \centering
         \includegraphics[width=\textwidth]{img/fir-freq.png}
     \end{subfigure}
-    \caption{z-plane plot (left) and frequency response (right) of a \ac{FIR}-filter}
+    \caption{z-plane plot (left) and frequency response (right) of a \ac{FIR}-lowpass-filter}
     \label{fig:FIR-z-plane-and-freq}
 \end{figure}
 
 \subsubsubsection{Infinite Impulse Response Filter}
 
-Another filter type is the \ac{IIR} filter. The structure is fully recursive as it is shown in \autoref{fig:IIR-filter}.
+Another filter type is the \ac{IIR} filter. The structure is recursive as it is shown in \autoref{fig:IIR-filter}.
 
 \begin{figure}[!h]
     \centering
@@ -91,8 +93,8 @@ Another filter type is the \ac{IIR} filter. The structure is fully recursive as 
     \label{fig:IIR-filter}
 \end{figure}
 
-Due to the recursive structure, this type of filter is no longer necessarilly stable. This means, that it can
-oscillate and eventually the output can grow exponentally. To fullfill stability, all the poles of the
+Due to this recursive structure, this type of filter is no longer necessarilly stable. This means, that it can
+oscillate and possibly the output can grow exponentally. To fullfill stability, all the poles of the
 \ac{IIR}-filter have to be in the unit-circle \cite{meyer_signalverarbeitung}.
 
 Its transfer function can be described as follows:
@@ -104,30 +106,58 @@ Its transfer function can be described as follows:
 In the time domain, the output is equal to
 
 \begin{align}
-    y[n] = a_1 \cdot y[n-1] + a_2 \cdot y[n-2] + ... + a_M \cdot y[n-M]
+    y[n] = x[n] - a_1 \cdot y[n-1] - a_2 \cdot y[n-2] - ... - a_M \cdot y[n-M]
 \end{align}
 .
 
-So the output is dependend on all the $M$ outputs before. In literature and other documentation,
-the $a_0$-coefficient is also referenced. This is typically set to $1$ as it has the same meaning as
-the $b_0$-coefficient in the \ac{FIR}-filter.
+The output is dependend on the current signal and all the $M$ outputs before. In literature and other documentation,
+the $a_0$-coefficient is also referenced. This is the amplification of the output signal. Due to filter-stability-reasons,
+this coefficient is typically set to $1$ \cite{arm_dsp} \cite{cookbook_audio}.
 
 If the two types of filters are getting merged, the result is also an \ac{IIR}-filter, plus
 a few additional feed-forward-terms. A widely used example of this is the \textit{Biquad-filter} \cite{arm_dsp}.
+
+These filters use two filter-taps in the forward- and two taps in the feedback-path. The structure
+is shown in \autoref{fig:biquad-structure}.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=7cm]{img/biquad_structure.png}
+    \caption{Structure of a biquad filter \cite{arm_dsp}}
+    \label{fig:biquad-structure}
+\end{figure}
+
+The transfer function of this filtertype is:
+
+\begin{align}
+    H(z) = \frac{b_0 + b_1 \cdot z^{-1} + b_2 \cdot z^{-2}}{a_1 \cdot z^{-1} + a_2 \cdot z^{-2}}
+\end{align}
+
+Here it can be seen, why this filter is called \frqq biquad\flqq{}: it is the short form for
+\frqq bi-quadratic\flqq{}, which relates to the powers of the numerator- and denominator-terms.
+Also in this structure, the $a_0$-coefficient is set to $1$.
+
+This transfer function leeds to an output of:
+
+\begin{align}
+    y[n] = b_0 \cdot x[n] + b_1 \cdot x[n-1] + b_2 \cdot x[n-2] - a_1 \cdot y[n-1] - a_2 \cdot y[n-2]
+\end{align}
+
+It is worth noting, that the denominator-coefficients have to be negated to match the structure in
+\autoref{fig:biquad-structure}.
 
 
 \subsubsubsection{Filter Design}
 
 This section deals with designing filters. There are a few ways to calculate the numerator and
-denominator-coefficients. But this shouldn't be part of this, the goal is more like looking at
+denominator-coefficients. But this shouldn't be part of this section, the goal is more like looking at
 how to design a filter in a high-level perspective.
 
 First of all, the number of filtertaps will be discussed. As stated earlier, \ac{FIR}-filters have
 the convenient property, that they are always stable. The downside of these filters are,
 that for example a narrow-band bandpass filter needs more filtertaps, than a comparable
 \ac{IIR}-filter \cite{meyer_signalverarbeitung}. This should not be a huge problem in the most cases,
-but if the goal is to variate the filter-coefficients, this may lead to problems which will be discussed
-later.
+but if the goal is to variate the filter-coefficients, this may lead to problems.
 
 Secondly, the shape of \ac{FIR} and \ac{IIR}-filters differ. The recursive filter is more often used to
 model an actual analog filter, due to the fact, that analog filters are also of recursive structure (e.g.
@@ -139,11 +169,11 @@ are set equal in order to make them comparable.
 
 \begin{figure}[!h]
     \centering
-    \begin{subfigure}[c]{0.45\textwidth}
+    \begin{subfigure}[c]{0.49\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fir_bandpass.png}
     \end{subfigure}
-    \begin{subfigure}[c]{0.45\textwidth}
+    \begin{subfigure}[c]{0.49\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/iir_bandpass.png}
     \end{subfigure}
@@ -173,7 +203,7 @@ filter-design-tool \cite{TI-filterdesign-tool}.
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=7cm]{img/analog_bandpass.png}
+    \includegraphics[width=8cm]{img/analog_bandpass.png}
     \caption{Analog bandpass filter frequency response}
     \label{fig:analog-bandpass}
 \end{figure}
@@ -181,7 +211,7 @@ filter-design-tool \cite{TI-filterdesign-tool}.
 It can be seen, that the basic shape of the \ac{IIR}-filter is much closer to the analog equivalent than the
 \ac{FIR}-filter.
 
-\subsubsection{LTI and LTV-Systems}
+\subsubsection{LTI and LTV-Systems} %// TODO: raus?
 
 The filters above are all \ac{LTI}-systems. That means, they firstly have a linear behaviour, so filters can be
 combined in any way without changing the output. Secondly, the filters never change in time.
@@ -226,8 +256,7 @@ Thereby the master is always responsible for the SCK and the WS line.
 \end{figure}
 
 \subsubsection{Direct Memory Access}
-
-%%// TODO: raus?
+\label{sec:dma}
 
 The \ac{DMA} is a peripheral in the microcontroller, which allows to transfer data between memory destinations or
 peripherals without the need of the \ac{CPU}.

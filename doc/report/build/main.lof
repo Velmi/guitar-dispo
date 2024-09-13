@@ -1,15 +1,16 @@
 \babel@toc {english}{}\relax 
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Basic structure of a $M$ order \ac {FIR}-filter in the first canonical form \blx@tocontentsinit {0}\cite {meyer_signalverarbeitung}}}{2}{figure.caption.5}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces z-plane plot (left) and frequency response (right) of a \ac {FIR}-filter}}{3}{figure.caption.6}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Basic structure of a $M$ order \ac {IIR}-filter in the first canonical form \blx@tocontentsinit {0}\cite {meyer_signalverarbeitung}}}{3}{figure.caption.8}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Comparison of the frequency response of a \ac {FIR}- (left) and \ac {IIR}-bandpass-filter (right)}}{4}{figure.caption.9}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Analog bandpass filter frequency response}}{5}{figure.caption.11}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Timing diagramm of the \ac {I2S} protocol \blx@tocontentsinit {0}\cite {nxp_i2s}}}{6}{figure.caption.17}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces The three basic configurations of the \ac {I2S} protocol \blx@tocontentsinit {0}\cite {nxp_i2s}}}{6}{figure.caption.19}%
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Basic concept}}{8}{figure.caption.22}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Double buffering concept \blx@tocontentsinit {0}\cite {eetimes_fund_dsp}}}{9}{figure.caption.26}%
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Measurement of the frequency response of a Wah-Wah-pedal at the lowest and highest frequencies}}{10}{figure.caption.29}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Measurement of the \ac {FIR}-model frequency response at the lowest and highest frequencies}}{11}{figure.caption.31}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Structure of a biquad filter \blx@tocontentsinit {0}\cite {arm_dsp}}}{11}{figure.caption.32}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Measurement of the \ac {IIR}-model frequency response at the lowest and highest frequencies}}{12}{figure.caption.33}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Basic structure of a $M$ order \ac {FIR}-filter in the first canonical form \blx@tocontentsinit {0}\cite {meyer_signalverarbeitung}}}{3}{figure.caption.5}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces z-plane plot (left) and frequency response (right) of a \ac {FIR}-lowpass-filter}}{4}{figure.caption.6}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Basic structure of a $M$ order \ac {IIR}-filter in the first canonical form \blx@tocontentsinit {0}\cite {meyer_signalverarbeitung}}}{5}{figure.caption.8}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Structure of a biquad filter \blx@tocontentsinit {0}\cite {arm_dsp}}}{5}{figure.caption.9}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Comparison of the frequency response of a \ac {FIR}- (left) and \ac {IIR}-bandpass-filter (right)}}{7}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Analog bandpass filter frequency response}}{7}{figure.caption.12}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Timing diagramm of the \ac {I2S} protocol \blx@tocontentsinit {0}\cite {nxp_i2s}}}{8}{figure.caption.18}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces The three basic configurations of the \ac {I2S} protocol \blx@tocontentsinit {0}\cite {nxp_i2s}}}{9}{figure.caption.20}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Basic concept}}{10}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Double buffering concept \blx@tocontentsinit {0}\cite {eetimes_fund_dsp}}}{11}{figure.caption.27}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Measurement of the frequency response of a Wah-Wah-pedal at the lowest and highest frequencies}}{12}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Simulation of the \ac {FIR}-model frequency response at 460\,Hz and 2242\,Hz}}{14}{figure.caption.32}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Simulation of the \ac {IIR}-model frequency response at 460\,Hz and 2242\,Hz}}{15}{figure.caption.33}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Measurement of the \ac {FIR}-implementation}}{15}{figure.caption.35}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

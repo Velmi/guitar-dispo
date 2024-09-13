@@ -15,9 +15,9 @@ be converted from analog to digital and transmitted over an interface. All these
 up to an overall system latency. 
 
 In this application, where a guitar signal is processed, the overall latency of the system should be less
-than 5\,ms \cite{beckmann_dsp}.
+than 5\,ms \cite{beckmann_dsp}. %// TODO: evaluate!
 
-\subsubsection{Packet losses and cracking noise}
+\subsubsection{Packet losses and cracking noise} %// TODO: buffer size evaluate?
 
 In some audio applications cracking noise can occur. This is due to
 some impulses on the audio signal. This can be caused by an error of the input sample, for example particles
@@ -33,14 +33,14 @@ The basic concept is shown in \autoref{fig:basic-concept}.
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=8cm]{img/basic_concept.PNG}
+    \includegraphics[width=7cm]{img/basic_concept.PNG}
     \caption{Basic concept}
     \label{fig:basic-concept}
 \end{figure}
 
-It is to be seen, that the input data is comming from the Line In, is sampled by a codec and transmitted
+The input data is coming from the Line In, is sampled by a \ac{ADC} and transmitted
 over \ac{I2S} to the microcontroller. There the data will be processed and the output will be transmitted
-again over \ac{I2S} to a codec. The output of the codec is again a 3,5\,mm Line Jack.
+again over \ac{I2S} to a \ac{DAC}. The output is again routed to a Line Jack.
 
 Additionally a potentiometer is connected to set the midfrequency of the filter.
 
@@ -51,8 +51,13 @@ different parameters.
 
 The basic idea is to filter the input signal with a bandpass filter. The mid frequency should be derived
 from a potentiometer which is simply connected to an \ac{ADC} inside the microcontroller. It has to be evaluated
-how exaclty the filter is adjusted. The first attempt will be a lookup-table and everytime the position of the
+how exaclty the filter is adjusted.
+
+The first attempt will be a lookup-table and everytime the position of the
 potentiometer changes, the corresponding filter coefficients will be loaded.
+
+The second approach is, to calculate the filter coefficients for a biquad-filter if the value of the potentiometer changes.
+This is reasonable to evaluate as the number of coefficients is small in comparison to a \ac{FIR}-filter.
 
 \subsubsection{Double Buffering and DMA}
 
@@ -64,16 +69,14 @@ half filled then this half will be processed and so on.
 The advantage is that it is not necessary to wait for the whole input data block to process.
 This will reduce the time between processing and sampling data \cite{eetimes_fund_dsp}.
 
-An useful peripheral in the microcontroller is the \ac{DMA}. This peripheral allows a
-direct transfer of input data from the peripheral register (e.g. \ac{ADC}-peripheral) to the \ac{RAM} 
-without the need of the \ac{CPU}. This saves computing time, because the \ac{CPU} can process
-the data simultaneously to the transfer done by the \ac{DMA}.
+To take advantage of this, it is useful to combine this technique with a \ac{DMA},
+which is already discussed in section \ref{sec:dma}.
 
 The whole procedure is shown in \autoref{fig:double-buffering}.
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=13cm]{img/double_buffering.PNG}
+    \includegraphics[width=11cm]{img/double_buffering.PNG}
     \caption{Double buffering concept \cite{eetimes_fund_dsp}}
     \label{fig:double-buffering}
 \end{figure}

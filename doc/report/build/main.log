@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.7.7)  21 AUG 2024 04:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.7.7)  13 SEP 2024 22:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1155,219 +1155,240 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist/fonts
 /enc/dvips/lm/lm-ec.enc} <./img/hka-vertical.png> <./img/hka.png>]) (./sources/
 acro.tex) [2]
-(build/main.toc)
+(build/main.toc
+Package acronym Info: Label `acro:FIR' newly defined as it shall be overridden
+although it is yet undefined on input line 24.
+)
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [3] (./sources/introduction.tex) (./sources/goal.tex
+ [3] (./sources/introduction.tex) [1
+
+
+] (./sources/goal.tex
 Package acronym Info: Label `acro:PCB' newly defined as it shall be overridden
 although it is yet undefined on input line 6.
 )
-(./sources/basics.tex
+[2] (./sources/basics.tex
 Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
 
-Package acronym Info: Label `acro:FIR' newly defined as it shall be overridden
-although it is yet undefined on input line 9.
-<img/fir.png, id=158, 573.94424pt x 263.7855pt>
+<img/fir.png, id=180, 573.94424pt x 263.7855pt>
 File: img/fir.png Graphic file (type png)
 <use img/fir.png>
-Package pdftex.def Info: img/fir.png  used on input line 17.
+Package pdftex.def Info: img/fir.png  used on input line 18.
 (pdftex.def)             Requested size: 199.16928pt x 91.5374pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[1
-
-
-{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/
-fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-r
-m.enc}]
-<img/fir-zplane.png, id=185, 469.755pt x 449.68pt>
+[3{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dis
+t/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm
+-rm.enc} <./img/fir.PNG>]
+<img/fir-zplane.png, id=209, 469.755pt x 449.68pt>
 File: img/fir-zplane.png Graphic file (type png)
 <use img/fir-zplane.png>
-Package pdftex.def Info: img/fir-zplane.png  used on input line 73.
+Package pdftex.def Info: img/fir-zplane.png  used on input line 75.
 (pdftex.def)             Requested size: 146.39133pt x 140.13354pt.
-<img/fir-freq.png, id=186, 586.19pt x 309.155pt>
+<img/fir-freq.png, id=210, 586.19pt x 309.155pt>
 File: img/fir-freq.png Graphic file (type png)
 <use img/fir-freq.png>
-Package pdftex.def Info: img/fir-freq.png  used on input line 77.
+Package pdftex.def Info: img/fir-freq.png  used on input line 79.
 (pdftex.def)             Requested size: 271.86234pt x 143.37819pt.
 
-Overfull \hbox (2.61105pt too wide) in paragraph at lines 71--79
+Overfull \hbox (2.61105pt too wide) in paragraph at lines 73--81
 []$[]$ $[]$ 
  []
 
-[2 <./img/fir.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 83--84
+
+Underfull \hbox (badness 10000) in paragraph at lines 85--86
 
  []
 
 Package acronym Info: Label `acro:IIR' newly defined as it shall be overridden
-although it is yet undefined on input line 85.
-<img/iir.png, id=203, 645.612pt x 261.97874pt>
+although it is yet undefined on input line 87.
+<img/iir.png, id=215, 645.612pt x 261.97874pt>
 File: img/iir.png Graphic file (type png)
 <use img/iir.png>
-Package pdftex.def Info: img/iir.png  used on input line 89.
+Package pdftex.def Info: img/iir.png  used on input line 91.
 (pdftex.def)             Requested size: 199.16928pt x 80.81682pt.
-[3 <./img/fir-zplane.png> <./img/fir-freq.png> <./img/iir.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 119--120
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[4 <./img/fir-zplane.png> <./img/fir-freq.png>]
+<img/biquad_structure.png, id=238, 478.78876pt x 288.07625pt>
+File: img/biquad_structure.png Graphic file (type png)
+<use img/biquad_structure.png>
+Package pdftex.def Info: img/biquad_structure.png  used on input line 125.
+(pdftex.def)             Requested size: 199.16928pt x 119.83513pt.
+ [5 <./img/iir.PNG> <./img/biquad_structure.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 150--151
 
  []
 
-<img/fir_bandpass.png, id=231, 473.77pt x 182.6825pt>
+<img/fir_bandpass.png, id=260, 473.77pt x 182.6825pt>
 File: img/fir_bandpass.png Graphic file (type png)
 <use img/fir_bandpass.png>
-Package pdftex.def Info: img/fir_bandpass.png  used on input line 144.
-(pdftex.def)             Requested size: 188.21288pt x 72.57272pt.
-<img/iir_bandpass.png, id=232, 479.7925pt x 180.675pt>
+Package pdftex.def Info: img/fir_bandpass.png  used on input line 174.
+(pdftex.def)             Requested size: 204.9466pt x 79.0258pt.
+<img/iir_bandpass.png, id=261, 479.7925pt x 180.675pt>
 File: img/iir_bandpass.png Graphic file (type png)
 <use img/iir_bandpass.png>
-Package pdftex.def Info: img/iir_bandpass.png  used on input line 148.
-(pdftex.def)             Requested size: 188.21288pt x 70.87648pt.
-[4 <./img/fir_bandpass.png> <./img/iir_bandpass.png>]
-<img/analog_bandpass.png, id=254, 586.19pt x 351.3125pt>
+Package pdftex.def Info: img/iir_bandpass.png  used on input line 178.
+(pdftex.def)             Requested size: 204.9466pt x 77.17595pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[6]
+<img/analog_bandpass.png, id=282, 586.19pt x 351.3125pt>
 File: img/analog_bandpass.png Graphic file (type png)
 <use img/analog_bandpass.png>
-Package pdftex.def Info: img/analog_bandpass.png  used on input line 176.
-(pdftex.def)             Requested size: 199.16928pt x 119.36426pt.
+Package pdftex.def Info: img/analog_bandpass.png  used on input line 206.
+(pdftex.def)             Requested size: 227.62204pt x 136.41629pt.
 Package acronym Info: Label `acro:LTI' newly defined as it shall be overridden
-although it is yet undefined on input line 186.
+although it is yet undefined on input line 216.
 Package acronym Info: Label `acro:LTV' newly defined as it shall be overridden
-although it is yet undefined on input line 189.
+although it is yet undefined on input line 219.
 Package acronym Info: Label `acro:I2S' newly defined as it shall be overridden
-although it is yet undefined on input line 196.
+although it is yet undefined on input line 226.
 Package acronym Info: Label `acro:IC' newly defined as it shall be overridden
-although it is yet undefined on input line 196.
+although it is yet undefined on input line 226.
 Package acronym Info: Label `acro:SPI' newly defined as it shall be overridden
-although it is yet undefined on input line 197.
+although it is yet undefined on input line 227.
+ [7 <./img/fir_bandpass.png> <./img/iir_bandpass.png> <./img/analog_bandpass.pn
+g>]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
-01.
-
-(/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
+31.
+ (/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<img/i2s_timing.png, id=264, 1337.99875pt x 503.8825pt>
+<img/i2s_timing.png, id=301, 1337.99875pt x 503.8825pt>
 File: img/i2s_timing.png Graphic file (type png)
 <use img/i2s_timing.png>
-Package pdftex.def Info: img/i2s_timing.png  used on input line 210.
+Package pdftex.def Info: img/i2s_timing.png  used on input line 240.
 (pdftex.def)             Requested size: 284.52756pt x 107.14857pt.
- [5{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc} <./img/analog_bandpass
-.png>]
 Package acronym Info: Label `acro:MSB' newly defined as it shall be overridden
-although it is yet undefined on input line 215.
-<img/i2s_config.png, id=281, 1288.815pt x 442.65375pt>
+although it is yet undefined on input line 245.
+<img/i2s_config.png, id=309, 1288.815pt x 442.65375pt>
 File: img/i2s_config.png Graphic file (type png)
 <use img/i2s_config.png>
-Package pdftex.def Info: img/i2s_config.png  used on input line 223.
+Package pdftex.def Info: img/i2s_config.png  used on input line 253.
 (pdftex.def)             Requested size: 398.33858pt x 136.80922pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 Package acronym Info: Label `acro:DMA' newly defined as it shall be overridden
-although it is yet undefined on input line 232.
+although it is yet undefined on input line 261.
 Package acronym Info: Label `acro:CPU' newly defined as it shall be overridden
-although it is yet undefined on input line 233.
-) (./sources/concept.tex
-[6 <./img/i2s_timing.png> <./img/i2s_config.png>]
-<img/basic_concept.PNG, id=299, 654.64575pt x 472.76625pt>
+although it is yet undefined on input line 262.
+) [8{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc} <./img/i2s_timing.png
+>] (./sources/concept.tex
+<img/basic_concept.PNG, id=328, 654.64575pt x 472.76625pt>
 File: img/basic_concept.PNG Graphic file (type png)
 <use img/basic_concept.PNG>
 Package pdftex.def Info: img/basic_concept.PNG  used on input line 36.
-(pdftex.def)             Requested size: 227.62204pt x 164.38138pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
+(pdftex.def)             Requested size: 199.16928pt x 143.8292pt.
+ [9 <./img/i2s_config.png>]
+Package acronym Info: Label `acro:ADC' newly defined as it shall be overridden
+although it is yet undefined on input line 41.
+Package acronym Info: Label `acro:DAC' newly defined as it shall be overridden
+although it is yet undefined on input line 43.
 Package acronym Info: Label `acro:CLI' newly defined as it shall be overridden
 although it is yet undefined on input line 47.
-Package acronym Info: Label `acro:ADC' newly defined as it shall be overridden
-although it is yet undefined on input line 53.
-[7]
-Package acronym Info: Label `acro:RAM' newly defined as it shall be overridden
-although it is yet undefined on input line 68.
-<img/double_buffering.PNG, id=319, 1390.19376pt x 218.8175pt>
+ [10 <./img/basic_concept.png>]
+<img/double_buffering.PNG, id=353, 1390.19376pt x 218.8175pt>
 File: img/double_buffering.PNG Graphic file (type png)
 <use img/double_buffering.PNG>
-Package pdftex.def Info: img/double_buffering.PNG  used on input line 76.
-(pdftex.def)             Requested size: 369.88582pt x 58.22008pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-) (./sources/implementation.tex [8 <./img/basic_concept.png>]
+Package pdftex.def Info: img/double_buffering.PNG  used on input line 79.
+(pdftex.def)             Requested size: 312.9803pt x 49.26186pt.
+) [11 <./img/double_buffering.PNG>] (./sources/implementation.tex
 Package acronym Info: Label `acro:IDE' newly defined as it shall be overridden
 although it is yet undefined on input line 8.
 Package acronym Info: Label `acro:EDA' newly defined as it shall be overridden
 although it is yet undefined on input line 16.
-<img/wahwah-1.png, id=333, 1092.08pt x 750.805pt>
+<img/wahwah-1.png, id=366, 1092.08pt x 750.805pt>
 File: img/wahwah-1.png Graphic file (type png)
 <use img/wahwah-1.png>
 Package pdftex.def Info: img/wahwah-1.png  used on input line 30.
 (pdftex.def)             Requested size: 188.21288pt x 129.38797pt.
-<img/wahwah-2.png, id=334, 1090.0725pt x 748.7975pt>
+<img/wahwah-2.png, id=367, 1090.0725pt x 748.7975pt>
 File: img/wahwah-2.png Graphic file (type png)
 <use img/wahwah-2.png>
 Package pdftex.def Info: img/wahwah-2.png  used on input line 34.
 (pdftex.def)             Requested size: 188.21288pt x 129.28197pt.
+ [12
 
+ <./img/wahwah-1.png> <./img/wahwah-2.png>]
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ac' on input line 77.
 
-[9 <./img/double_buffering.PNG>]
-<img/fir_bandpass460.png, id=348, 462.528pt x 346.896pt>
+<img/fir_bandpass460.png, id=382, 462.528pt x 346.896pt>
 File: img/fir_bandpass460.png Graphic file (type png)
 <use img/fir_bandpass460.png>
-Package pdftex.def Info: img/fir_bandpass460.png  used on input line 93.
+Package pdftex.def Info: img/fir_bandpass460.png  used on input line 101.
 (pdftex.def)             Requested size: 204.9466pt x 153.70923pt.
-<img/fir_bandpass2242.png, id=349, 462.528pt x 346.896pt>
+<img/fir_bandpass2242.png, id=383, 462.528pt x 346.896pt>
 File: img/fir_bandpass2242.png Graphic file (type png)
 <use img/fir_bandpass2242.png>
-Package pdftex.def Info: img/fir_bandpass2242.png  used on input line 97.
+Package pdftex.def Info: img/fir_bandpass2242.png  used on input line 105.
+(pdftex.def)             Requested size: 204.9466pt x 153.70923pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[13]
+<img/iir_bandpass460.png, id=399, 462.528pt x 346.896pt>
+File: img/iir_bandpass460.png Graphic file (type png)
+<use img/iir_bandpass460.png>
+Package pdftex.def Info: img/iir_bandpass460.png  used on input line 140.
+(pdftex.def)             Requested size: 204.9466pt x 153.70923pt.
+<img/iir_bandpass2242.png, id=400, 462.528pt x 346.896pt>
+File: img/iir_bandpass2242.png Graphic file (type png)
+<use img/iir_bandpass2242.png>
+Package pdftex.def Info: img/iir_bandpass2242.png  used on input line 144.
 (pdftex.def)             Requested size: 204.9466pt x 153.70923pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[10 <./img/wahwah-1.png> <./img/wahwah-2.png>]
-<img/biquad_structure.png, id=362, 478.78876pt x 288.07625pt>
-File: img/biquad_structure.png Graphic file (type png)
-<use img/biquad_structure.png>
-Package pdftex.def Info: img/biquad_structure.png  used on input line 112.
-(pdftex.def)             Requested size: 199.16928pt x 119.83513pt.
-<img/iir_bandpass460.png, id=366, 462.528pt x 346.896pt>
-File: img/iir_bandpass460.png Graphic file (type png)
-<use img/iir_bandpass460.png>
-Package pdftex.def Info: img/iir_bandpass460.png  used on input line 133.
-(pdftex.def)             Requested size: 204.9466pt x 153.70923pt.
-<img/iir_bandpass2242.png, id=367, 462.528pt x 346.896pt>
-File: img/iir_bandpass2242.png Graphic file (type png)
-<use img/iir_bandpass2242.png>
-Package pdftex.def Info: img/iir_bandpass2242.png  used on input line 137.
-(pdftex.def)             Requested size: 204.9466pt x 153.70923pt.
- [11 <./img/fir_bandpass460.png> <./img/fir_bandpass2242.png> <./img/biquad_str
-ucture.png>]
-Package acronym Info: Label `acro:I2C' newly defined as it shall be overridden
-although it is yet undefined on input line 164.
-Package acronym Info: Label `acro:DAC' newly defined as it shall be overridden
-although it is yet undefined on input line 171.
- [12 <./img/iir_bandpass460.png> <./img/iir_bandpass2242.png>]) [13]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
-5.
+[14 <./img/fir_bandpass460.png> <./img/fir_bandpass2242.png>]
 
-(/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ac' on input line 159.
+
+Package acronym Info: Label `acro:FFT' newly defined as it shall be overridden
+although it is yet undefined on input line 164.
+<img/freq_lowest_fir.png, id=426, 740.0448pt x 455.301pt>
+File: img/freq_lowest_fir.png Graphic file (type png)
+<use img/freq_lowest_fir.png>
+Package pdftex.def Info: img/freq_lowest_fir.png  used on input line 172.
+(pdftex.def)             Requested size: 204.9466pt x 126.08699pt.
+<img/freq_highest_fir.png, id=427, 740.0448pt x 455.301pt>
+File: img/freq_highest_fir.png Graphic file (type png)
+<use img/freq_highest_fir.png>
+Package pdftex.def Info: img/freq_highest_fir.png  used on input line 176.
+(pdftex.def)             Requested size: 204.9466pt x 126.08699pt.
+[15 <./img/iir_bandpass460.png> <./img/iir_bandpass2242.png> <./img/freq_lowest
+_fir.png (PNG copy)> <./img/freq_highest_fir.png (PNG copy)>]
+Package acronym Info: Label `acro:I2C' newly defined as it shall be overridden
+although it is yet undefined on input line 210.
+ [16]) [17]
+(./sources/appendix.tex) [18]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 5
+3.
+ (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [14
+)
+[19
 
 
 ] (build/main.lof)
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
- [15]
-(build/main.lot)
+ [20] (build/main.lot)
 \tf@lot=\write7
 \openout7 = `main.lot'.
 
- [16] (build/main.aux)
+ [21] (build/main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -1379,13 +1400,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29567 strings out of 475982
- 553591 string characters out of 5790632
- 1941187 words of memory out of 5000000
- 51173 multiletter control sequences out of 15000+600000
+ 29625 strings out of 475982
+ 554841 string characters out of 5790632
+ 1943187 words of memory out of 5000000
+ 51208 multiletter control sequences out of 15000+600000
  614349 words of font info for 71 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 113i,20n,110p,10982b,2642s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 113i,20n,110p,10982b,2640s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dis
 t/fonts/type1/public/lm/lmbx8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/
 lmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/t
@@ -1396,10 +1417,10 @@ type1/public/lm/lmss12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx1
 0.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf
 -dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public
 /lm/lmtt12.pfb>
-Output written on build/main.pdf (19 pages, 691648 bytes).
+Output written on build/main.pdf (24 pages, 935614 bytes).
 PDF statistics:
- 633 PDF objects out of 1000 (max. 8388607)
- 529 compressed objects within 6 object streams
- 120 named destinations out of 1000 (max. 500000)
- 301 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 708 PDF objects out of 1000 (max. 8388607)
+ 596 compressed objects within 6 object streams
+ 141 named destinations out of 1000 (max. 500000)
+ 343 words of extra memory for PDF output out of 10000 (max. 10000000)
 
