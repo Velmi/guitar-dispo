@@ -4,7 +4,7 @@ import scipy.signal as signal
 import matplotlib.pyplot as plt
 
 #f_s = 2
-f_s = 48000
+f_s = 24000
 
 def store_filter_header(filename):
      f = open(filename, "a")
@@ -19,7 +19,7 @@ extern \"C\" {\n\
 
 def store_filter_c_header(filename):
     f = open(filename, "a")
-    string = "#include \"iir_filter_coeffs.h\"\n"
+    string = "#include \"fir_filter_coeffs.h\"\n"
     f.write(string)
 
 def store_filter_lut(filename, num):
@@ -58,22 +58,24 @@ def freqz(b, a):
 
     plt.plot(w, 20*np.log10(np.abs(h)))
     plt.xscale('log')
+    plt.xlabel("f / Hz")
+    plt.ylabel("H / db")
     plt.grid()
     plt.show()
 
 if __name__ == "__main__":
 
-    filename = "../audio_nucleo/Core/Inc/fir_filter_coeffs.h"
+    filename = "../software/audio/fir_filter_coeffs.c"
     num_filters = 32
-    filter_order = 129
+    filter_order = 130
 
     filt_max_mid_freq = 2300
     filt_min_mid_freq = 460
 
-    q = 6
+    q = 5
     step = (filt_max_mid_freq - filt_min_mid_freq) / num_filters
 
-    store_filter_header(filename)
+    store_filter_c_header(filename)
 
     for i in range(0, num_filters):
         
@@ -89,14 +91,23 @@ if __name__ == "__main__":
         print("bw: ", bw)
 
         b64 = signal.firwin(filter_order,
-                          [start_freq, end_freq],
-                          fs=f_s,
-                          pass_zero='bandpass')
+                            window='hamming',
+                            cutoff=[start_freq, end_freq],
+                            fs=f_s,
+                            pass_zero='bandpass')
         
         b = list()
 
-        for coeff in b64:
-            b.append(np.float32(coeff))
+        #for coeff in b64:
+            #b.append(np.float32(coeff))
+        
+        #for j in range(0, 99):
+            #b.append(np.float32(0))
+
+        for k in range(0, filter_order):
+            b.append(np.float32(b64[filter_order - k - 1]))
+
+        print("sum of coeffs: " , np.sum(b))
 
         #print("coeffs b:")
         #print(b)
@@ -108,17 +119,16 @@ if __name__ == "__main__":
         #print("zeros and poles:")
         #print(zpk)
 
-        t = np.arange(0, 0.01, 1/44100)
+        t = np.arange(0, 0.01, 1/f_s)
         sig = np.sin(3000 * t * 2*np.pi)
         #plt.plot(sig)
         #plt.show()
 
-        sig_filtered = signal.filtfilt(b, 1, sig)
+        #sig_filtered = signal.filtfilt(b, 1, sig)
 
         #plt.plot(sig_filtered)
         #plt.show()
 
-
     store_filter_lut(filename, num_filters)
-    store_filter_footer(filename)
+    #store_filter_footer(filename)
     print("bs type: ", type(b[0]))

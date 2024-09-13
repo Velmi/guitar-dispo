@@ -4,7 +4,20 @@ import scipy.signal as signal
 import matplotlib.pyplot as plt
 
 #f_s = 2
-f_s = 48000
+f_s = 24000
+
+def own_iir_design(Q, fs, f_c):
+    omega_0 = 2 * np.pi * f_c / fs
+    alpha = np.sin(omega_0) / (2 * Q)
+
+    a_0 = (1 + alpha)
+    a_1 = (-2 * np.cos(omega_0)) / a_0
+    a_2 = (1 - alpha) / a_0
+    b_0 = alpha / a_0
+    b_1 = 0
+    b_2 = -alpha / a_0
+
+    return [[b_0, b_1, b_2 ,1, a_1, a_2]]
 
 def store_filter_header(filename):
      f = open(filename, "a")
@@ -55,6 +68,8 @@ def freqz(b, a):
 
     plt.plot(w, 20*np.log10(np.abs(h)))
     plt.xscale('log')
+    plt.xlabel("f / Hz")
+    plt.ylabel("H / db")
     plt.grid()
     plt.show()
 
@@ -67,7 +82,7 @@ if __name__ == "__main__":
     filt_max_mid_freq = 2300
     filt_min_mid_freq = 460
 
-    q = 6
+    q = 5
     step = (filt_max_mid_freq - filt_min_mid_freq) / num_filters
 
     store_filter_c_header(filename)
@@ -85,19 +100,19 @@ if __name__ == "__main__":
         print("mid freq: ", mid_freq)
         print("bw: ", bw)
 
-        ba = signal.iirfilter(N=filter_order,
-                              fs=f_s,
-                              Wn=[start_freq, end_freq],
-                              btype='bandpass',
-                              ftype='bessel',
-                              output='sos')
+        #ba = signal.iirfilter(N=filter_order,
+         #                     fs=f_s,
+          #                    Wn=[start_freq, end_freq],
+           #                   btype='bandpass',
+            #                  ftype='bessel',
+             #                 output='sos')
         
-        
+        ba = own_iir_design(q, f_s, mid_freq)
 
         print(ba)
         
         b = [np.float32(ba[0][0]), np.float32(ba[0][1]), np.float32(ba[0][2])]
-        a = [np.float32(ba[0][3]), np.float32(ba[0][4]), np.float32(ba[0][5])]
+        a = [-np.float32(ba[0][3]), -np.float32(ba[0][4]), -np.float32(ba[0][5])]
 
         poles = np.roots(a)
         stable = np.all(np.abs(poles) < 1)
@@ -130,5 +145,5 @@ if __name__ == "__main__":
     f.write("\nfloat32_t iir[] = {1, 0, 0, 0, 0};")
     f.close()
     store_filter_lut(filename, num_filters)
-    store_filter_footer(filename)
+    #store_filter_footer(filename)
     print("bs type: ", type(b[0]))
