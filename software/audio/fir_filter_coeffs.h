@@ -8,6 +8,8 @@ extern "C" {
 #include "stdint.h"
 #include "arm_math.h"
 
+#define FILTER_TAPS 129
+
 extern const float32_t* fir_coeffs_lut[32];
 
 #ifdef __cplusplus
