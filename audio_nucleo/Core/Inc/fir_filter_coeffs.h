@@ -1,5 +1,7 @@
 #ifndef __FIR_FILTER_COEFFS__H__
 #define __FIR_FILTER_COEFFS__H__
+#endif
+
 #ifdef __cplusplus__
 extern "C" {
 #endif
