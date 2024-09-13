@@ -120,6 +120,7 @@ int16_t* pOutput;
 
 bool data_ready = true;
 
+/*
 FIRCoeffs lowpassCoeffs[] =
 {
 		{fir_coeffs32_0_05, 0.05},
@@ -141,13 +142,16 @@ FIRCoeffs bandpassCoeffs[] =
 		{fir_coeffs32_025_035, 0.3},
 		{fir_coeffs32_035_045, 0.4}
 };
+*/
 
-FIRInstance firInstance {bandpassCoeffs, 32, sizeof(bandpassCoeffs)/sizeof(FIRCoeffs)};
+FIRInstance firInstance {fir_coeffs_lut, 32, sizeof(fir_coeffs_lut)/sizeof(float32_t*)};
 FIRFilter firFilter {firInstance, 32};
 
-FIRInstance adcCoeffs{lowpassCoeffs, 32, sizeof(lowpassCoeffs)/sizeof(FIRInstance)};
+FIRInstance adcCoeffs{fir_coeffs32_LP_lut, 32, sizeof(fir_coeffs32_LP_lut)/sizeof(float32_t*)};
 FIRFilter adcFilter {adcCoeffs, 1};
 
+//IIRInstance iirInstance{iir_coeffs_lut, 1, sizeof(iir_coeffs_lut) / sizeof(float32_t*)};
+//IIRFilter iirFilter {iirInstance, 32};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/

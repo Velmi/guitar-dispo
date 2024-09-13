@@ -2649,6 +2649,16 @@
 		)
 		(uuid "b9695d1e-42fb-4226-85ea-dfb3b6f16696")
 	)
+	(text "TODO:\nadd offset to OPA input"
+		(exclude_from_sim no)
+		(at 241.046 123.19 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "d183a843-72fe-4913-8b0c-d263e0a5ed2a")
+	)
 	(global_label "I2S6_MCK"
 		(shape input)
 		(at 38.1 60.96 180)
