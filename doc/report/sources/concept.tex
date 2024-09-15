@@ -5,7 +5,7 @@
 \subsubsection{Latency}
 
 As we have to sample a block of data in the digital domain, there is a latency between the input and output
-depending on some parameters. Firstly the buffer size has a large impact on the latency. The greater the buffer the
+depending on some parameters. Firstly the buffer size has a large impact on the latency. The greater the buffer, the
 greater the latency. It is application depending what latency is acceptable, this is why that parameter
 limits the system and should be evaluated carefully.
 
@@ -15,9 +15,9 @@ be converted from analog to digital and transmitted over an interface. All these
 up to an overall system latency. 
 
 In this application, where a guitar signal is processed, the overall latency of the system should be less
-than 5\,ms \cite{beckmann_dsp}. %// TODO: evaluate!
+than 5\,ms \cite{beckmann_dsp}.
 
-\subsubsection{Packet losses and cracking noise} %// TODO: buffer size evaluate?
+\subsubsection{Packet losses and cracking noise}
 
 In some audio applications cracking noise can occur. This is due to
 some impulses on the audio signal. This can be caused by an error of the input sample, for example particles
@@ -43,9 +43,6 @@ over \ac{I2S} to the microcontroller. There the data will be processed and the o
 again over \ac{I2S} to a \ac{DAC}. The output is again routed to a Line Jack.
 
 Additionally a potentiometer is connected to set the midfrequency of the filter.
-
-There is also a serial connection to a PC where a \ac{CLI} should be available to configure
-different parameters.
 
 \subsubsection{Signalflow}
 
@@ -80,3 +77,64 @@ The whole procedure is shown in \autoref{fig:double-buffering}.
     \caption{Double buffering concept \cite{eetimes_fund_dsp}}
     \label{fig:double-buffering}
 \end{figure}
+
+\subsubsection{Design criteria}
+
+As the goal is to develop a variable bandpass filter, not only a set of coefficients for one filter has to be stored,
+but many versions of this filter with different mid-frequencies.
+
+As a reference, the frequency response of the \textit{Cry-Baby}-Pedal of Prof. Litzenburger has been measured, this is
+shown in \autoref{fig:wahwah-filter}.
+
+\begin{figure}[!h]
+    \centering
+    \begin{subfigure}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/wahwah-1.png}
+    \end{subfigure}
+    \begin{subfigure}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/wahwah-2.png}
+    \end{subfigure}
+    \caption{Measurement of the frequency response of a Wah-Wah-pedal at the lowest and highest frequencies}
+    \label{fig:wahwah-filter}
+\end{figure}
+
+The resonance frequency of this filter varies between 466\,Hz and 2,3\,kHz.
+
+It is also to be seen, that as the frequency changes, the bandwidth also seem to change. Firstly, it has to be mentioned,
+that this is a logarithmic scale. Nevertheless, in an ideal bandpass-filter, the quality factor is constant. This factor indicates
+how much energy is dissipated, or how high the loss of a oscillation circuit is. So to keep the Q-factor constant, with
+increasing the resonance frequency, the bandwidth also has to increase (\autoref{eq:q-factor}) \cite{taschenbuch_et}.
+
+\begin{align}
+    Q = \frac{f_{res}}{f_{3\,dB}}
+    \label{eq:q-factor}
+\end{align}
+
+By measuring the bandwidths of this filter, it turns out, that the quality factor also changes.
+
+The bandwidth at 466\,Hz is measured to be 54\,Hz, which leads to a Q-factor of:
+
+\begin{align}
+    Q = \frac{460\,Hz}{54\,Hz} = 8,518
+\end{align}
+.
+
+At 2,3\,kHz the bandwidth is 600\,Hz resulting in a quality factor of:
+
+\begin{align}
+    Q = \frac{2,3\,kHz}{600\,Hz} = 3,833
+\end{align}
+.
+
+To conclute this, there are two design criteria for the filters which can be derived.
+
+\begin{itemize}
+    \item mid-frequency varies from 460\,Hz to 2,3\,kHz
+    \item it is assumed, that a comparable filter is achieved by using a constant quality-factor of 5
+\end{itemize}
+
+Another factor is the buffer size, as it has a direct effect on the overall latency.
+Because it is not necessary to use a big buffer size, the choice fell on 128 samples, which means
+64 samples per processing step, as double buffering is used. This is also evaluated in later steps.

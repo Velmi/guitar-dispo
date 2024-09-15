@@ -14,13 +14,16 @@ int16_t* pOutput;
 float32_t txBufferf[BUFFER_SIZE/2];
 float32_t rxBufferf[BUFFER_SIZE/2];
 
+uint16_t adcVal[10];
+
 FIRInstance firInstance {fir_coeffs_lut, FILTER_TAPS, sizeof(fir_coeffs_lut)/sizeof(float32_t*)};
-FIRFilter firFilter {firInstance, 32};
+FIRFilter firFilter {firInstance, 1};
 
 //IIRInstance iirInstance {iir_coeffs_lut, 1, sizeof(iir_coeffs_lut)/sizeof(float32_t*)};
 //IIRFilter iirFilter {iirInstance, 32};
 
 BiquadFilter biquad{460, 5, 48000};
+
 void convert_to_float(int16_t* input, float32_t* output)
 {
 	for(size_t i = 0; i < BUFFER_SIZE/4; i++)
@@ -48,8 +51,7 @@ void process_data()
 	for (size_t i = 0; i < BUFFER_SIZE/2 ; i++)
 	{
 		pOutput[i] = pInput[i];
-	}
-	*/
+	}*/
 }
 
 void HAL_I2SEx_TxRxCpltCallback(I2S_HandleTypeDef *hi2s)
@@ -71,4 +73,12 @@ void HAL_I2SEx_TxRxHalfCpltCallback(I2S_HandleTypeDef *hi2s)
 void HAL_I2S_ErrorCallback(I2S_HandleTypeDef *hi2s)
 {
 	uint32_t err = hi2s->ErrorCode;
+}
+
+void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef* hadc) {
+	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14);
+}
+
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc) {
+  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14);
 }

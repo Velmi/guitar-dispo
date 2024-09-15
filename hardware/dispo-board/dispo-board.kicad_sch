@@ -5085,7 +5085,7 @@
 	)
 	(text "Note PWR: Use internal\nLDO regulator (Config 1)\n\nIMPORTANT NOTE: No LDO on 68PIN PACKAGE!!"
 		(exclude_from_sim no)
-		(at 59.182 128.016 0)
+		(at -48.768 122.174 0)
 		(effects
 			(font
 				(size 1.27 1.27)

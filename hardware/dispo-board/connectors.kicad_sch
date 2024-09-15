@@ -2792,6 +2792,16 @@
 		)
 		(uuid "dcca9f4b-48b8-4217-be51-5e79aaad180c")
 	)
+	(text "TODO:\nproper analog input read section"
+		(exclude_from_sim no)
+		(at 317.754 29.464 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "e5b088dc-4872-48ad-8b97-ee106459eed0")
+	)
 	(text "Digital In"
 		(exclude_from_sim no)
 		(at 19.685 57.15 0)

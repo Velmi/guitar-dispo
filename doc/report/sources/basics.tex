@@ -54,7 +54,7 @@ union of the filter coefficients, and the input signal $x[n]$ (\autoref{eq:conv}
     \label{eq:conv}
 \end{equation}
 
-Another way to describe the filterung result is in the frequency domain.
+Another way to describe the filtering result is in the frequency domain.
 If the frequency of the input is given with $X(z)$ and the frequency response of the filter is $H(z)$
 than the output is $Y(z)$, which can be calculated like shown in \autoref{eq:freq-response}.
 
@@ -94,7 +94,7 @@ Another filter type is the \ac{IIR} filter. The structure is recursive as it is 
 \end{figure}
 
 Due to this recursive structure, this type of filter is no longer necessarilly stable. This means, that it can
-oscillate and possibly the output can grow exponentally. To fullfill stability, all the poles of the
+oscillate and possibly the output can grow exponentially. To fulfill stability, all the poles of the
 \ac{IIR}-filter have to be in the unit-circle \cite{meyer_signalverarbeitung}.
 
 Its transfer function can be described as follows:
@@ -157,11 +157,11 @@ First of all, the number of filtertaps will be discussed. As stated earlier, \ac
 the convenient property, that they are always stable. The downside of these filters are,
 that for example a narrow-band bandpass filter needs more filtertaps, than a comparable
 \ac{IIR}-filter \cite{meyer_signalverarbeitung}. This should not be a huge problem in the most cases,
-but if the goal is to variate the filter-coefficients, this may lead to problems.
+but if the goal is to variate the filter-coefficients, this may lead to problems. Additionally, a longer filter
+could leed to a bigger latency.
 
 Secondly, the shape of \ac{FIR} and \ac{IIR}-filters differ. The recursive filter is more often used to
-model an actual analog filter, due to the fact, that analog filters are also of recursive structure (e.g.
-a second order LC-filter) \cite{meyer_signalverarbeitung}.
+model an actual analog filter \cite{meyer_signalverarbeitung}.
 
 In the following graphics, there is a \ac{FIR}- on the left and a \ac{IIR}-bandpass-filter on the right.
 All the parameters of these two filters, mid-frequency, bandwidth, quality-factor and number of coefficients
@@ -210,14 +210,6 @@ filter-design-tool \cite{TI-filterdesign-tool}.
 
 It can be seen, that the basic shape of the \ac{IIR}-filter is much closer to the analog equivalent than the
 \ac{FIR}-filter.
-
-\subsubsection{LTI and LTV-Systems} %// TODO: raus?
-
-The filters above are all \ac{LTI}-systems. That means, they firstly have a linear behaviour, so filters can be
-combined in any way without changing the output. Secondly, the filters never change in time.
-This is not the case for a variable bandpass, as it changes its coefficients. Therefore it is linear, but no
-longer time-invariant. Such systems are then called \ac{LTV}.
-This may have an effect to the output signal, so this has to be evaluated.
 
 \subsection{Microcontroller-Peripherals}
 

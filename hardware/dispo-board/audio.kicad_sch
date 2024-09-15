@@ -2619,7 +2619,7 @@
 	)
 	(text "TODO:\nC to decouple source\nref OPA to VA/2\nremove R14 and R16 (done)\nremove C25 (done)"
 		(exclude_from_sim no)
-		(at 230.124 43.18 0)
+		(at 316.992 46.99 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2651,7 +2651,7 @@
 	)
 	(text "TODO:\nadd offset to OPA input"
 		(exclude_from_sim no)
-		(at 241.046 123.19 0)
+		(at 315.468 124.968 0)
 		(effects
 			(font
 				(size 1.27 1.27)

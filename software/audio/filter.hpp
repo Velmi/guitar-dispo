@@ -13,6 +13,9 @@
 //extern LOG logger;
 //extern CLI<LOG> cli;
 
+extern uint16_t adcVal[10];
+extern ADC_HandleTypeDef hadc1;
+
 static bool between(int32_t value, int32_t min, int32_t max)
 {
 	if (value >= max || value <= min)
@@ -58,7 +61,7 @@ struct FIRFilter
 		}
 		else
 		{
-			arm_fir_init_f32(&S, firInstance.order, firInstance.pFirCoeffs[31], pState, blockSize);
+			arm_fir_init_f32(&S, firInstance.order, firInstance.pFirCoeffs[0], pState, blockSize);
 		}
 	}
 
@@ -85,6 +88,7 @@ struct FIRFilter
 		{
 			arm_fir_f32(&S, input + (i*blockSize), output + (i*blockSize), blockSize);
 			//memcpy(output, input, numSamples);
+			output[i] = output[i] * 6;
 		}
 	}
 
@@ -124,12 +128,6 @@ struct IIRFilter
 	float32_t* pState;
 	uint32_t blockSize;
 
-	float32_t coeffs[5] = {0.3256743030211323, 0.0, -0.3256743030211323, 0.3490566659603244, 0.3486513939577354};
-	/*
-	{
-			0.04948996/2,  0.09897991/2,  0.04948996/2,        -1.27963242/2,  0.47759225/2
-	};*/
-
 	IIRFilter(IIRInstance& iirInstance, uint32_t blockSize)
 	: iirInstance{iirInstance},
 	  blockSize{blockSize}
@@ -144,7 +142,7 @@ struct IIRFilter
 		}
 		else
 		{
-			arm_biquad_cascade_df1_init_f32(&S, iirInstance.order, coeffs, pState);
+			arm_biquad_cascade_df1_init_f32(&S, iirInstance.order, iirInstance.pIirCoeffs[0], pState);
 		}
 	}
 
@@ -205,7 +203,8 @@ struct IIRFilter
 };
 
 
-class BiquadFilter {
+class BiquadFilter
+{
 private:
   float fc, Q, fs;
   float a0, a1, a2, b0, b1, b2;
@@ -213,12 +212,13 @@ private:
   const float f_max = 2300;
   const float f_min = 460;
 
-  void compute_coeffs(float fc, float Q) {
+  void compute_coeffs(float fc, float Q)
+  {
     const float omega = 2.0 * M_PI * fc / (fs/2);
     const float alpha = sinf(omega) / (2 * Q);
     const float phi = cosf(omega);
 
-    a0 = 1 + alpha;
+    a0 = (1 + alpha);
 
     b0 = alpha / a0;
     b1 = 0;
@@ -229,35 +229,44 @@ private:
 
 public:
 
-  BiquadFilter(float fc, float Q, float fs) : fs(fs), Q(Q), fc(fc) {
+  BiquadFilter(float fc, float Q, float fs) : fs(fs), Q(Q), fc(fc)
+  {
     this->z1 = 0;
     this->z2 = 0;
     this->z3 = 0;
     this->z4 = 0;
     compute_coeffs(fc, Q);
-
   }
-  float process(const float* input, float* output, uint32_t n) {
-	    compute_coeffs(fc, Q);
-    for (uint32_t i = 0; i < n; i++) {
+
+  void process(const float* input, float* output, uint32_t n)
+  {
+	//HAL_ADC_Start(&hadc1);
+	//adcVal[0] = HAL_ADC_GetValue(&hadc1);
+	//fc = derive_fc_from_adc_val(adcVal[0]);
+	compute_coeffs(fc, Q);
+
+    for (uint32_t i = 0; i < n; i++)
+    {
       const float x = input[i];
       const float y = b0 * x + b1 * z1 + b2 * z2 - (a1 * z3 + a2 * z4);
       z2 = z1;
       z1 = x;
       z4 = z3;
       z3 = y;
-      output[i] = y;
+      output[i] = y * 6;
     }
   }
 
   float derive_fc_from_adc_val(int32_t adc_val)
   {
-	  const static  int32_t max_adc_freq = (f_max - f_min) / pow(2, 16);
+	  const static float max_adc_freq = (f_max - f_min) / pow(2, 16);
 	  //const static int32_t max_adc_val = pow(2, 16);
-	  return adc_val * max_adc_freq + f_min;
+	  float freq = ((float)adc_val * max_adc_freq) + f_min;
+	  return freq;
   }
 
-  void set_fc(float fc) {
+  void set_fc(float fc)
+  {
     this->fc = fc;
   }
 };

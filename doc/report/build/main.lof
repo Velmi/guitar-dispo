@@ -5,12 +5,17 @@
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Structure of a biquad filter \blx@tocontentsinit {0}\cite {arm_dsp}}}{5}{figure.caption.9}%
 \contentsline {figure}{\numberline {3.5}{\ignorespaces Comparison of the frequency response of a \ac {FIR}- (left) and \ac {IIR}-bandpass-filter (right)}}{7}{figure.caption.10}%
 \contentsline {figure}{\numberline {3.6}{\ignorespaces Analog bandpass filter frequency response}}{7}{figure.caption.12}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Timing diagramm of the \ac {I2S} protocol \blx@tocontentsinit {0}\cite {nxp_i2s}}}{8}{figure.caption.18}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces The three basic configurations of the \ac {I2S} protocol \blx@tocontentsinit {0}\cite {nxp_i2s}}}{9}{figure.caption.20}%
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Basic concept}}{10}{figure.caption.23}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Double buffering concept \blx@tocontentsinit {0}\cite {eetimes_fund_dsp}}}{11}{figure.caption.27}%
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Measurement of the frequency response of a Wah-Wah-pedal at the lowest and highest frequencies}}{12}{figure.caption.30}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Simulation of the \ac {FIR}-model frequency response at 460\,Hz and 2242\,Hz}}{14}{figure.caption.32}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Simulation of the \ac {IIR}-model frequency response at 460\,Hz and 2242\,Hz}}{15}{figure.caption.33}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Measurement of the \ac {FIR}-implementation}}{15}{figure.caption.35}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Timing diagramm of the \ac {I2S} protocol \blx@tocontentsinit {0}\cite {nxp_i2s}}}{8}{figure.caption.16}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces The three basic configurations of the \ac {I2S} protocol \blx@tocontentsinit {0}\cite {nxp_i2s}}}{8}{figure.caption.18}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Basic concept}}{10}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Double buffering concept \blx@tocontentsinit {0}\cite {eetimes_fund_dsp}}}{10}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Measurement of the frequency response of a Wah-Wah-pedal at the lowest and highest frequencies}}{11}{figure.caption.25}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Simulation of the \ac {FIR}-model frequency response at 460\,Hz and 2242\,Hz using the Hamming-window}}{14}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Simulation of the \ac {FIR}-model frequency response at 460\,Hz and 2242\,Hz using the Blackman-window}}{15}{figure.caption.31}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Simulation of the \ac {FIR}-model frequency response at 460\,Hz and 2242\,Hz using the Bartlett-window}}{15}{figure.caption.32}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Simulation of the \ac {IIR}-model frequency response at 460\,Hz and 2300\,Hz}}{16}{figure.caption.33}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Measurement of the \ac {FIR}-implementation using Hamming window}}{18}{figure.caption.35}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Measurement of the biquad-implementation}}{18}{figure.caption.36}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Measurement of the step response of the \ac {FIR}- and Biquad filters}}{19}{figure.caption.37}%
+\contentsline {figure}{\numberline {B.1}{\ignorespaces The build \ac {PCB} with all modifications and connectors}}{25}{figure.caption.38}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
