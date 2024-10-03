@@ -44,8 +44,8 @@ void convert_to_in16_t(float32_t* input, int16_t* output)
 void process_data()
 {
 	convert_to_float(pInput, rxBufferf);
-	//firFilter(rxBufferf, txBufferf, BUFFER_SIZE/4);
-	biquad.process(rxBufferf, txBufferf, BUFFER_SIZE/4);
+	firFilter(rxBufferf, txBufferf, BUFFER_SIZE/4);
+	//biquad.process(rxBufferf, txBufferf, BUFFER_SIZE/4);
 	convert_to_in16_t(txBufferf, pOutput);
 	/*
 	for (size_t i = 0; i < BUFFER_SIZE/2 ; i++)

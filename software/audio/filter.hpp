@@ -82,13 +82,15 @@ struct FIRFilter
 
 	void operator()(float32_t* input, float32_t* output, uint16_t numSamples)
 	{
+		float gain = 1;
 		uint16_t numBlocks = numSamples/blockSize;
+		updateCoeffs(adcVal[0]);
 
 		for (size_t i = 0; i < numBlocks; i++)
 		{
 			arm_fir_f32(&S, input + (i*blockSize), output + (i*blockSize), blockSize);
 			//memcpy(output, input, numSamples);
-			output[i] = output[i] * 6;
+			output[i] = output[i] * gain;
 		}
 	}
 
@@ -242,8 +244,10 @@ public:
   {
 	//HAL_ADC_Start(&hadc1);
 	//adcVal[0] = HAL_ADC_GetValue(&hadc1);
-	//fc = derive_fc_from_adc_val(adcVal[0]);
+	fc = derive_fc_from_adc_val(adcVal[0]);
 	compute_coeffs(fc, Q);
+
+	float gain = 1;
 
     for (uint32_t i = 0; i < n; i++)
     {
@@ -253,7 +257,7 @@ public:
       z1 = x;
       z4 = z3;
       z3 = y;
-      output[i] = y * 6;
+      output[i] = y * gain;
     }
   }
 
