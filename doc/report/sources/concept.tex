@@ -44,6 +44,8 @@ again over \ac{I2S} to a \ac{DAC}. The output is again routed to a Line Jack.
 
 Additionally a potentiometer is connected to set the midfrequency of the filter.
 
+To ensure an adequate sampling rate for audio quality, the frequency is selected to be 48\,kHz.
+
 \subsubsection{Signalflow}
 
 The basic idea is to filter the input signal with a bandpass filter. The mid frequency should be derived
@@ -69,6 +71,8 @@ This will reduce the time between processing and sampling data \cite{eetimes_fun
 To take advantage of this, it is useful to combine this technique with a \ac{DMA},
 which is already discussed in section \ref{sec:dma}.
 
+%// TODO ausführlicher
+
 The whole procedure is shown in \autoref{fig:double-buffering}.
 
 \begin{figure}[!h]
@@ -83,7 +87,7 @@ The whole procedure is shown in \autoref{fig:double-buffering}.
 As the goal is to develop a variable bandpass filter, not only a set of coefficients for one filter has to be stored,
 but many versions of this filter with different mid-frequencies.
 
-As a reference, the frequency response of the \textit{Cry-Baby}-Pedal of Prof. Litzenburger has been measured, this is
+As a reference, the frequency response of the \textit{Cry-Baby}-Pedal has been measured, which is
 shown in \autoref{fig:wahwah-filter}.
 
 \begin{figure}[!h]
@@ -102,33 +106,28 @@ shown in \autoref{fig:wahwah-filter}.
 
 The resonance frequency of this filter varies between 466\,Hz and 2,3\,kHz.
 
-It is also to be seen, that as the frequency changes, the bandwidth also seem to change. Firstly, it has to be mentioned,
-that this is a logarithmic scale. Nevertheless, in an ideal bandpass-filter, the quality factor is constant. This factor indicates
-how much energy is dissipated, or how high the loss of a oscillation circuit is. So to keep the Q-factor constant, with
-increasing the resonance frequency, the bandwidth also has to increase (\autoref{eq:q-factor}) \cite{taschenbuch_et}.
-
-\begin{align}
-    Q = \frac{f_{res}}{f_{3\,dB}}
-    \label{eq:q-factor}
-\end{align}
-
-By measuring the bandwidths of this filter, it turns out, that the quality factor also changes.
-
+It is also to be seen, that as the frequency changes, the bandwidth also seem to change. Firstly, it has to be mentioned
+that this is a logarithmic scale. Nevertheless, by measuring the bandwidths of this filter, it turns out, that the quality
+factor also changes.
 The bandwidth at 466\,Hz is measured to be 54\,Hz, which leads to a Q-factor of:
 
 \begin{align}
-    Q = \frac{460\,Hz}{54\,Hz} = 8,518
+    Q = \frac{466\,Hz}{54\,Hz} = 8,63
 \end{align}
-.
 
 At 2,3\,kHz the bandwidth is 600\,Hz resulting in a quality factor of:
 
 \begin{align}
     Q = \frac{2,3\,kHz}{600\,Hz} = 3,833
 \end{align}
-.
 
-To conclute this, there are two design criteria for the filters which can be derived.
+To keep the Q-factor constant, with increasing the resonance frequency, the bandwidth also has to increase
+(\autoref{eq:q-factor}) \cite{taschenbuch_et}.
+
+For the design of the digital filters, it is assumed, that a constant quality-factor is sufficient to model
+the analog reference.
+
+To conclude, there are two design criteria for the filters which can be derived.
 
 \begin{itemize}
     \item mid-frequency varies from 460\,Hz to 2,3\,kHz

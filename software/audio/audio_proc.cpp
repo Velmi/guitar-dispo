@@ -22,7 +22,7 @@ FIRFilter firFilter {firInstance, 1};
 //IIRInstance iirInstance {iir_coeffs_lut, 1, sizeof(iir_coeffs_lut)/sizeof(float32_t*)};
 //IIRFilter iirFilter {iirInstance, 32};
 
-BiquadFilter biquad{460, 5, 48000};
+BiquadFilter biquad{800, 5, 48000};
 
 void convert_to_float(int16_t* input, float32_t* output)
 {
@@ -44,8 +44,8 @@ void convert_to_in16_t(float32_t* input, int16_t* output)
 void process_data()
 {
 	convert_to_float(pInput, rxBufferf);
-	firFilter(rxBufferf, txBufferf, BUFFER_SIZE/4);
-	//biquad.process(rxBufferf, txBufferf, BUFFER_SIZE/4);
+//	firFilter(rxBufferf, txBufferf, BUFFER_SIZE/4);
+	biquad.process(rxBufferf, txBufferf, BUFFER_SIZE/4);
 	convert_to_in16_t(txBufferf, pOutput);
 	/*
 	for (size_t i = 0; i < BUFFER_SIZE/2 ; i++)

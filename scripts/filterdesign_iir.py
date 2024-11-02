@@ -70,6 +70,7 @@ def freqz(b, a):
     plt.xscale('log')
     plt.xlabel("f / Hz")
     plt.ylabel("H / db")
+    plt.ylim(-80, 0)
     plt.grid()
     plt.show()
 

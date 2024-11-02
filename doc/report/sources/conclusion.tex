@@ -1,10 +1,14 @@
-\section{Conclusion}
+\section{Conclusion and outlook}
 
-To summarize, is can be said, that it is possible to build a guitar effect that emulates
-the filter characteristics of a Wah-Wah-effect using Biquad-filters. Although the \ac{ADC} issue has to be fixed it
-the future, the result of this project is satisfactory.
+A \ac{PCB} was designed, which works after fixing the main errors. There is also the possibility to further
+extend the functionality on this board. It is possible to implement new effects, like a delay or flanger.
+Also connecting a \ac{I2C}-display or adding buttons to vary between effects could be done.
 
-The \ac{PCB} had a few errors, which could be fixed.
+To summarize, it can be said, that it is possible to build a digital guitar effects-board that emulates
+the filter characteristics of a Wah-Wah-effect using Biquad-filters. The adjustment works smootly, without
+any loss of samples. In contrast to the \ac{FIR}-filter implementation, which produce cracking noise
+as the filter coefficients are being loaded. There is some way to fix this issue, but the filter characteristics
+does not model an actual analog filter, so there is no need to further investigate in this implementation.
 
-Also it could be shown, that the \ac{FIR}-filter are not suitable for emulating the filter an analog Wah-Wah-effect
-uses.
+A short description of how to use this board can be found in the github repository
+\url{https://github.com/Velmi/guitar-dispo} in doc/usage.md.

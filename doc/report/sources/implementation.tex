@@ -10,7 +10,7 @@ The choice for the \ac{IDE} fell on the
 development process.
 
 Digital filters need filter coefficients. For the first approach these
-coefficients where computed beforehand and then stored in the memory of the microcontroller. For these computations,
+coefficients were computed beforehand and then stored in the memory of the microcontroller. For these computations,
 own Python scripts were developed.
 
 In order to design the \ac{PCB}, the \ac{EDA}-software \textit{KiCAD} was used.
@@ -36,16 +36,25 @@ The main components that were chosen are:
     \item CS4344-CZZR Audio \ac{ADC}
 \end{itemize}
 
-The reason for the choice of these components is, that these are also present on the Nucleo- and the
+The reason for the choice of these components is that these are also present on the Nucleo- and the
 breakout-board, except for the microcontroller. Therefore the smallest package with 68 pins were chosen.
+
+A blockdiagram of the \ac{PCB} is shown in the following figure.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=\textwidth]{img/blockdiagram.png}
+    \caption{Blockdiagram of the PCB}
+    \label{fig:blockdiagram}
+\end{figure}
 
 \subsection{Implementation of the filters}
 
 \subsubsection{Implementation using \ac{FIR}-filters}
 
 For the first tries, \ac{FIR}-filters were used, because they always guarantee stability \cite{meyer_signalverarbeitung}.
-The first prototype of the coefficients combines a set of 32 coefficient sets, which were calculated beforehand
-with the following parameters:
+The first prototype of the coefficients combines a set of 32 coefficient sets, which were calculated beforehand,
+using the python scripts, with the following parameters:
 
 \begin{table}[!h]
     \centering
@@ -105,10 +114,21 @@ Also the Blackman- and the Bartlett window are tested. These simulation results 
     \label{fig:fir-sim-bartlett}
 \end{figure}
 
-It can be clearly observed, that the shape of the filters are not close to the analog reference.
-The filter edges, especially near the baseband, are not as sharp as the actual measured reference filter.
+%\cleardoublepage
 
-\clearpage
+It can be clearly observed, that the shape of the filters are not close to the analog reference.
+The filter edges, especially near DC, are not as sharp as the actual measured reference filter.
+
+The flowchart of the software using the \ac{FIR}-filters is shown in \autoref{fig:fir-flowchart}.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=6cm]{img/FIR_flowchart.png}
+    \caption{Flowchart of the signal processing using the \ac{FIR}-filter}
+    \label{fig:fir-flowchart}
+\end{figure}
+
+\cleardoublepage
 
 \subsubsection{Implementation using biquad-filters}
 
@@ -128,7 +148,7 @@ Therefore following equations are used \cite{cookbook_audio}:
     a_2 = 1 - \alpha
 \end{align}
 
-, where $f_c$ is the wanted center frequency, $f_s$ the sampling frequency and $Q$ the quality factor.
+where $f_c$ is the wanted center frequency, $f_s$ the sampling frequency and $Q$ the quality factor.
 
 Designing a bandpass-filter in biquad-structure results in the frequency responses shown in \autoref{fig:iir-biquad-sim}.
 
@@ -146,9 +166,20 @@ Designing a bandpass-filter in biquad-structure results in the frequency respons
     \label{fig:iir-biquad-sim}
 \end{figure}
 
-It shows, that the edges of a biquad-filter with five coefficients are sharper than a \ac{FIR}-filter
-with 130 coefficients. Also it can be seen, that there is a lower attenuation in the stopband in comparison
+It shows that the edges of a biquad-filter with five coefficients are sharper than a \ac{FIR}-filter
+with 130 coefficients. Also it can be seen that there is a lower attenuation in the stopband in comparison
 to the \ac{FIR}-filter implementation.
 
 In general, the overall shape is closer to the analog reference in comparison to
 the non-recursive filters.
+
+The following flowchart shows the signal processing by using the Biquad-filters.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=4.5cm]{img/IIR_flowchart.png}
+    \caption{Flowchart of the signal processing using the Biquad-filter}
+    \label{fig:iir-flowchart}
+\end{figure}
+
+\cleardoublepage

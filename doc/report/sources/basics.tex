@@ -1,10 +1,8 @@
 \section{Basics}
 
-\subsection{Digital Signal Processing}
+\subsection{Digital Filters}
 
-\subsubsection{Digital Filters}
-
-\subsubsubsection{Finite Impulse Response Filter}
+\subsubsection{Finite Impulse Response Filter}
 
 Digital Filters are a huge field of digital signal processing. The most common filters are \ac{FIR}-filters.
 These are also called \frqq non-recursive filters\flqq .
@@ -16,7 +14,7 @@ In \autoref{fig:FIR-filter} the structure of a \ac{FIR}-filter is shown.
 \begin{figure}[!h]
     \centering
     \includegraphics[width=7cm]{img/fir.png}
-    \caption{Basic structure of a $M$ order \ac{FIR}-filter in the first canonical form \cite{meyer_signalverarbeitung}}
+    \caption{Basic structure of a $M$-th order \ac{FIR}-filter in the first canonical form \cite{meyer_signalverarbeitung}}
     \label{fig:FIR-filter}
 \end{figure}
 
@@ -28,7 +26,7 @@ result to an adder, which adds $M+1$ weighted and delayed signal samples. This s
 and not of the past output.
 
 The input signal is $x$, whereas the output is $y$. The order of this Filter is $M$ which means the amount of
-filter taps or delay blocks.
+delay blocks.
 
 A special case of the \ac{FIR}-filter is the \textit{Moving Average Filter}, at which all coefficients are $\frac{1}{M+1}$.
 
@@ -47,7 +45,7 @@ or with the transfer function in the z-domain (\autoref{eq:fir-transfer-func})
 \end{equation}.
 
 The output can be calculated with the convolution (noted as $*$) of the impulse response $h[n]$, which is simply the
-union of the filter coefficients, and the input signal $x[n]$ (\autoref{eq:conv}).
+sequence of the filter coefficients, and the input signal $x[n]$ (\autoref{eq:conv}).
 
 \begin{equation}
     y[n] = x[n] * h[n]
@@ -55,7 +53,7 @@ union of the filter coefficients, and the input signal $x[n]$ (\autoref{eq:conv}
 \end{equation}
 
 Another way to describe the filtering result is in the frequency domain.
-If the frequency of the input is given with $X(z)$ and the frequency response of the filter is $H(z)$
+If the spectrum of the input is given with $X(z)$ and the frequency response of the filter is $H(z)$
 than the output is $Y(z)$, which can be calculated like shown in \autoref{eq:freq-response}.
 
 \begin{equation}
@@ -64,9 +62,10 @@ than the output is $Y(z)$, which can be calculated like shown in \autoref{eq:fre
 \end{equation}
 
 The stability of the \ac{FIR}-filter is characteristic, this can be seen in the pole-zero plane. All poles are in
-the middle of the unit circle, which is necessary for the stability of a system.
+the center of the unit circle. This makes this filter always stable, as it is necessary that the poles of a digital
+filter are in the unit circle.
 
-If the value of the z-plane is evaluated on the unit circle the result is the frequency response of the filter
+If the value of the z-plane is evaluated on the unit circle, the result is the frequency response of the filter
 (\autoref{fig:FIR-z-plane-and-freq}).
 
 \begin{figure}[!h]
@@ -82,7 +81,7 @@ If the value of the z-plane is evaluated on the unit circle the result is the fr
     \label{fig:FIR-z-plane-and-freq}
 \end{figure}
 
-\subsubsubsection{Infinite Impulse Response Filter}
+\subsubsection{Infinite Impulse Response Filter}
 
 Another filter type is the \ac{IIR} filter. The structure is recursive as it is shown in \autoref{fig:IIR-filter}.
 
@@ -93,7 +92,7 @@ Another filter type is the \ac{IIR} filter. The structure is recursive as it is 
     \label{fig:IIR-filter}
 \end{figure}
 
-Due to this recursive structure, this type of filter is no longer necessarilly stable. This means, that it can
+Due to this recursive structure, this type of filter is no longer necessarilly stable. This means that it can
 oscillate and possibly the output can grow exponentially. To fulfill stability, all the poles of the
 \ac{IIR}-filter have to be in the unit-circle \cite{meyer_signalverarbeitung}.
 
@@ -112,12 +111,12 @@ In the time domain, the output is equal to
 
 The output is dependend on the current signal and all the $M$ outputs before. In literature and other documentation,
 the $a_0$-coefficient is also referenced. This is the amplification of the output signal. Due to filter-stability-reasons,
-this coefficient is typically set to $1$ \cite{arm_dsp} \cite{cookbook_audio}.
+this coefficient is typically set to $o$ \cite{arm_dsp} \cite{cookbook_audio}.
 
 If the two types of filters are getting merged, the result is also an \ac{IIR}-filter, plus
 a few additional feed-forward-terms. A widely used example of this is the \textit{Biquad-filter} \cite{arm_dsp}.
 
-These filters use two filter-taps in the forward- and two taps in the feedback-path. The structure
+These filters use three filter-taps in the forward- and two taps in the feedback-path. The structure
 is shown in \autoref{fig:biquad-structure}.
 
 \begin{figure}[!h]
@@ -135,7 +134,7 @@ The transfer function of this filtertype is:
 
 Here it can be seen, why this filter is called \frqq biquad\flqq{}: it is the short form for
 \frqq bi-quadratic\flqq{}, which relates to the powers of the numerator- and denominator-terms.
-Also in this structure, the $a_0$-coefficient is set to $1$.
+Also in this structure, the $a_0$-coefficient is set to $0$.
 
 This transfer function leeds to an output of:
 
@@ -147,25 +146,60 @@ It is worth noting, that the denominator-coefficients have to be negated to matc
 \autoref{fig:biquad-structure}.
 
 
-\subsubsubsection{Filter Design}
+\subsubsection{Filter Design and comparison}
 
 This section deals with designing filters. There are a few ways to calculate the numerator and
 denominator-coefficients. But this shouldn't be part of this section, the goal is more like looking at
 how to design a filter in a high-level perspective.
 
 First of all, the number of filtertaps will be discussed. As stated earlier, \ac{FIR}-filters have
-the convenient property, that they are always stable. The downside of these filters are,
+the convenient property that they are always stable. The downside of these filters are,
 that for example a narrow-band bandpass filter needs more filtertaps, than a comparable
 \ac{IIR}-filter \cite{meyer_signalverarbeitung}. This should not be a huge problem in the most cases,
 but if the goal is to variate the filter-coefficients, this may lead to problems. Additionally, a longer filter
-could leed to a bigger latency.
+could lead to a bigger latency.
 
-Secondly, the shape of \ac{FIR} and \ac{IIR}-filters differ. The recursive filter is more often used to
-model an actual analog filter \cite{meyer_signalverarbeitung}.
+Secondly, the shape of the frequency responses of the \ac{FIR} and \ac{IIR}-filters differ. The recursive filter
+is more often used to model an actual analog filter \cite{meyer_signalverarbeitung}.
 
-In the following graphics, there is a \ac{FIR}- on the left and a \ac{IIR}-bandpass-filter on the right.
-All the parameters of these two filters, mid-frequency, bandwidth, quality-factor and number of coefficients
-are set equal in order to make them comparable.
+In order to compare these two types of filters, two bandpass-prototypes are being simulated. Given
+is a 3\,dB-bandwidth at a certain frequency which should be achieved by both filters. The number of necessary
+coefficients for this frequency response is a metric which can be used to compare the \ac{FIR}-
+with the \ac{IIR}-filter.
+
+The bandwidth is defined as
+
+\begin{align}
+    BW = f_{3dB} = f_{high} - f_{low}
+\end{align}
+
+and it can be used to calculate the quality-factor of the filter:
+
+\begin{align}
+    Q = \frac{f_{res}}{BW}
+    \label{eq:q-factor}
+\end{align}
+
+Given is a bandwidth of 1\,kHz at the mid-frequency of 5\,kHz. This leads to a quality-factor of 5.
+
+% To compare these two types of filters, two bandpass-prototypes are being simulated.
+% All the parameters of these two filters, mid-frequency $f_{res}$, bandwidth $BW$, quality-factor $Q$ and
+% number of coefficients are set equal in order to make them comparable.
+
+For the generation of these filters, the python package \frqq scipy\flqq{} with the module \frqq signal\flqq{} was used
+\cite{scipy}.
+
+For the \ac{FIR}-Filter 85 coefficients were necessary to achieve these criteria, while the
+\ac{IIR}-Filter just needs 6 coefficients. This is due to the fact, that \ac{IIR}-filters have poles, which
+can produce sharper edges, but it can also lead to instability. This makes the \ac{IIR}-Filter more suitable,
+if the number of coefficients is the only criterion.
+
+If the frequency response of the filter is evaluated, it can be observed that the 3\,dB bandwidth
+is not the only difference. Also the shape of these filters differ. This may be important for some
+applications, for this specific problem, is has to be evaluated.
+
+In the following graphics, there is the \ac{FIR}- on the left and the \ac{IIR}-bandpass-filter frequency
+response on the right.
 
 \begin{figure}[!h]
     \centering
@@ -177,36 +211,47 @@ are set equal in order to make them comparable.
         \centering
         \includegraphics[width=\textwidth]{img/iir_bandpass.png}
     \end{subfigure}
-    \caption{Comparison of the frequency response of a \ac{FIR}- (left) and \ac{IIR}-bandpass-filter (right)}
+    \caption{Comparison of the frequency response of a \ac{FIR}- and \ac{IIR}-bandpass-filter}
     \label{fig:fir-iir-compare}
 \end{figure}
 
-The parameters which were chosen for this comparison were set to:
+The red dots mark the desired bandwidth.
 
-\begin{table}[!h]
-    \centering
-    \caption{Parameters to compare \ac{FIR}- and \ac{IIR}-filters}
-    \label{table:compare-filters}
-    \begin{tabular}{c | c | c }
-        start-frequency & stop-frequency & number of coefficients \\
-        \hline
-        0.4 & 0.5 & 5
-    \end{tabular}
-\end{table}
+It can be seen, that the frequency response of the \ac{FIR}-filter has a convex form, whereas the frequency response
+of the \ac{IIR}-filter is concave in shape.
 
-As it can be observed, the \ac{IIR}-filter has much sharper edges and the attenuation in the stopband is much higher.
-This is due to the fact, that \ac{IIR}-filters have poles, which can produce sharper edges, but it can also lead to
-instability.
-
-As a reference, an analog bandpass-filter is shown in \autoref{fig:analog-bandpass}, designed with the Texas Instruments
-filter-design-tool \cite{TI-filterdesign-tool}.
+It is worth noting that by changing the mid-frequency and holding the quality-factor constant, the bandwidth also
+changes proportionally (see \autoref{eq:q-factor}). By decreasing the frequency the \ac{FIR}-filter is not capable
+of achieving this bandwidth if the number of coefficients do not increase. This is not true for the \ac{IIR}-filter,
+the bandwidth can always be achieved. This is shown in \autoref{fig:fir-iir-dif_freq-compare}.
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=8cm]{img/analog_bandpass.png}
+    \begin{subfigure}[c]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fir_bandpass_compare.png}
+    \end{subfigure}
+    \begin{subfigure}[c]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/iir_bandpass_compare.png}
+    \end{subfigure}
+    \caption{Comparison of the frequency response of a \ac{FIR}- and \ac{IIR}-bandpass-filter at different mid-frequencies}
+    \label{fig:fir-iir-dif_freq-compare}
+\end{figure}
+
+As a reference, an analog bandpass-filter is shown in \autoref{fig:analog-bandpass}, designed with the Texas Instruments
+filterdesign-tool \cite{TI-filterdesign-tool}.
+The parameters the tool gets are also a bandwidth of 1\,kHz at a mid-frequency of 5\,kHz.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=8cm]{img/analog_bandpass_ti.png}
     \caption{Analog bandpass filter frequency response}
     \label{fig:analog-bandpass}
 \end{figure}
+
+The tool calculated a 6-th order filter with the given filtertype being \frqq Bessel\flqq. This type was also used to
+calculate the \ac{IIR}-filter coefficients.
 
 It can be seen, that the basic shape of the \ac{IIR}-filter is much closer to the analog equivalent than the
 \ac{FIR}-filter.
@@ -235,10 +280,8 @@ To illsutrate the timing of the protocol the corresponding diagrams are shown in
 \end{figure}
 
 The word length can vary between transmitter and receiver. That is why the \ac{MSB} is sent first in the standard 
-configuration. Additionally the participants do not need to know the word length of the counterpart \cite{nxp_i2s}.
-
-The wiring of this serial bus is possible in three basic configurations (shown in \autoref{fig:i2s-config}).
-Thereby the master is always responsible for the SCK and the WS line.
+configuration. Additionally the participants do not need to know the word length of the counterpart
+in advance \cite{nxp_i2s}.
 
 \begin{figure}[!h]
     \centering
@@ -247,9 +290,26 @@ Thereby the master is always responsible for the SCK and the WS line.
     \label{fig:i2s-config}
 \end{figure}
 
+The wiring of this serial bus is possible in three basic configurations (shown in \autoref{fig:i2s-config}).
+Thereby the controller is always responsible for the SCK and the WS line.
+
 \subsubsection{Direct Memory Access}
 \label{sec:dma}
 
-The \ac{DMA} is a peripheral in the microcontroller, which allows to transfer data between memory destinations or
-peripherals without the need of the \ac{CPU}.
-This is advantagious, because this saves computation capacity which leads to a smoother data flow.
+\ac{DMA} is a feature in computer systems that allows certain hardware components or peripheral devices to directly
+access the system's main memory independently of the \ac{CPU}. This enables data to be transferred
+between memory and peripherals, such as \acp{ADC} or \ac{I2S}, without requiring constant \ac{CPU} intervention.
+As a result, the \ac{CPU} is freed up to perform other tasks while the data transfer occurs in parallel, improving
+overall system efficiency and performance \cite{rm0468}.
+
+The implementation of DMA hardware varies depending on the microcontroller model. In the STM32H7 series, multiple \ac{DMA}
+channels are available, allowing multiple data streams to be handled simultaneously by a single \ac{DMA} controller. There
+are also two operational odes: normal mode and circular mode. In normal mode, each data transfer must be manually
+restarted after the previous transfer completes. Conversely, in circular mode, the transfer requires only a single
+initialization, as it continuously cycles through the buffer, automatically reloading data as needed \cite{rm0468}.
+
+This setup enhances efficiency for continuous data operations, such as audio processing or real-time sensor data
+acquisition, as it minimizes CPU intervention and supports uninterrupted data flow \cite{rm0468}.
+
+For this task it is advantageous, because the signal processing can be done while the data transfer is managed
+by the \ac{DMA}.

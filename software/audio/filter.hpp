@@ -49,6 +49,8 @@ struct FIRFilter
 	uint32_t fs = 48000;
 	int32_t Q = 5;
 
+	int16_t bin = 0;
+
 	FIRFilter(FIRInstance& firInstance, uint32_t blockSize)
 	: firInstance{firInstance},
 	  blockSize{blockSize}
@@ -67,16 +69,14 @@ struct FIRFilter
 
 	void updateCoeffs(uint16_t adcVal)
 	{
-		static int16_t old_bin = 0;
-
 		int32_t new_bin = convert_adc_to_bin(adcVal);
-		if ((new_bin >= 0) && (old_bin != new_bin))
+		if ((new_bin >= 0) && (bin != new_bin))
 		{
 			//cli.log("update coeffs: " + std::to_string(new_bin) + "\n\r");
 			//S = {firInstance.order, pState, firInstance.pFirCoeffs[new_bin].coeffs};
 			//arm_fir_init_f32(&S, firInstance.order, firInstance.pFirCoeffs[new_bin], pState, blockSize);
 			S.pCoeffs = firInstance.pFirCoeffs[new_bin];
-			old_bin = new_bin;
+			bin = new_bin;
 		}
 	}
 
@@ -96,12 +96,14 @@ struct FIRFilter
 
 	int32_t convert_adc_to_bin(uint16_t adcVal)
 	{
-		static const int32_t max = pow(2, 16);
-		int32_t range = max/firInstance.numBins;
+		//static const int32_t max = pow(2, 16);
+		static const int32_t max = 14000;
+		static const int32_t min = 2700;
+		int32_t range = (max - min)/firInstance.numBins;
 
 		for(size_t i = 0; i < firInstance.numBins; i++)
 		{
-			if (between(adcVal, i*range, (i+1)*range))
+			if (between(adcVal, i*range + min, (i+1)*range + min))
 			{
 				return i;
 			}
@@ -244,8 +246,20 @@ public:
   {
 	//HAL_ADC_Start(&hadc1);
 	//adcVal[0] = HAL_ADC_GetValue(&hadc1);
-	fc = derive_fc_from_adc_val(adcVal[0]);
-	compute_coeffs(fc, Q);
+	if (adcVal[0] < 3000)
+	{
+		this->a0 = 0;
+		this->a1 = 0;
+		this->a2 = 0;
+		this->b0 = 1;
+		this->b1 = 0;
+		this->b2 = 0;
+	}
+	else
+	{
+		fc = derive_fc_from_adc_val(adcVal[0]);
+		compute_coeffs(fc, Q);
+	}
 
 	float gain = 1;
 
@@ -263,9 +277,11 @@ public:
 
   float derive_fc_from_adc_val(int32_t adc_val)
   {
-	  const static float max_adc_freq = (f_max - f_min) / pow(2, 16);
+	  float casio_poti_max = 14000;
+	  float casio_poti_min = 2700;
+	  const static float max_adc_freq = (f_max - f_min) / (casio_poti_max - casio_poti_min);
 	  //const static int32_t max_adc_val = pow(2, 16);
-	  float freq = ((float)adc_val * max_adc_freq) + f_min;
+	  float freq = ((float)adc_val * max_adc_freq);
 	  return freq;
   }
 

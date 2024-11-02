@@ -1,21 +1,25 @@
 \babel@toc {english}{}\relax 
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Basic structure of a $M$ order \ac {FIR}-filter in the first canonical form \blx@tocontentsinit {0}\cite {meyer_signalverarbeitung}}}{3}{figure.caption.5}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Basic structure of a $M$-th order \ac {FIR}-filter in the first canonical form \blx@tocontentsinit {0}\cite {meyer_signalverarbeitung}}}{3}{figure.caption.5}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces z-plane plot (left) and frequency response (right) of a \ac {FIR}-lowpass-filter}}{4}{figure.caption.6}%
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Basic structure of a $M$ order \ac {IIR}-filter in the first canonical form \blx@tocontentsinit {0}\cite {meyer_signalverarbeitung}}}{5}{figure.caption.8}%
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Structure of a biquad filter \blx@tocontentsinit {0}\cite {arm_dsp}}}{5}{figure.caption.9}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Comparison of the frequency response of a \ac {FIR}- (left) and \ac {IIR}-bandpass-filter (right)}}{7}{figure.caption.10}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Analog bandpass filter frequency response}}{7}{figure.caption.12}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Timing diagramm of the \ac {I2S} protocol \blx@tocontentsinit {0}\cite {nxp_i2s}}}{8}{figure.caption.16}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces The three basic configurations of the \ac {I2S} protocol \blx@tocontentsinit {0}\cite {nxp_i2s}}}{8}{figure.caption.18}%
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Basic concept}}{10}{figure.caption.21}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Double buffering concept \blx@tocontentsinit {0}\cite {eetimes_fund_dsp}}}{10}{figure.caption.24}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Measurement of the frequency response of a Wah-Wah-pedal at the lowest and highest frequencies}}{11}{figure.caption.25}%
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Simulation of the \ac {FIR}-model frequency response at 460\,Hz and 2242\,Hz using the Hamming-window}}{14}{figure.caption.30}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Simulation of the \ac {FIR}-model frequency response at 460\,Hz and 2242\,Hz using the Blackman-window}}{15}{figure.caption.31}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Simulation of the \ac {FIR}-model frequency response at 460\,Hz and 2242\,Hz using the Bartlett-window}}{15}{figure.caption.32}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Simulation of the \ac {IIR}-model frequency response at 460\,Hz and 2300\,Hz}}{16}{figure.caption.33}%
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Measurement of the \ac {FIR}-implementation using Hamming window}}{18}{figure.caption.35}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Measurement of the biquad-implementation}}{18}{figure.caption.36}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Measurement of the step response of the \ac {FIR}- and Biquad filters}}{19}{figure.caption.37}%
-\contentsline {figure}{\numberline {B.1}{\ignorespaces The build \ac {PCB} with all modifications and connectors}}{25}{figure.caption.38}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Comparison of the frequency response of a \ac {FIR}- and \ac {IIR}-bandpass-filter}}{7}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Comparison of the frequency response of a \ac {FIR}- and \ac {IIR}-bandpass-filter at different mid-frequencies}}{8}{figure.caption.11}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Analog bandpass filter frequency response}}{8}{figure.caption.12}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Timing diagramm of the \ac {I2S} protocol \blx@tocontentsinit {0}\cite {nxp_i2s}}}{9}{figure.caption.16}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces The three basic configurations of the \ac {I2S} protocol \blx@tocontentsinit {0}\cite {nxp_i2s}}}{9}{figure.caption.18}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Basic concept}}{12}{figure.caption.22}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Double buffering concept \blx@tocontentsinit {0}\cite {eetimes_fund_dsp}}}{12}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Measurement of the frequency response of a Wah-Wah-pedal at the lowest and highest frequencies}}{13}{figure.caption.25}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Blockdiagram of the PCB}}{16}{figure.caption.29}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Simulation of the \ac {FIR}-model frequency response at 460\,Hz and 2242\,Hz using the Hamming-window}}{16}{figure.caption.31}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Simulation of the \ac {FIR}-model frequency response at 460\,Hz and 2242\,Hz using the Blackman-window}}{17}{figure.caption.32}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Simulation of the \ac {FIR}-model frequency response at 460\,Hz and 2242\,Hz using the Bartlett-window}}{17}{figure.caption.33}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Flowchart of the signal processing using the \ac {FIR}-filter}}{18}{figure.caption.34}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Simulation of the \ac {IIR}-model frequency response at 460\,Hz and 2300\,Hz}}{19}{figure.caption.35}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Flowchart of the signal processing using the Biquad-filter}}{20}{figure.caption.36}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Measurement of the \ac {FIR}-implementation using Hamming window}}{22}{figure.caption.38}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Measurement of the biquad-implementation}}{22}{figure.caption.39}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Measurement of the step response of the \ac {FIR}- and Biquad filters}}{23}{figure.caption.40}%
+\contentsline {figure}{\numberline {B.1}{\ignorespaces The built \ac {PCB} with all modifications and connectors}}{30}{figure.caption.41}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
