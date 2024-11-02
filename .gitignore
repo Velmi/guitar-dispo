@@ -1,4 +1,4 @@
-report/build
+doc/report/build
 hardware/dispo-board/dispo-board-backups
 scripts/venv
 audio_nucleo/Debug/**
