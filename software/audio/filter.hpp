@@ -246,7 +246,8 @@ public:
   {
 	//HAL_ADC_Start(&hadc1);
 	//adcVal[0] = HAL_ADC_GetValue(&hadc1);
-	if (adcVal[0] < 3000)
+	float gain = 1;
+	if (adcVal[0] < 2800)
 	{
 		this->a0 = 0;
 		this->a1 = 0;
@@ -254,14 +255,14 @@ public:
 		this->b0 = 1;
 		this->b1 = 0;
 		this->b2 = 0;
+
 	}
 	else
 	{
 		fc = derive_fc_from_adc_val(adcVal[0]);
 		compute_coeffs(fc, Q);
+		gain = 8;
 	}
-
-	float gain = 1;
 
     for (uint32_t i = 0; i < n; i++)
     {
@@ -278,7 +279,7 @@ public:
   float derive_fc_from_adc_val(int32_t adc_val)
   {
 	  float casio_poti_max = 14000;
-	  float casio_poti_min = 2700;
+	  float casio_poti_min = 2800;
 	  const static float max_adc_freq = (f_max - f_min) / (casio_poti_max - casio_poti_min);
 	  //const static int32_t max_adc_val = pow(2, 16);
 	  float freq = ((float)adc_val * max_adc_freq);
