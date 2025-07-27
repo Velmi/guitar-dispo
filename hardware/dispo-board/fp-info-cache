@@ -1,4 +1,4 @@
-25632475502146729
+25635980048742852
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -70714,12 +70714,26 @@ MP23DB02MMTR
 8
 5
 MyFootprints
+SOIC-8_4.9mm_6mm
+
+TPS76601D 
+0
+8
+8
+MyFootprints
 USB4056-03-A
 
 
 0
 28
 25
+MyFootprints
+Untitled
+
+
+0
+0
+0
 MyFootprints
 own-logo
 
