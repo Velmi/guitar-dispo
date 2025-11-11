@@ -7272,9 +7272,9 @@
 		(at 134.62 120.65 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e92f5c90-00e5-404d-9f29-541d6032591e")
 		(property "Reference" "R12"
