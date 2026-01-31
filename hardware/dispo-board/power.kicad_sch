@@ -2956,6 +2956,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 62.23 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "c44cfde8-e316-4cad-ad9b-5f62620c4d7d")
 		)
@@ -3026,6 +3035,15 @@
 			)
 		)
 		(property "MOUSER_NR" "81-GRM155R61A103KA1D"
+			(at 57.15 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 57.15 68.58 0)
 			(effects
 				(font
@@ -3112,6 +3130,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 43.18 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "3b63e07a-9833-4f67-b089-19db95a6a7e6")
 		)
@@ -3181,6 +3208,15 @@
 			)
 		)
 		(property "MOUSER_NR" "81-BLM15PX121SH1D "
+			(at 34.29 22.86 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 34.29 22.86 90)
 			(effects
 				(font
@@ -3267,6 +3303,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 53.34 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "93b46ea9-3eea-4dbd-8b39-f281e07e25cc")
 		)
@@ -3336,6 +3381,15 @@
 			)
 		)
 		(property "MOUSER_NR" "81-BLM15PX121SH1D "
+			(at 54.61 129.54 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 54.61 129.54 90)
 			(effects
 				(font
@@ -3537,6 +3591,24 @@
 			)
 		)
 		(property "Description" "1A Low IQ Small Size Low Dropout Voltage Regulator, Fixed Output 1.0V, SOT-23-5"
+			(at 46.99 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NR" "595-TLV75710PDBVR"
+			(at 46.99 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 46.99 99.06 0)
 			(effects
 				(font
@@ -3764,6 +3836,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 91.44 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "f756ba19-8f9c-46b7-81d6-c654992f4866")
 		)
@@ -3975,6 +4056,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 115.57 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "82774152-fa9a-42fc-b185-3b2d41dc0ff0")
 		)
@@ -4053,6 +4143,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 102.87 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "20f1f59f-57d5-4848-948d-8c891fa011f3")
 		)
@@ -4123,6 +4222,15 @@
 			)
 		)
 		(property "MOUSER_NR" "963-MCASL105SB7104KF"
+			(at 45.72 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 45.72 62.23 0)
 			(effects
 				(font
@@ -4539,6 +4647,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 41.91 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "147c924b-2cf9-471a-9b21-2d07b4248257")
 		)
@@ -4683,6 +4800,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 30.48 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "57b16387-dbf2-4c00-b359-8a4016e99255")
 		)
@@ -4761,6 +4887,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 22.86 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "236b430c-65a1-4aef-8bf4-6b287f4ee23d")
 		)
@@ -4831,6 +4966,15 @@
 			)
 		)
 		(property "MOUSER_NR" "963-LMK105BJ105MVHF"
+			(at 60.96 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 60.96 102.87 0)
 			(effects
 				(font
@@ -5039,7 +5183,16 @@
 				(hide yes)
 			)
 		)
-		(property "MOUSER_NO" "595-TPS79633DCQ"
+		(property "MOUSER_NR" "595-TPS79633DCQ"
+			(at 71.12 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 71.12 59.69 0)
 			(effects
 				(font
@@ -5138,6 +5291,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 34.29 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "ca3c7ac0-1488-4acc-a956-8b0fae2a8534")
 		)
@@ -5225,6 +5387,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 115.57 69.85 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "768eaf2e-c9cc-406b-83e8-1c98434ba283")
 		)
@@ -5295,6 +5466,15 @@
 			)
 		)
 		(property "MOUSER_NR" "81-GRM155R61A103KA1D"
+			(at 31.75 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 31.75 134.62 0)
 			(effects
 				(font

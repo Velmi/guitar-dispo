@@ -3476,6 +3476,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 172.72 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "60ed7a63-1ce6-4aae-afdc-a236ba1be078")
 		)
@@ -3535,6 +3544,15 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 26.67 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 26.67 105.41 0)
 			(effects
 				(font
@@ -3613,6 +3631,15 @@
 			)
 		)
 		(property "MOUSER_NR" "963-LMK105BJ105MVHF"
+			(at 163.83 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 163.83 83.82 0)
 			(effects
 				(font
@@ -3831,6 +3858,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 73.66 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "9940478f-ae0b-48a1-a932-7143f16f98d2")
 		)
@@ -3964,6 +4000,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 63.5 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "6dfdbfb0-66e2-4a2c-af67-3049ccfc41c8")
 		)
@@ -4023,6 +4068,15 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 154.94 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 154.94 30.48 0)
 			(effects
 				(font
@@ -4237,6 +4291,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 49.53 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "6e49fcf6-b581-487b-be1b-4fc82614e9d8")
 		)
@@ -4373,6 +4436,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 64.77 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "f6b35acd-c638-448b-a159-5fdb625435a3")
 		)
@@ -4436,6 +4508,15 @@
 			)
 		)
 		(property "Description" "Jumper, 3-pole, both open"
+			(at 49.53 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 49.53 140.97 0)
 			(effects
 				(font
@@ -4518,6 +4599,15 @@
 			)
 		)
 		(property "MOUSER_NR" "652-CR0402-JW-103GLF"
+			(at 63.5 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 63.5 163.83 0)
 			(effects
 				(font
@@ -4736,6 +4826,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 34.29 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "dd3adfbd-e8a9-4521-b8ad-2c5b8b8cb8c4")
 		)
@@ -4795,6 +4894,15 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 111.76 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 111.76 78.74 0)
 			(effects
 				(font
@@ -4947,6 +5055,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 76.2 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "fe5371b6-4f22-45f7-aecc-86e76ecc98b9")
 		)
@@ -5017,6 +5134,15 @@
 			)
 		)
 		(property "MOUSER_NR" "963-LMK105BJ105MVHF"
+			(at 119.38 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 119.38 83.82 0)
 			(effects
 				(font
@@ -5158,6 +5284,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 85.09 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "8e947b6a-ce9b-4cec-be87-5a3eb9fdf145")
 		)
@@ -5286,6 +5421,15 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 92.71 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 92.71 27.94 0)
 			(effects
 				(font
@@ -5573,6 +5717,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 43.18 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ae80bce8-ac90-44c0-9545-727778d585ca")
 		)
@@ -5644,6 +5797,15 @@
 			)
 		)
 		(property "MOUSER_NR" "652-CR0402-JW-103GLF"
+			(at 85.09 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 85.09 83.82 0)
 			(effects
 				(font
@@ -5777,6 +5939,15 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 121.92 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 121.92 27.94 0)
 			(effects
 				(font
@@ -5933,6 +6104,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 128.27 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "a00c3943-7a96-4f9f-a013-6491e74b6cc5")
 		)
@@ -6077,6 +6257,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 38.1 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "8"
 			(uuid "21282374-df69-4596-a92c-2b860e778ed7")
 		)
@@ -6160,6 +6349,15 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 68.58 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 68.58 78.74 0)
 			(effects
 				(font
@@ -6293,6 +6491,15 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 156.21 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 156.21 78.74 0)
 			(effects
 				(font
@@ -6492,6 +6699,15 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 85.09 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 85.09 123.19 0)
 			(effects
 				(font
@@ -6712,6 +6928,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 29.21 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "0bcb8134-9534-46da-a182-e4670690052f")
 		)
@@ -6849,6 +7074,15 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 26.67 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 26.67 78.74 0)
 			(effects
 				(font

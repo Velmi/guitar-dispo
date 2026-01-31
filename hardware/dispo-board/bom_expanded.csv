@@ -1,0 +1,37 @@
+Reference';'Value';'Footprint';'Qty';'MOUSER_NR';;THOMANN_NR;REICHELT_NR;CONRAD_NR;;MOUSER_NR_ALT
+'C1,C4,C5,C6,C7,C8,C9,C10,C11,C12,C21,C22,C29,C30,C39,C45';'100n';'Capacitor_SMD:C_0402_1005Metric';'16';963-MCASL105SB7104KF';;;;;;
+'C2,C3,C15,C17,C18,C19,C20,C33,C35,C36,C38,C40,C42,C43,C44';'1u';'Capacitor_SMD:C_0402_1005Metric';'15';963-LMK105BJ105MVHF';;;;;;
+'C13,C23,C24,C25,C26';'10u';'Capacitor_SMD:C_0603_1608Metric';'5';963-LMK107BBJ106MALT';;;;;;
+'C14,C16';'16p';'Capacitor_SMD:C_0402_1005Metric';'2';81-GRT1555C1H160FA2D';;;;;;
+'C27';'180p';'Capacitor_SMD:C_0402_1005Metric';'1';81-GCM1555C1H181JA6D';;;;;;
+'C28,C34,C37,C41';'10n';'Capacitor_SMD:C_0402_1005Metric';'4';81-GRM155R61A103KA1D';;;;;;
+'C31,C32';'100n';'Capacitor_SMD:C_1210_3225Metric';'2';667-ECH-U1C104JX5';;;;;;
+'D1';'LED Status 1';'LED_SMD:LED_0603_1608Metric';'1'; 645-598-8N80-107F';;;;;;
+'D2';'LED Status 2';'LED_SMD:LED_0603_1608Metric';'1';' 645-598-8N80-107F';;;;;;
+'D3';'LED Power';'LED_SMD:LED_0603_1608Metric';'1';' 645-598-8N80-107F';;;;;;
+'FB1,FB2';'120R';'Resistor_SMD:R_0402_1005Metric';'2';81-BLM15PX121SH1D ';;;;;;
+'J1,J2,J4,J6,J10,J13';'Conn_01x02';'MyFootprints:solder_pad_1x02_D3.5mm';'6';'';;;;;;
+'J3';'Conn_ARM_JTAG_SWD_10';'Connector_PinHeader_1.27mm:PinHeader_2x05_P1.27mm_Vertical';'1'; 474-PRT-15362';;;;;;
+'J5,J7,J8,J9,J11';'Conn_01x03';'MyFootprints:solder_pad_1x03_D3.5mm';'5';'';;;;;;
+'J12';'Conn_01x04';'Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical';'1';'';;;;;;
+'J14';'USB_B_Micro';'Connector_USB:USB_Micro-B_Molex_47346-0001';'1';538-47346-1001';;;;;;
+'JP1,JP2';'Jumper_3_Open';'Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical';'2';'';;;;;;
+'R1,R3,R5,R6,R7,R8,R9,R10,R11,R13';'10k';'Resistor_SMD:R_0402_1005Metric';'10';652-CR0402-JW-103GLF';;;;;;
+'R2,R4,R22';'220';'Resistor_SMD:R_0402_1005Metric';'3'; 652-CR0402FX-2200GLF ';;;;;;
+'R12';'10k';'Resistor_SMD:R_0402_1005Metric';'1';' 71-CRCW040210K0FKEDC ';;;;;;
+'R14';'470';'Resistor_SMD:R_0402_1005Metric';'1';667-ERA-2VEB4700X';;;;;;
+'R15,R16';'22';'Resistor_SMD:R_0603_1608Metric';'2'; 652-CHP0603QJW-220E ';;;;;;
+'R17';'0';'Resistor_SMD:R_0402_1005Metric';'1'; 710-560112110001 ';;;;;;652-CR0402-J/-000GLF
+'R19,R20,R21';'100k';'Resistor_SMD:R_0402_1005Metric';'3';652-CR0402JW-104GLF';;;;;;
+'RV1,RV2';'Potentiometer';'Potentiometer_SMD:Potentiometer_Bourns_3224W_Vertical';'2';652-3224W-1-503E';;;;;;
+'SW1';'SW_Push';'Button_Switch_SMD:SW_Push_1P1T_NO_CK_KSC7xxJ';'1'; 506-FSM2JSMAATR ';;;;;;
+'TP1,TP2,TP3,TP4,TP5,TP6,TP7,TP8,TP9,TP10';'TestPoint';'TestPoint:TestPoint_Pad_D1.5mm';'10';'';;;;;;
+'U1';'STM32H725RGVx';'Package_DFN_QFN:QFN-68-1EP_8x8mm_P0.4mm_EP6.4x6.4mm';'1';511-STM32H725RGV6';;;;;;
+'U2';'CS5343-CZZ';'Package_SO:TSSOP-10_3x3mm_P0.5mm';'1'; 777-CS5343-CZZ ';;;;;;777-CS5344-CZZ 
+'U3';CS4344';'Package_SO:TSSOP-10_3x3mm_P0.5mm';'1'; 777-CS4344-CZZR';;;;;;777-CS4345-CZZ 
+'U4,U5';'OPA1671';'Package_TO_SOT_SMD:SOT-23-5';'2'; 595-OPA1671IDBVT';;;;;;
+'U6';'TLV75710PDBV';'Package_TO_SOT_SMD:SOT-23-5';'1';595-TLV75710PDBVR';;;;;;
+'U7';'TPS79633DCQ';'Package_TO_SOT_SMD:SOT-223-6';'1';595-TPS79633DCQ';;;;;;
+'Y1';'32M';'Crystal:Crystal_SMD_2016-4Pin_2.0x1.6mm';'1'; 815-11W32-8D1XT ';;;;;;
+-;-;-;3;;;189475;EBM 63;;;
+;;;1;;;202411;;1606031 - VQ;;
