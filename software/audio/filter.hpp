@@ -214,7 +214,7 @@ private:
   float a0, a1, a2, b0, b1, b2;
   float z1, z2, z3, z4;
   const float f_max = 2300;
-  const float f_min = 460;
+  const float f_min = 430;
 
   void compute_coeffs(float fc, float Q)
   {
@@ -247,7 +247,7 @@ public:
 	//HAL_ADC_Start(&hadc1);
 	//adcVal[0] = HAL_ADC_GetValue(&hadc1);
 	float gain = 1;
-	if (adcVal[0] < 2800)
+	if (adcVal[0] < 2700)
 	{
 		this->a0 = 0;
 		this->a1 = 0;
@@ -279,7 +279,7 @@ public:
   float derive_fc_from_adc_val(int32_t adc_val)
   {
 	  float casio_poti_max = 14000;
-	  float casio_poti_min = 2800;
+	  float casio_poti_min = 2700;
 	  const static float max_adc_freq = (f_max - f_min) / (casio_poti_max - casio_poti_min);
 	  //const static int32_t max_adc_val = pow(2, 16);
 	  float freq = ((float)adc_val * max_adc_freq);

@@ -6,7 +6,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2024 STMicroelectronics.
+  * Copyright (c) 2026 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -42,17 +42,17 @@ HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority)
 {
   RCC_ClkInitTypeDef    clkconfig;
   uint32_t              uwTimclock;
-
   uint32_t              uwPrescalerValue;
   uint32_t              pFLatency;
-/*Configure the TIM1 IRQ priority */
-  if (TickPriority < (1UL << __NVIC_PRIO_BITS))
-  {
-  HAL_NVIC_SetPriority(TIM1_UP_IRQn, TickPriority ,0U);
 
-  /* Enable the TIM1 global Interrupt */
-  HAL_NVIC_EnableIRQ(TIM1_UP_IRQn);
-    uwTickPrio = TickPriority;
+  /*Configure the TIM1 IRQ priority */
+  if (TickPriority < (1UL << __NVIC_PRIO_BITS))
+   {
+     HAL_NVIC_SetPriority(TIM1_UP_IRQn, TickPriority ,0);
+
+     /* Enable the TIM1 global Interrupt */
+     HAL_NVIC_EnableIRQ(TIM1_UP_IRQn);
+     uwTickPrio = TickPriority;
     }
   else
   {
@@ -75,12 +75,11 @@ HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority)
   htim1.Instance = TIM1;
 
   /* Initialize TIMx peripheral as follow:
-
-  + Period = [(TIM1CLK/1000) - 1]. to have a (1/1000) s time base.
-  + Prescaler = (uwTimclock/1000000 - 1) to have a 1MHz counter clock.
-  + ClockDivision = 0
-  + Counter direction = Up
-  */
+   * Period = [(TIM1CLK/1000) - 1]. to have a (1/1000) s time base.
+   * Prescaler = (uwTimclock/1000000 - 1) to have a 1MHz counter clock.
+   * ClockDivision = 0
+   * Counter direction = Up
+   */
   htim1.Init.Period = (1000000U / 1000U) - 1U;
   htim1.Init.Prescaler = uwPrescalerValue;
   htim1.Init.ClockDivision = 0;
@@ -88,6 +87,7 @@ HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority)
 
   if(HAL_TIM_Base_Init(&htim1) == HAL_OK)
   {
+
     /* Start the TIM time Base generation in interrupt mode */
     return HAL_TIM_Base_Start_IT(&htim1);
   }

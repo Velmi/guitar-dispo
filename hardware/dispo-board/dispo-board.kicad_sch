@@ -5414,6 +5414,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 274.32 62.23 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "aac4d23d-1692-4024-b79d-933cfc4029bf")
 		)
@@ -5682,6 +5691,15 @@
 			)
 		)
 		(property "MOUSER_NR" "963-MCASL105SB7104KF"
+			(at 57.15 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 57.15 31.75 0)
 			(effects
 				(font
@@ -6031,6 +6049,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 29.21 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "21b14fc6-de0b-4d7f-a944-47ae338bb7bd")
 		)
@@ -6101,6 +6128,15 @@
 			)
 		)
 		(property "MOUSER_NR" "963-LMK105BJ105MVHF"
+			(at 19.05 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 19.05 90.17 0)
 			(effects
 				(font
@@ -6194,6 +6230,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 255.27 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "4501d0ab-32a1-4579-aee0-9a518d2b1092")
 		)
@@ -6270,6 +6315,15 @@
 			)
 		)
 		(property "MOUSER_NR" "963-MCASL105SB7104KF"
+			(at 39.37 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 39.37 90.17 0)
 			(effects
 				(font
@@ -6356,6 +6410,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 83.82 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "c9a1c22d-93d0-4c39-a154-241977295263")
 		)
@@ -6426,6 +6489,15 @@
 			)
 		)
 		(property "MOUSER_NR" "963-LMK105BJ105MVHF"
+			(at 260.35 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 260.35 39.37 0)
 			(effects
 				(font
@@ -6505,6 +6577,15 @@
 			)
 		)
 		(property "MOUSER_NR" " 652-CR0402FX-2200GLF "
+			(at 262.89 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 262.89 69.85 0)
 			(effects
 				(font
@@ -6600,6 +6681,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 262.89 62.23 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "bbfed652-10da-4909-a3d2-8c5d41674297")
 		)
@@ -6671,6 +6761,15 @@
 			)
 		)
 		(property "MOUSER_NR" "652-CR0402-JW-103GLF"
+			(at 77.47 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 77.47 73.66 0)
 			(effects
 				(font
@@ -6823,6 +6922,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 31.75 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "840b85de-7e56-4c2a-9f02-c41607f65b44")
 		)
@@ -6967,6 +7075,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 29.21 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "a026e437-e51c-4857-a19f-09acd248a592")
 		)
@@ -7046,6 +7163,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 269.24 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "dca40bf9-d256-4122-8c9e-725df6649bea")
 		)
@@ -7117,6 +7243,15 @@
 			)
 		)
 		(property "MOUSER_NR" " 652-CR0402FX-2200GLF "
+			(at 274.32 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 274.32 69.85 0)
 			(effects
 				(font
@@ -7598,6 +7733,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 44.45 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "54e0394f-95c6-41e0-9e90-3c1e8d36ab7f")
 		)
@@ -7874,6 +8018,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 39.37 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "3b860107-26d2-48d7-83f3-f49674be1143")
 		)
@@ -7944,6 +8097,15 @@
 			)
 		)
 		(property "MOUSER_NR" "963-LMK105BJ105MVHF"
+			(at 19.05 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 19.05 60.96 0)
 			(effects
 				(font
@@ -8097,6 +8259,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 97.79 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "acd728ec-972b-435e-ad31-49c0172c511a")
 		)
@@ -8168,6 +8339,15 @@
 			)
 		)
 		(property "MOUSER_NR" " 506-FSM2JSMAATR "
+			(at 269.24 38.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 269.24 38.1 90)
 			(effects
 				(font
@@ -8385,6 +8565,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 71.12 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "d67dfc99-256b-493a-96ee-32cc2bb381ba")
 		)
@@ -8455,7 +8644,16 @@
 				(hide yes)
 			)
 		)
-		(property "MOUSER_NR" "81-GCM1555C1H160FA6D"
+		(property "MOUSER_NR" "81-GRT1555C1H160FA2D"
+			(at 243.84 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 243.84 102.87 0)
 			(effects
 				(font
@@ -8609,6 +8807,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 267.97 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "b08b5a3c-717d-4b22-b962-b05dc3013ba8")
 		)
@@ -8672,6 +8879,24 @@
 			)
 		)
 		(property "Description" "STMicroelectronics Arm Cortex-M7 MCU, 1024KB flash, 564KB RAM, 550 MHz, 1.71-3.6V, 46 GPIO, VFQFPN68"
+			(at 124.46 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NR" "511-STM32H725RGV6"
+			(at 124.46 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 124.46 102.87 0)
 			(effects
 				(font
@@ -8951,6 +9176,15 @@
 			)
 		)
 		(property "MOUSER_NR" "963-MCASL105SB7104KF"
+			(at 19.05 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 19.05 31.75 0)
 			(effects
 				(font

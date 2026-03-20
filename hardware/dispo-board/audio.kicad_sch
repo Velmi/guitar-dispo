@@ -3042,6 +3042,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 220.98 50.8 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "acec377b-626e-4b2b-af40-dcec0c94040e")
 		)
@@ -3177,6 +3186,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 50.8 116.84 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "a749ddf7-d947-49ce-8e1d-6055b6c88d42")
 		)
@@ -3236,6 +3254,15 @@
 		)
 		(property "Description" "test point"
 			(at 60.96 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
+			(at 60.96 40.64 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3375,6 +3402,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 59.69 116.84 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "1a4a5c1c-f942-4454-9030-712424d43287")
 		)
@@ -3443,6 +3479,15 @@
 			)
 		)
 		(property "MOUSER_NR" "652-CR0402JW-104GLF"
+			(at 209.55 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 209.55 58.42 0)
 			(effects
 				(font
@@ -3662,6 +3707,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 80.01 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "75210a1b-ee1d-40ca-b73b-14b95f958d76")
 		)
@@ -3724,6 +3778,15 @@
 		)
 		(property "Description" "test point"
 			(at 50.8 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
+			(at 50.8 40.64 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3807,6 +3870,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 160.02 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "3e550f94-aba9-45c1-b17d-cb72fbf2ffae")
 		)
@@ -3881,6 +3953,15 @@
 		)
 		(property "MOUSER_NR" "963-MCASL105SB7104KF"
 			(at 186.69 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
+			(at 186.69 39.37 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4032,6 +4113,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 185.42 113.03 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "10b2bc36-24af-46bb-8442-e9f93080efad")
 		)
@@ -4103,6 +4193,15 @@
 			)
 		)
 		(property "MOUSER_NR" "963-LMK107BBJ106MALT"
+			(at 110.49 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 110.49 71.12 0)
 			(effects
 				(font
@@ -4255,6 +4354,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 95.25 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "5"
 			(uuid "1a67cf92-712a-4023-b4fc-c8edc6ae3b2e")
 		)
@@ -4357,6 +4465,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 68.58 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "2832cf88-9e0a-4334-9ceb-9efe28b88074")
 		)
@@ -4419,6 +4536,15 @@
 		)
 		(property "Description" "test point"
 			(at 69.85 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
+			(at 69.85 40.64 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4569,6 +4695,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 175.26 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "b5810474-4696-4c49-be3c-faee7a55bb33")
 		)
@@ -4647,6 +4782,15 @@
 			)
 		)
 		(property "MOUSER_NR" "667-ECH-U1C104JX5"
+			(at 194.31 132.08 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 194.31 132.08 90)
 			(effects
 				(font
@@ -4799,6 +4943,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 95.25 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "8fc15942-4845-4570-b243-58ffeca214a4")
 		)
@@ -4894,6 +5047,15 @@
 			)
 		)
 		(property "MOUSER_NR" "652-CR0402JW-104GLF"
+			(at 203.2 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 203.2 138.43 0)
 			(effects
 				(font
@@ -5114,6 +5276,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 175.26 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "fee24d72-89a7-48c8-9b51-20577029e03b")
 		)
@@ -5176,6 +5347,15 @@
 		)
 		(property "Description" "test point"
 			(at 154.94 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
+			(at 154.94 124.46 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5251,6 +5431,15 @@
 			)
 		)
 		(property "MOUSER_NR" "963-LMK107BBJ106MALT"
+			(at 109.22 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 109.22 147.32 0)
 			(effects
 				(font
@@ -5593,6 +5782,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 115.57 124.46 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "9353456a-422a-4918-9ebf-3ab57d29e9f6")
 		)
@@ -5728,6 +5926,15 @@
 			)
 		)
 		(property "MOUSER_NR" "652-CR0402-JW-103GLF"
+			(at 39.37 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 39.37 41.91 0)
 			(effects
 				(font
@@ -5937,6 +6144,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 40.64 116.84 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "57d46d18-e741-4f68-9ff3-ccd599c1b0fe")
 		)
@@ -6004,6 +6220,15 @@
 			)
 		)
 		(property "MOUSER_NR" "963-MCASL105SB7104KF"
+			(at 68.58 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 68.58 71.12 0)
 			(effects
 				(font
@@ -6083,6 +6308,15 @@
 			)
 		)
 		(property "MOUSER_NR" "81-GCM1555C1H181JA6D"
+			(at 128.27 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 128.27 60.96 0)
 			(effects
 				(font
@@ -6227,6 +6461,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 184.15 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "b74b3ca0-f1f0-41c2-a686-5aab6a35cda6")
 		)
@@ -6289,6 +6532,15 @@
 		)
 		(property "Description" "test point"
 			(at 118.11 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
+			(at 118.11 40.64 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6372,6 +6624,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 173.99 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "f3cc964d-d27d-4bbd-9596-93ae9ff8112f")
 		)
@@ -6442,6 +6703,15 @@
 			)
 		)
 		(property "MOUSER_NR" "652-3224W-1-503E"
+			(at 199.39 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 199.39 50.8 0)
 			(effects
 				(font
@@ -6663,6 +6933,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 173.99 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "59bebb45-f9df-475b-82e6-717202fc6310")
 		)
@@ -6817,6 +7096,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 209.55 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "8f821557-0ab8-467d-b297-b782ae7adea6")
 		)
@@ -6879,6 +7167,15 @@
 		)
 		(property "Description" "test point"
 			(at 69.85 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
+			(at 69.85 116.84 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7094,6 +7391,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 80.01 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "397a2826-c29d-4953-88a2-7f58eaf51144")
 		)
@@ -7165,6 +7471,15 @@
 			)
 		)
 		(property "MOUSER_NR" " 710-560112110001 "
+			(at 184.15 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 184.15 138.43 0)
 			(effects
 				(font
@@ -7252,6 +7567,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 134.62 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "1b18ec2c-b285-46fc-bf4e-cfd7f3405239")
 		)
@@ -7323,6 +7647,15 @@
 			)
 		)
 		(property "MOUSER_NR" " 71-CRCW040210K0FKEDC "
+			(at 134.62 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 134.62 120.65 0)
 			(effects
 				(font
@@ -7475,6 +7808,15 @@
 				(hide yes)
 			)
 		)
+		(property "MOUSER_NO" ""
+			(at 154.94 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "4dd8be14-2bbe-48b3-b41a-846a4d311489")
 		)
@@ -7544,6 +7886,15 @@
 			)
 		)
 		(property "MOUSER_NR" "667-ERA-2VEB4700X"
+			(at 144.78 129.54 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MOUSER_NO" ""
 			(at 144.78 129.54 90)
 			(effects
 				(font

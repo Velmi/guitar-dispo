@@ -3,3 +3,4 @@ hardware/dispo-board/dispo-board-backups
 scripts/venv
 audio_nucleo/Debug/**
 software/Debug/*
+software/build/*

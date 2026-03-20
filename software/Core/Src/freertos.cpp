@@ -6,7 +6,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2024 STMicroelectronics.
+  * Copyright (c) 2026 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -21,11 +21,12 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "main.h"
-#include "cmsis_os.h"
+#include "FreeRTOS.h"
+#include "cmsis_os2.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <audio_proc.hpp>
+#include "audio_proc.hpp"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -134,15 +135,13 @@ void MX_FREERTOS_Init(void) {
 void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN StartDefaultTask */
-	HAL_StatusTypeDef status =  HAL_I2SEx_TransmitReceive_DMA(&hi2s6, (uint16_t*) txBuffer, (uint16_t*) rxBuffer, BUFFER_SIZE);
+  HAL_StatusTypeDef status =  HAL_I2SEx_TransmitReceive_DMA(&hi2s6, (uint16_t*) txBuffer, (uint16_t*) rxBuffer, BUFFER_SIZE);
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, GPIO_PIN_SET);
   /* Infinite loop */
   for(;;)
   {
     osDelay(1);
-	//HAL_ADC_Start(&hadc1);
-	//adcVal[0] = HAL_ADC_GetValue(&hadc1);
   }
   /* USER CODE END StartDefaultTask */
 }
@@ -157,7 +156,7 @@ void ADCTask(void* argument)
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, GPIO_PIN_SET);
 	for(;;)
 	{
-		osDelay(5);
+		osDelay(1);
 		HAL_StatusTypeDef status = HAL_ADC_Start(&hadc1);
 		adcVal[0] = HAL_ADC_GetValue(&hadc1);
 		//adc_val_f = (float32_t) adc_val;
