@@ -1,6 +1,7 @@
 #include <stdint.h>
 #include <string.h>
 #include "audio_proc.hpp"
+#include "effects.hpp"
 #include "fir_filter_coeffs.h"
 #include "iir_filter_coeffs.h"
 
@@ -15,14 +16,12 @@ float32_t txBufferf[BUFFER_SIZE/2];
 float32_t rxBufferf[BUFFER_SIZE/2];
 
 uint16_t adcVal[10];
+uint32_t adcAvg = 0;
 
 FIRInstance firInstance {fir_coeffs_lut, FILTER_TAPS, sizeof(fir_coeffs_lut)/sizeof(float32_t*)};
 FIRFilter firFilter {firInstance, 1};
 
-//IIRInstance iirInstance {iir_coeffs_lut, 1, sizeof(iir_coeffs_lut)/sizeof(float32_t*)};
-//IIRFilter iirFilter {iirInstance, 32};
-
-BiquadFilter biquad{800, 5, 48000};
+effects::WahWah wahwah{430, 2300, 5, 48000, 2700, 14000};
 
 void convert_to_float(int16_t* input, float32_t* output)
 {
@@ -43,15 +42,10 @@ void convert_to_in16_t(float32_t* input, int16_t* output)
 
 void process_data()
 {
+	// effects::passthrough(pInput, pOutput);
 	convert_to_float(pInput, rxBufferf);
-//	firFilter(rxBufferf, txBufferf, BUFFER_SIZE/4);
-	biquad.process(rxBufferf, txBufferf, BUFFER_SIZE/4);
+	wahwah.process(rxBufferf, txBufferf, BUFFER_SIZE/4, adcVal[0]);
 	convert_to_in16_t(txBufferf, pOutput);
-	/*
-	for (size_t i = 0; i < BUFFER_SIZE/2 ; i++)
-	{
-		pOutput[i] = pInput[i];
-	}*/
 }
 
 void HAL_I2SEx_TxRxCpltCallback(I2S_HandleTypeDef *hi2s)

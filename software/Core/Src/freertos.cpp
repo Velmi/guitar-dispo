@@ -56,9 +56,7 @@ extern int16_t* pInput;
 extern int16_t* pOutput;
 
 extern uint16_t adcVal[10];
-
-extern FIRFilter firFilter;
-extern BiquadFilter biquad;
+extern uint32_t adcAvg;
 
 osThreadId_t adcTaskHandle;
 const osThreadAttr_t adcTask_attributes = {
@@ -154,15 +152,26 @@ void ADCTask(void* argument)
 	//float32_t adc_val_f = 0.f;
 	//HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adcVal, 10);
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, GPIO_PIN_SET);
-	for(;;)
+	uint8_t n_meas_points = 5;
+  size_t index = 0;
+  for(;;)
 	{
 		osDelay(1);
+    
 		HAL_StatusTypeDef status = HAL_ADC_Start(&hadc1);
-		adcVal[0] = HAL_ADC_GetValue(&hadc1);
-		//adc_val_f = (float32_t) adc_val;
-		//float new_fc = biquad.derive_fc_from_adc_val(adc_val);
-		//biquad.set_fc(new_fc);
-		//firFilter.updateCoeffs((uint16_t) adc_val);
+		adcVal[index] = HAL_ADC_GetValue(&hadc1);
+
+    // for (size_t i = 0; i < n_meas_points; i++)
+    // {
+    //   adcAvg += adcVal[i];
+    // }
+    // adcAvg /= n_meas_points;
+
+    // index ++;
+    // if (index >= n_meas_points)
+    // {
+    //   index = 0;
+    // }
 	}
 }
 /* USER CODE END Application */
