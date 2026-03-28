@@ -46,8 +46,8 @@ struct FIRFilter
 	float32_t* pState;
 	uint32_t blockSize;
 
-	uint32_t fs = 48000;
-	int32_t Q = 5;
+	static const int32_t max = 14000;
+	static const int32_t min = 2700;
 
 	int16_t bin = 0;
 
@@ -84,7 +84,7 @@ struct FIRFilter
 	{
 		float gain = 1;
 		uint16_t numBlocks = numSamples/blockSize;
-		updateCoeffs(adcVal[0]);
+		// updateCoeffs(adcVal[0]);
 
 		for (size_t i = 0; i < numBlocks; i++)
 		{
@@ -96,9 +96,6 @@ struct FIRFilter
 
 	int32_t convert_adc_to_bin(uint16_t adcVal)
 	{
-		//static const int32_t max = pow(2, 16);
-		static const int32_t max = 14000;
-		static const int32_t min = 2700;
 		int32_t range = (max - min)/firInstance.numBins;
 
 		for(size_t i = 0; i < firInstance.numBins; i++)
@@ -176,19 +173,6 @@ struct IIRFilter
 			//memcpy(output, input, numSamples);
 		}
 	}
-	/*
-	int32_t calc_coeffs(uint32_t f_0, float32_t* coeffs)
-	{
-		float32_t omega = 2 * PI * f_0 / fs;
-		float32_t alpha = sin(omega) / (2 * Q);
-
-		coeffs[0] = alpha; // b0
-		coeffs[1] = 0; // b1
-		coeffs[2] = -alpha; // b2
-		coeffs[3] = 1 + alpha; // b3
-		coeffs[4] = -2 * cos(omega); // b4
-		coeffs[5] = 1 - alpha; // b5
-	}*/
 
 	int32_t convert_adc_to_bin(uint16_t adcVal)
 	{

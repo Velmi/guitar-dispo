@@ -6,6 +6,6 @@
 #include "stm32h7xx_hal.h"
 #include "filter.hpp"
 
-#define BUFFER_SIZE 128
+#define BUFFER_SIZE 256
 
 void process_data();

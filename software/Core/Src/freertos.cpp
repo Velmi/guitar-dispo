@@ -152,7 +152,7 @@ void ADCTask(void* argument)
 	//float32_t adc_val_f = 0.f;
 	//HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adcVal, 10);
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, GPIO_PIN_SET);
-	uint8_t n_meas_points = 5;
+	// uint8_t n_meas_points = 5;
   size_t index = 0;
   for(;;)
 	{

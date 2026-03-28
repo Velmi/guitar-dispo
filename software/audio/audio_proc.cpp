@@ -18,10 +18,11 @@ float32_t rxBufferf[BUFFER_SIZE/2];
 uint16_t adcVal[10];
 uint32_t adcAvg = 0;
 
-FIRInstance firInstance {fir_coeffs_lut, FILTER_TAPS, sizeof(fir_coeffs_lut)/sizeof(float32_t*)};
-FIRFilter firFilter {firInstance, 1};
+// FIRInstance firInstance {fir_coeffs_lut, FILTER_TAPS, sizeof(fir_coeffs_lut)/sizeof(float32_t*)};
+// FIRFilter firFilter {firInstance, 1};
 
 effects::WahWah wahwah{430, 2300, 5, 48000, 2700, 14000};
+effects::Delay delay;
 
 void convert_to_float(int16_t* input, float32_t* output)
 {
@@ -42,9 +43,17 @@ void convert_to_in16_t(float32_t* input, int16_t* output)
 
 void process_data()
 {
+	//delay.init();
 	// effects::passthrough(pInput, pOutput);
 	convert_to_float(pInput, rxBufferf);
-	wahwah.process(rxBufferf, txBufferf, BUFFER_SIZE/4, adcVal[0]);
+	//wahwah.process(rxBufferf, txBufferf, BUFFER_SIZE/4, adcVal[0]);
+	delay.process(rxBufferf, txBufferf, BUFFER_SIZE/4);
+	
+	for (size_t i = 0; i < BUFFER_SIZE/4; i++)
+	{
+		txBufferf[i] = txBufferf[i] * 0.5 + rxBufferf[i] * 0.5;
+	}
+
 	convert_to_in16_t(txBufferf, pOutput);
 }
 
