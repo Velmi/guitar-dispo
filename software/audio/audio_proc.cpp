@@ -21,12 +21,14 @@ uint32_t adcAvg = 0;
 // FIRInstance firInstance {fir_coeffs_lut, FILTER_TAPS, sizeof(fir_coeffs_lut)/sizeof(float32_t*)};
 // FIRFilter firFilter {firInstance, 1};
 
-effects::WahWah wahwah{430, 2300, 5, 48000, 2700, 14000};
-effects::Delay delay;
+effects::WahWah wahwah{430, 2300, 5, AUDIO_SAMPLING_FREQ_HZ, 2700, 14000};
+//delayline<float, 20000> delay{10000};
+//effects::Delay<10000> delay;
+effects::Flanger<5000> flanger;
 
 void convert_to_float(int16_t* input, float32_t* output)
 {
-	for(size_t i = 0; i < BUFFER_SIZE/4; i++)
+	for(size_t i = 0; i < PROCESS_BLOCK_SIZE; i++)
 	{
 		output[i] = (input[2*i] / 2) + (input[2*i + 1] / 2);
 	}
@@ -34,26 +36,23 @@ void convert_to_float(int16_t* input, float32_t* output)
 
 void convert_to_in16_t(float32_t* input, int16_t* output)
 {
-	for(size_t i = 0; i < BUFFER_SIZE/4; i++)
+	for(size_t i = 0; i < PROCESS_BLOCK_SIZE; i++)
 	{
 		output[2*i]     = (int16_t)(input[i]);
 		output[2*i + 1] = (int16_t)(input[i]);
 	}
 }
 
+float temp[PROCESS_BLOCK_SIZE];
+
 void process_data()
 {
-	//delay.init();
 	// effects::passthrough(pInput, pOutput);
 	convert_to_float(pInput, rxBufferf);
 	//wahwah.process(rxBufferf, txBufferf, BUFFER_SIZE/4, adcVal[0]);
-	delay.process(rxBufferf, txBufferf, BUFFER_SIZE/4);
 	
-	for (size_t i = 0; i < BUFFER_SIZE/4; i++)
-	{
-		txBufferf[i] = txBufferf[i] * 0.5 + rxBufferf[i] * 0.5;
-	}
-
+	//wahwah.process(rxBufferf, temp, PROCESS_BLOCK_SIZE, adcVal[0]);
+	flanger.process(rxBufferf, txBufferf, PROCESS_BLOCK_SIZE);
 	convert_to_in16_t(txBufferf, pOutput);
 }
 

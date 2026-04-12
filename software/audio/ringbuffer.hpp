@@ -4,6 +4,13 @@
 #include <stddef.h>
 #include <type_traits>
 
+/**
+ * double ringbuffer implementation
+ * Usage: write half, read half
+ * write either block wise or element wise
+ * no control mechanism for over or underflow, user need to make sure not to read or write unequally
+ */
+
 template<typename T, size_t size>
 class ringbuffer
 {
@@ -51,6 +58,20 @@ public:
         _read_ind = (_read_ind + n) % _circ_length;
 
         return static_cast<int32_t>(n);
+    }
+
+    int32_t write_element(T* data)
+    {
+        _data[_write_ind] = *data;
+        _write_ind = (_write_ind + 1) % _circ_length;
+        return 1;
+    }
+
+    int32_t read_element(T* data)
+    {
+        *data = _data[_read_ind];
+        _read_ind = (_read_ind + 1) % _circ_length;
+        return 1;
     }
 
     void set_circ_length(size_t circ_length)
