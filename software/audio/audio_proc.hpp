@@ -10,4 +10,5 @@
 #define PROCESS_BLOCK_SIZE (BUFFER_SIZE / 4)
 #define AUDIO_SAMPLING_FREQ_HZ 48000
 
+void audio_init();
 void process_data();

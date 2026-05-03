@@ -69,7 +69,7 @@ const osThreadAttr_t adcTask_attributes = {
 osThreadId_t defaultTaskHandle;
 const osThreadAttr_t defaultTask_attributes = {
   .name = "defaultTask",
-  .stack_size = 128 * 4,
+  .stack_size = 1024 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
 
@@ -133,6 +133,7 @@ void MX_FREERTOS_Init(void) {
 void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN StartDefaultTask */
+  audio_init();
   HAL_StatusTypeDef status =  HAL_I2SEx_TransmitReceive_DMA(&hi2s6, (uint16_t*) txBuffer, (uint16_t*) rxBuffer, BUFFER_SIZE);
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, GPIO_PIN_SET);

@@ -2,6 +2,7 @@
 #include <string.h>
 #include "audio_proc.hpp"
 #include "effects.hpp"
+#include "effectschain.hpp"
 #include "fir_filter_coeffs.h"
 #include "iir_filter_coeffs.h"
 
@@ -21,10 +22,11 @@ uint32_t adcAvg = 0;
 // FIRInstance firInstance {fir_coeffs_lut, FILTER_TAPS, sizeof(fir_coeffs_lut)/sizeof(float32_t*)};
 // FIRFilter firFilter {firInstance, 1};
 
-effects::WahWah wahwah{430, 2300, 5, AUDIO_SAMPLING_FREQ_HZ, 2700, 14000};
-//delayline<float, 20000> delay{10000};
-//effects::Delay<10000> delay;
-effects::Flanger<5000> flanger;
+// effects::WahWah wahwah{430, 2300, 5, AUDIO_SAMPLING_FREQ_HZ, 2700, 14000};
+// effects::Delay<10000> delay;
+// effects::Chorus<2000> chorus{1.0f, 250, 0.5f};
+EffectsChain effectschain;
+
 
 void convert_to_float(int16_t* input, float32_t* output)
 {
@@ -43,16 +45,23 @@ void convert_to_in16_t(float32_t* input, int16_t* output)
 	}
 }
 
-float temp[PROCESS_BLOCK_SIZE];
+void audio_init()
+{
+	effectschain.addChorus();
+	effectschain.addWahWah();
+}
 
 void process_data()
 {
-	// effects::passthrough(pInput, pOutput);
+	//effects::passthrough(pInput, pOutput);
 	convert_to_float(pInput, rxBufferf);
 	//wahwah.process(rxBufferf, txBufferf, BUFFER_SIZE/4, adcVal[0]);
 	
 	//wahwah.process(rxBufferf, temp, PROCESS_BLOCK_SIZE, adcVal[0]);
-	flanger.process(rxBufferf, txBufferf, PROCESS_BLOCK_SIZE);
+	//chorus.process(rxBufferf,txBufferf, PROCESS_BLOCK_SIZE);
+	
+	effectschain.process(rxBufferf, txBufferf, PROCESS_BLOCK_SIZE);
+
 	convert_to_in16_t(txBufferf, pOutput);
 }
 

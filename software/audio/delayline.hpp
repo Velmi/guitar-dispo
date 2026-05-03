@@ -21,11 +21,15 @@ public:
 
     int32_t set_delay(size_t delay)
     {
+        if (delay > size)
+        {
+            delay = size;
+        }
         _delay = delay;
         return 0;
     }
 
-    int32_t write(T* data, size_t n)
+    int32_t write(const T* data, size_t n)
     {
         for (size_t i = 0; i < n; i++)
         {
